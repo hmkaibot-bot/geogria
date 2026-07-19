@@ -74,6 +74,7 @@ flowchart LR
 | [09-Tusheti加強版行程.md](09-Tusheti加強版行程.md) | **完整替代行程**：加入Tusheti秘境（Omalo/Dartlo石塔村），逐日路書+安全模組+封山Plan B（Svaneti二揀一） |
 | [10-格魯吉亞亞美尼亞行程.md](10-格魯吉亞亞美尼亞行程.md) | **雙國替代行程**（Qatar吉隆坡航班版，27/9–10/10）：均衡版 Georgia≈9日 / Armenia 4晚（Debed/Dilijan/Sevan/Yerevan/Garni/Khor Virap/Noravank），含過境SOP+駕照錯配+安全地理+逐日路書（Svaneti二揀一；Tatev可加碼） |
 | [11-大環線-Svaneti加亞美尼亞.md](11-大環線-Svaneti加亞美尼亞.md) | **硬核大環線**（Qatar航班版）：Kazbegi + **Svaneti** + **亞美尼亞**（Bavra口岸→Gyumri→Yerevan→Debed）順時針loop一次過踩勻。⚠️零buffer、最趕、風險最高——只適合硬核騎士（放棄卡赫季/南亞美尼亞） |
+| [12-鬆動版-Svaneti加亞美尼亞.md](12-鬆動版-Svaneti加亞美尼亞.md) | **鬆動版 Svaneti + 亞美尼亞**（Qatar航班版）：同11一樣嘅順時針loop但**放棄Kazbegi**換返短程日+Mestia兩晚+一日flex buffer。要兩者都去又唔想趕就揀呢個 |
 
 ## 預算概算（一人，不含機票）
 
