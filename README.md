@@ -72,6 +72,7 @@ flowchart LR
 | [07-實用資訊.md](07-實用資訊.md) | 貨幣/ATM、SIM卡、交通規則罰款、油站、急救醫院、語言 |
 | [08-備選方案.md](08-備選方案.md) | Tusheti越野硬核版、亞美尼亞延伸、Batumi黑海版、落雨後備 |
 | [09-Tusheti加強版行程.md](09-Tusheti加強版行程.md) | **完整替代行程**：加入Tusheti秘境（Omalo/Dartlo石塔村），逐日路書+安全模組+封山Plan B（Svaneti二揀一） |
+| [10-格魯吉亞亞美尼亞行程.md](10-格魯吉亞亞美尼亞行程.md) | **雙國替代行程**（Qatar吉隆坡航班版，27/9–10/10）：加入亞美尼亞（Debed/Dilijan/Sevan/Yerevan/Noravank/Tatev），含過境SOP+駕照錯配+安全地理+逐日路書（Svaneti二揀一） |
 
 ## 預算概算（一人，不含機票）
 
