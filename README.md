@@ -82,6 +82,7 @@ flowchart LR
 | [11-大環線-Svaneti加亞美尼亞.md](11-大環線-Svaneti加亞美尼亞.md) | **硬核大環線詳細路書**（Qatar航班版）：Kazbegi + **Svaneti** + **亞美尼亞**（Bavra口岸→Gyumri→Yerevan→Debed）。逐日hour-by-hour時間表 + 距離時間表 + 住宿/餐廳/景點詳情 + 入油計劃 + 休館日對齊。⚠️零buffer、最趕（放棄卡赫季/南亞美尼亞） |
 | [12-鬆動版-Svaneti加亞美尼亞.md](12-鬆動版-Svaneti加亞美尼亞.md) | **鬆動版 Svaneti + 亞美尼亞**（Qatar航班版）：同11一樣嘅順時針loop但**放棄Kazbegi**換返短程日+Mestia兩晚+一日flex buffer。要兩者都去又唔想趕就揀呢個 |
 | [13-自訂版-Kazbegi-Svaneti-亞美尼亞.md](13-自訂版-Kazbegi-Svaneti-亞美尼亞.md) | **自訂壓縮版**（確認航班）：按用家編排——combine前段（D1+D2、D3+D4）、一間酒莊(Schuchmann)、保留Svaneti、直奔亞美尼亞、Tbilisi放尾段。⚠️零buffer；含「Tbilisi 9-10 vs Ushguli」決策點（版本A/B） |
+| [14-自訂版A-詳細路書.md](14-自訂版A-詳細路書.md) | **📍 file 13 版本A 完整路書**：逐日hour-by-hour + 距離表 + 住宿/餐廳/景點詳情 + 入油計劃 + 休館對齊 + Plan B。配 `file13-pins.csv`（Google My Maps 圖釘）。**← 出發跟呢份** |
 
 ## 預算概算（一人，不含機票）
 
