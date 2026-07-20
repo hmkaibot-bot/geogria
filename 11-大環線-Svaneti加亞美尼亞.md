@@ -429,6 +429,29 @@ flowchart LR
 
 > 亞美尼亞修道院多數**免費**（付款位現金 AMD）；2026 門票如有加價出發前核實。格魯吉亞景點全細節見 [06](06-景點指南.md)。
 
+## E · Google Map 圖釘（可匯入 My Maps）
+
+**匯入方法（30 秒）**：
+1. 電腦開 **mymaps.google.com** → 建立新地圖
+2. 左欄「**匯入**」→ 上載 repo 內嘅 **`georgia-armenia-loop-pins.csv`**
+3. 「設定位置的欄」揀 **Latitude + Longitude**；「標題欄」揀 **Name**
+4. 可用「**Day**」或「**Category**」做分層/上色（例如 Fuel 一色、Border 一色、Sight 一色）
+5. 完成——手機開 Google Maps → 已儲存 → 你嘅地圖，離線都睇到圖釘
+
+> ⚠️ 標「座標約」嗰幾個（山口、Truso、Bavra、車行）係大約位置——**導航時用埋個名 search 確認**。全部 65 個點喺 CSV，下面係精選一覽：
+
+| 類 | 點（座標） |
+|---|---|
+| 🏍 物流 | TBS 機場(41.669,44.955) · MotoTravel 車行(~41.71,44.78) |
+| 🛏 過夜 | Rooms Hotel Kazbegi(42.656,44.639) · Newport Kutaisi(42.268,42.705) · Banguriani Mestia(43.045,42.730) · Ushguli Panorama(42.916,43.016) · Lomsia Akhaltsikhe(41.640,42.985) · Villa Kars Gyumri(40.790,43.845) · Grand Hotel Yerevan(40.182,44.515) |
+| ⛽ 入油 | Gudauri(42.478,44.478) · Zugdidi(42.509,41.871) · **Mestia Socar**(43.042,42.725) · Lentekhi(42.789,42.725) · **Ninotsminda**(41.265,43.595) |
+| 🛂 過境 | **Bavra**(~41.20,43.65 入亞) · **Bagratashen**(41.209,44.816 返格) |
+| ⛰ 山口 | Jvari 2379m(~42.502,44.453) · **Zagari 2620m**(~42.86,43.00) |
+| ⛪ 格景點 | Jvari 修道院(41.838,44.733) · Ananuri(42.163,44.703) · **Gergeti 教堂**(42.663,44.620) · Gelati(42.295,42.768) · **Ushguli/Shkhara**(42.930,43.040) · Rabati 城堡(41.639,42.986) |
+| ⛪ 亞景點 | Gyumri Black Fortress(40.786,43.825) · Republic Sq(40.178,44.513) · Cascade(40.191,44.515) · **Garni**(40.112,44.730) · **Geghard**(40.160,44.818) · Khor Virap(39.878,44.577) · **Haghpat**(41.092,44.711) · Sanahin(41.084,44.667) |
+
+**（純睇圖，唔匯入都得）**：直接 Google Maps search 上面每個名都跳到；或用座標 `lat,lng` 貼入搜尋框。
+
 ---
 
-> 格魯吉亞住宿/餐廳/景點/實用全細節見 [04](04-住宿推薦.md)–[07](07-實用資訊.md)；亞美尼亞跨境/住宿/實用見 [10](10-格魯吉亞亞美尼亞行程.md)。時間為估算，出發前（georoad.ge / armroad.am 路況、政府安全公告、租車行 POA 書面確認、各景點 2026 開放時間）務必再查。
+> 圖釘 CSV：[`georgia-armenia-loop-pins.csv`](georgia-armenia-loop-pins.csv)（65 點，Name/Lat/Lng/Day/Category/Notes）。格魯吉亞住宿/餐廳/景點/實用全細節見 [04](04-住宿推薦.md)–[07](07-實用資訊.md)；亞美尼亞跨境/住宿/實用見 [10](10-格魯吉亞亞美尼亞行程.md)。時間/座標為估算，出發前（georoad.ge / armroad.am 路況、政府安全公告、租車行 POA 書面確認、各景點 2026 開放時間）務必再查。
