@@ -83,6 +83,8 @@ flowchart LR
 | [12-鬆動版-Svaneti加亞美尼亞.md](12-鬆動版-Svaneti加亞美尼亞.md) | **鬆動版 Svaneti + 亞美尼亞**（Qatar航班版）：同11一樣嘅順時針loop但**放棄Kazbegi**換返短程日+Mestia兩晚+一日flex buffer。要兩者都去又唔想趕就揀呢個 |
 | [13-自訂版-Kazbegi-Svaneti-亞美尼亞.md](13-自訂版-Kazbegi-Svaneti-亞美尼亞.md) | **自訂壓縮版**（確認航班）：按用家編排——combine前段（D1+D2、D3+D4）、一間酒莊(Schuchmann)、保留Svaneti、直奔亞美尼亞、Tbilisi放尾段。⚠️零buffer；含「Tbilisi 9-10 vs Ushguli」決策點（版本A/B） |
 | [14-自訂版A-詳細路書.md](14-自訂版A-詳細路書.md) | **📍 file 13 版本A 完整路書**：逐日hour-by-hour + 距離表 + 住宿/餐廳/景點詳情 + 入油計劃 + 休館對齊 + Plan B。配 `file13-pins.csv`（Google My Maps 圖釘）。**← 出發跟呢份** |
+| [15-人文導覽.md](15-人文導覽.md) | **景點故事版**：歷史/傳說/信仰/人文背景（聖尼諾、金羊毛、Svaneti寶庫、Gelati黃金時代、亞美尼亞第一基督教國、聖矛、亞拉臘…）——06 的敘事補充 |
+| [16-多哈吉隆坡一日遊.md](16-多哈吉隆坡一日遊.md) | **stopover 一日遊**：多哈（27/9，MIA/國家博物館/Souq Waqif + Metro/簽證）+ 吉隆坡（黑風洞/雙子塔/Jalan Alor 食街）|
 
 ## 預算概算（一人，不含機票）
 
