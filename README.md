@@ -1,54 +1,60 @@
-# 🏍️ 格魯吉亞電單車之旅 — 2026年9月26日至10月7日
+# 🏍️ 格魯吉亞電單車之旅 — 2026年9月28日至10月10日（確認航班版）
 
-> 香港出發 · 11個完整日 · 大高加索環線 · 約2,100公里
+> 吉隆坡出發 · Qatar 經多哈 · ~11個騎行日 · 大高加索環線 · 約2,100公里
 
-## 航班
+## 航班（已確認 · Qatar Airways）
 
 | 日期 | 航班 | 時間 | 航段 |
 |---|---|---|---|
-| 25/9（五） | CX731 | 17:30–21:30 | 香港 HKG → 杜拜 DXB |
-| 26/9（六） | FZ713 | 01:40–05:05 | 杜拜 DXB → 第比利斯 TBS |
-| 7/10（三） | FZ722 | 12:40–15:50 | 第比利斯 TBS → 杜拜 DXB |
-| 7/10（三） | CX738 | 22:50–10:40+1 | 杜拜 DXB → 香港 HKG |
+| 26/9（六） | QR855 | 21:50–23:55 | 吉隆坡 KUL → 多哈 DOH |
+| **27/9（日）** | — | **多哈 stopover 成日** | 🕌 多哈一日遊 |
+| 28/9（一） | QR253 | 15:30–**20:10** | 多哈 DOH → 第比利斯 TBS |
+| 10/10（六） | QR256 | **14:00**–16:15 | 第比利斯 TBS → 多哈 DOH |
+| 11/10（日） | QR852 | 02:35–15:10 | 多哈 DOH → 吉隆坡 KUL |
 
-**實際可用時間：9月26日（六）早上5時落地 → 10月7日(三)中午12:40起飛 = 11個完整日 + 出發日早上。**
+**格魯吉亞窗口：28/9（一）晚 20:10 到 → 取車 29/9（二）→ 還車 9/10（五）→ 10/10（六）14:00 飛 = ~11 個騎行日。**
 
-> ⚠️ 杜拜轉機：唔使簽證（航側轉機任何國籍免簽；而且2025年5月15日起香港特區護照入境阿聯酋30日免簽，想出市區都得）。
+> 💡 去程多哈 **27/9 有成日** stopover（Qatar Stopover，4–5 星酒店 US$14 起）——伊斯蘭藝術博物館、Souq Waqif、國家博物館、Katara。
+>
+> ⚠️ **香港⇄吉隆坡** positioning 自理（Asia Miles 或平票）。
+
+> **📌 行程版本**：確認咗係 ~11 日窗口 → **正選係本檔（[03 每日行程](03-每日行程.md)，Kazbegi + Svaneti 完整格魯吉亞環線）**。加入亞美尼亞嘅版本（[10](10-格魯吉亞亞美尼亞行程.md)/[11](11-大環線-Svaneti加亞美尼亞.md)/[12](12-鬆動版-Svaneti加亞美尼亞.md)）**需要 ~14 日，喺呢個 11 日窗口塞唔落**，除非延長行程；保留作參考。
 
 ## 路線總覽
 
 ```mermaid
 flowchart LR
-    A[第比利斯<br/>D1] --> B[卡茲別克 Kazbegi<br/>D2-D3 軍事公路]
+    A[第比利斯<br/>抵埗28/9晚·D1取車] --> B[卡茲別克 Kazbegi<br/>D2-D3 軍事公路]
     B --> C[Telavi 卡赫季酒區<br/>D4]
     C --> D[Sighnaghi 愛之城<br/>D5]
-    D --> E[Gori/Uplistsikhe<br/>→ Kutaisi D6]
+    D --> E[Gori/Uplistsikhe → Kutaisi<br/>D6 · Gelati週日開]
     E --> F[Mestia 斯瓦涅季<br/>D7]
     F --> G[Ushguli 歐洲最高村<br/>D8]
-    G --> H[Zagari山口<br/>→ Kutaisi D9]
+    G --> H[Zagari山口 → Kutaisi<br/>D9]
     H --> I[Borjomi/Akhaltsikhe<br/>D10]
-    I --> J[Vardzia石窟城<br/>→ 第比利斯 D11]
-    J --> K[✈️ 7/10 返港<br/>D12]
+    I --> J[Vardzia石窟城 → 第比利斯<br/>D11 還車]
+    J --> K[✈️ 10/10 起飛]
 ```
 
-**點解揀格魯吉亞唔揀鄰國？** 阿塞拜疆陸路口岸自2020年起關閉，最新已延長至最少2026年7月1日（僅恢復鐵路客運），電單車過境基本無望；俄羅斯需簽證且租車公司禁止；**亞美尼亞係唯一可行嘅鄰國延伸**（香港護照免簽180日，租車行可辦過境授權書），詳見 [08-備選方案](08-備選方案.md)。格魯吉亞本身11日已經非常充實。
+**點解揀格魯吉亞唔揀鄰國？** ~11 日窗口啱啱好係一個完整格魯吉亞深度遊（Kazbegi + Svaneti 係全國雙璧、無可取代）。加亞美尼亞需 ~14 日、會令三個遠角落樣樣趕——留返下次專程。阿塞拜疆陸路口岸關閉（至少至 2026年7月）電單車過境無望。亞美尼亞版本見 [10](10-格魯吉亞亞美尼亞行程.md)–[12](12-鬆動版-Svaneti加亞美尼亞.md)（需延長行程）。
 
-## 每日行程速覽
+## 每日行程速覽（確認日子）
 
 | 日 | 日期 | 行程 | 里數 | 過夜 |
 |---|---|---|---|---|
-| D1 | 26/9 六 | 05:05落地 → 休息 → 取車 → Mtskheta古都熱身 → 硫磺浴 | ~50km | 第比利斯 |
-| D2 | 27/9 日 | 軍事公路：Ananuri城堡 → Gudauri → Jvari山口(2,379m) → Kazbegi → 騎上Gergeti聖三一教堂 | ~170km | Kazbegi（Rooms Hotel） |
-| D3 | 28/9 一 | Kazbegi周邊：Dariali峽谷 + Truso山谷（碎石路）/ Juta | ~100km | Kazbegi |
-| D4 | 29/9 二 | 落山 → Gombori山口 → Telavi酒區 → 酒莊酒店住宿+品酒 | ~250km | Telavi（Schuchmann酒莊） |
-| D5 | 30/9 三 | Alaverdi大教堂 → Tsinandali莊園 → Sighnaghi → Bodbe修道院 → Pheasant's Tears晚餐 | ~100km | Sighnaghi |
-| D6 | 1/10 四 | 西行過境日：Gori史太林博物館 → Uplistsikhe石窟城 → Kutaisi | ~370km | Kutaisi |
-| D7 | 2/10 五 | Kutaisi →（可選Martvili峽谷）→ Zugdidi → 恩古里水壩 → Mestia | ~240km | Mestia |
-| D8 | 3/10 六 | Mestia塔樓+博物館 → 騎去Ushguli（2024年新鋪路面）→ Shkhara冰川觀景 | ~60km | Ushguli民宿 |
-| D9 | 4/10 日 | Zagari山口(2,620m) → Lentekhi → Kutaisi → Gelati修道院（星期日先開放內部！） | ~175km | Kutaisi |
-| D10 | 5/10 一 | （可選Katskhi石柱+Chiatura纜車）→ Borjomi礦泉公園 → Akhaltsikhe Rabati城堡 | ~240km | Akhaltsikhe |
-| D11 | 6/10 二 | Vardzia石窟修道院 + Khertvisi要塞 → 返第比利斯 → **17:30前還車** → 告別晚餐 | ~330km | 第比利斯 |
-| D12 | 7/10 三 | 09:45出發去機場 → 12:40 FZ722起飛 | — | ✈️ |
+| — | 28/9 一 | **20:10 晚到** → Bolt 入城 → 休息 | — | 第比利斯 |
+| D1 | 29/9 二 | 取車 → Mtskheta古都熱身 → 舊城 → 硫磺浴 | ~50km | 第比利斯 |
+| D2 | 30/9 三 | 軍事公路：Ananuri → Gudauri → Jvari山口(2,379m) → Kazbegi → Gergeti教堂 | ~170km | Kazbegi（Rooms Hotel） |
+| D3 | 1/10 四 | Kazbegi周邊：Truso山谷 + Dariali峽谷（Maisi晚餐） | ~100km | Kazbegi |
+| D4 | 2/10 五 | 落山 → Gombori山口 → Telavi酒區 → 酒莊住宿+品酒 | ~250km | Telavi（Schuchmann） |
+| D5 | 3/10 六 | Alaverdi → Tsinandali → Sighnaghi → Bodbe → Pheasant's Tears | ~100km | Sighnaghi |
+| D6 | 4/10 日 | Gori/Uplistsikhe → Kutaisi → **Gelati（星期日內部開！）** | ~370km | Kutaisi |
+| D7 | 5/10 一 | Kutaisi → Zugdidi → 恩古里水壩 → Mestia塔樓 | ~240km | Mestia |
+| D8 | 6/10 二 | 斯瓦涅季博物館(朝) → Ushguli（2024新路）→ Shkhara冰川 | ~60km | Ushguli民宿 |
+| D9 | 7/10 三 | Zagari山口(2,620m) → Lentekhi → Kutaisi → Bagrati | ~175km | Kutaisi |
+| D10 | 8/10 四 | （可選Katskhi+Chiatura）→ Borjomi礦泉 → Akhaltsikhe Rabati城堡 | ~240km | Akhaltsikhe |
+| D11 | 9/10 五 | Vardzia石窟 + Khertvisi → 返第比利斯 → **17:00還車** → 告別晚餐 | ~330km | 第比利斯 |
+| — | 10/10 六 | 11:00去機場 → 14:00 QR256起飛 | — | ✈️ |
 
 ## 核心建議 TL;DR
 
