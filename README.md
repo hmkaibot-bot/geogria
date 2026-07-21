@@ -85,6 +85,7 @@ flowchart LR
 | [14-自訂版A-詳細路書.md](14-自訂版A-詳細路書.md) | **📍 file 13 版本A 完整路書**：逐日hour-by-hour + 距離表 + 住宿/餐廳/景點詳情 + 入油計劃 + 休館對齊 + Plan B。配 `file13-pins.csv`（Google My Maps 圖釘）。**← 出發跟呢份** |
 | [15-人文導覽.md](15-人文導覽.md) | **景點故事版**：歷史/傳說/信仰/人文背景（聖尼諾、金羊毛、Svaneti寶庫、Gelati黃金時代、亞美尼亞第一基督教國、聖矛、亞拉臘…）——06 的敘事補充 |
 | [16-多哈吉隆坡一日遊.md](16-多哈吉隆坡一日遊.md) | **stopover 一日遊**：多哈（27/9，MIA/國家博物館/Souq Waqif + Metro/簽證）+ 吉隆坡（黑風洞/雙子塔/Jalan Alor 食街）|
+| [17-google-map路線.md](17-google-map路線.md) | **Google Map 路線連結**：總覽 loop + 逐日 11 條 directions 連結（㩒即開導航）+ My Maps 教學。配 `file13-pins.csv` |
 
 ## 預算概算（一人，不含機票）
 
