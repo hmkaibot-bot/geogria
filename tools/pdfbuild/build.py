@@ -88,13 +88,18 @@ if os.path.exists(csvp):
             rows.append([e(r_["Name"]), f'<span class="c">{r_["Latitude"]}, {r_["Longitude"]}</span>',
                          e(r_["Day"]), e(r_["Category"]), e(r_["Notes"])])
 extra = [
- ("Eaton Residence Unique Home KLCC","3.1580, 101.7120","D01","Lodging","吉隆坡 KLCC"),
- ("Souq Al Wakra Hotel By Tivoli","25.1660, 51.6030","D03-04","Lodging","多哈 Al Wakra · Q878Z4FG"),
+ ("Eaton Residence Unique Home KLCC","3.15153, 101.71996","D01","Lodging","26 Jalan Kia Peng · 私人公寓，冇前台"),
+ ("Souq Al Wakra Hotel By Tivoli","25.173813, 51.610445","D03-04","Lodging","Al Wakra 老市集內 · +974 4428 7888"),
+ ("Al Wakra 地鐵站（紅線總站）","25.19349, 51.59601","D03","Logistics","離酒店 4–5km，行唔到"),
  ("Museum of Islamic Art (MIA)","25.2952, 51.5397","D03","Sight","QAR 50 · 逢三休"),
  ("National Museum of Qatar","25.2867, 51.5514","D03","Sight","QAR 50 · 逢二休"),
  ("Souq Waqif","25.2870, 51.5333","D03","Sight","12:00–16:00 落閘"),
  ("Msheireb Museums","25.2870, 51.5250","D04","Sight","免費 · 逢日休"),
  ("Schuchmann Wines Chateau","41.8700, 45.5200","D07","Lodging","訂單 RP8S · Kisiskhevi"),
+ ("Guest House Keti Margiani Mestia","43.048314, 42.730451","D09","Lodging","Lanchvali St 7 · Seti 廣場上面 8 分鐘"),
+ ("Mountain house Ushguli","42.915166, 43.011476","D10","Lodging","⚠️座標待確認（有兩間同名）"),
+ ("Newport Hotel Kutaisi","42.272838, 42.706514","D11","Lodging","Newport St 11/1 · 含早餐"),
+ ("Pura Vida / Camp Hotel（SLAVATOUR）","41.7800, 44.7400","D04-05","Lodging","Digomi 西北郊 · 電單車基地"),
  ("AUTOGRAPH Kutaisi","42.2830, 42.7250","D08","Lodging","110a Gelati St · 9.7 傑出"),
  ("Fabrika Hostel & Suites","41.7028, 44.7995","D12/D15","Lodging","第比利斯 Chugureti"),
  ("R&R Hotel Yerevan","40.1815, 44.5145","D13-14","Lodging","17 Nalbandyan St · 1359046727836962"),
@@ -115,7 +120,7 @@ parts.append(R.section("出發前 TO-DO", "ACTION LIST · 按死線排序",
 
 # ========== 5. 實用 ==========
 parts.append(R.section("實用資料", "PRACTICAL",
-    R.tbl(["項目","詳情"], [[f"<b>{e(k)}</b>", e(v)] for k,v in C.PRACTICAL], ["t",None]) +
+    R.tbl(["項目","詳情"], [[f"<b>{e(k)}</b>", R.md(e(v))] for k,v in C.PRACTICAL], ["t",None]) +
     R.warn("<b>只收現金：</b>Ushguli 全村 · Cafe Laila（Mestia）· Bikentia's（Kutaisi）· Nunu's（Lentekhi）· "
            "Zugdidi 巴刹 · Dry Bridge 市集 · Surami nazuki 攤 · Garni 小檔 · 多哈街邊 karak · KL 小販檔") +
     R.note("<b>每日出發前 check：</b>georoad.ge（格魯吉亞路況）· armroad.am（亞美尼亞）· 天氣（按山口高度睇，唔係市鎮）· 當日景點營業")))
