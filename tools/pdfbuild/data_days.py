@@ -255,16 +255,17 @@ add(num="DAY 08", date="10月2日", wd="五", route="卡赫季 → Gori/Uplistsi
         ("12:30","Gori 午餐"),
         ("13:15","**Uplistsikhe 石窟城**（1.5 小時，著防滑鞋）"),
         ("15:15","E60 西行（⚠️ 區間測速，唔好偷雞）"),
-        ("17:15","到 Kutaisi，check-in"),
+        ("17:15","到 Kutaisi，check-in **AUTOGRAPH**（14:00 後可入住）"),
         ("17:45","**Bagrati 大教堂**睇日落（免費）"),
         ("19:30","晚餐")],
  legs=[("Kisiskhevi","Gori","160 km","2:30","經第比利斯外環 + E60"),
        ("Gori","Uplistsikhe","12 km","0:20","支路"),
        ("Uplistsikhe","Kutaisi","160 km","2:30","E60 · 新 Rikoti 隧道群")],
- hotel=dict(name="⚠️ 未訂 — Kutaisi（全程最後一晚未訂）", tag='<span class="pill p-no">要訂</span>',
-   addr="建議 Newport Hotel Kutaisi（市中心，1914 法院改建）", coord="42.2679, 42.7050", ref="—",
-   price="US$66–110/晚", times="2–3/10",
-   extra="<b>成個行程淨返呢一晚未訂</b> · 5/10 已經 Agoda 訂咗同一間 — <b>一齊訂最方便，唔使搬</b>"),
+ hotel=dict(name="AUTOGRAPH Kutaisi", tag='<span class="pill p-ok">已訂</span>',
+   addr="110a Gelati Street, 4600 Kutaisi", coord="約 42.2830, 42.7250",
+   ref="Booking.com", price="—", times="Check-in 14:00–24:00 · Check-out 11:00–12:00",
+   extra="<b>9.7 傑出</b>（35 評語）· 位置 9.5 · 免費 WiFi · <b>停車場</b> · 餐廳 · 機場接駁 · "
+         "💡<b>喺 Gelati Street ＝ 去 Gelati 修道院嗰條路</b>，聽朝順路"),
  meals={"早":[("貴","Schuchmann 酒莊自助（已包）","已付")],
         "午":[("平","Chinebuli（史太林博物館對面）","20–30 GEL · 零繞路"),
               ("平","Cafe 22（Stalin St 22）","15–25 GEL"),
@@ -287,7 +288,7 @@ add(num="DAY 08", date="10月2日", wd="五", route="卡赫季 → Gori/Uplistsi
 add(num="DAY 09", date="10月3日", wd="六", route="Kutaisi → Gelati → Zugdidi → Mestia",
  stats=["🏍 ~250 km","⭐Gelati 唯一機會"],
  sched=[("08:00","早餐"),
-        ("09:00","**Gelati 修道院**（⭐**今日星期六＝內部開放嘅唯一機會**，1小時）"),
+        ("09:00","**Gelati 修道院**（⭐**今日星期六＝內部開放嘅唯一機會**，1小時）— 酒店就喺 Gelati Street，順路"),
         ("10:15","順路 Motsameta 懸崖修道院（15分）"),
         ("11:00","出發西行"),
         ("12:30","**Zugdidi 午餐 + 入滿油**（Svaneti 前最後大鎮）"),
@@ -321,7 +322,8 @@ add(num="DAY 09", date="10月3日", wd="六", route="Kutaisi → Gelati → Zugd
         "**Zugdidi 入滿油** — Svaneti 深山前最後大鎮",
         "**Mestia 撳現金 400–600 GEL/人** — Ushguli 全村冇 ATM",
         "Zugdidi→Mestia 單線崖邊、有牛，**唔好摸黑行**"],
- notes=["Agoda 行程顯示 Mestia→Ushguli 1小時15分／45.3km"])
+ notes=["Agoda 行程顯示 Mestia→Ushguli 1小時15分／45.3km",
+        "住宿 AUTOGRAPH 就喺 **Gelati Street** — 去 Gelati 修道院係同一條路，唔使繞"])
 
 # ---------------- 4/10 ----------------
 add(num="DAY 10", date="10月4日", wd="日", route="Mestia → Ushguli",

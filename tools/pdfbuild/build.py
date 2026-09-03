@@ -36,8 +36,8 @@ for n,city,dates,nights,plat,ref,amt,ref2,st in C.BOOKINGS:
 inner.append(R.block("🏨 住宿訂單（14 晚）",
     R.tbl(["酒店","城市","日期","晚","平台","訂單編號","金額","備註"], brows,
           [None,None,"t",None,None,None,None,None]) +
-    R.warn("<b>淨返 1 晚未訂：2/10（Kutaisi）</b> — 5/10 已經 Agoda 訂咗 Newport Hotel Kutaisi，"
-           "<b>同一間加訂 2/10 最方便</b>，唔使搬。其餘 13 晚全部落實。")))
+    R.note("🎉 <b>住宿全部訂晒 — 14/14 晚</b>。由 25/9 吉隆坡到 9/10 第比利斯，每一晚都有落腳點，冇 gap。"
+           "淨返嘅只有 <b>7/10 GoTrip 包車</b> 同 <b>租車改期</b>。")))
 
 r = C.RENTAL
 inner.append(R.block("🏍 租車 — " + r["company"],
@@ -45,7 +45,7 @@ inner.append(R.block("🏍 租車 — " + r["company"],
       [("聯絡", r["contact"]),("車", r["bikes"]),("租期", r["period"]),("押金", r["deposit"]),
        ("保險", r["insurance"]),("牌照要求", r["licence"]),("亞美尼亞", r["armenia"]),("行李", r["luggage"])]],
       ["t",None])))
-parts.append(R.section("訂單總覽", "BOOKINGS · 13/14 晚已訂 · 最後更新 2026-09-03", "".join(inner)))
+parts.append(R.section("訂單總覽", "BOOKINGS · ✅ 14/14 晚已訂 · 最後更新 2026-09-03", "".join(inner)))
 
 # ========== 2. 逐日 ==========
 for d in DD.D:
@@ -95,6 +95,7 @@ extra = [
  ("Souq Waqif","25.2870, 51.5333","D03","Sight","12:00–16:00 落閘"),
  ("Msheireb Museums","25.2870, 51.5250","D04","Sight","免費 · 逢日休"),
  ("Schuchmann Wines Chateau","41.8700, 45.5200","D07","Lodging","訂單 RP8S · Kisiskhevi"),
+ ("AUTOGRAPH Kutaisi","42.2830, 42.7250","D08","Lodging","110a Gelati St · 9.7 傑出"),
  ("Fabrika Hostel & Suites","41.7028, 44.7995","D12/D15","Lodging","第比利斯 Chugureti"),
  ("R&R Hotel Yerevan","40.1815, 44.5145","D13-14","Lodging","17 Nalbandyan St · 1359046727836962"),
  ("Zvartnots Airport (EVN)","40.1473, 44.3959","D15","Logistics","FlyOne 3F583 11:00"),

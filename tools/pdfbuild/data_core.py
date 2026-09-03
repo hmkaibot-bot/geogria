@@ -35,7 +35,7 @@ BOOKINGS = [
  ("Pura Vida Boutique Hotel Tbilisi","第比利斯 Tbilisi","28–29/9","1","Booking.com","—","HK$398","免費取消","ok"),
  ("Gagma Chalets Kazbegi","卡茲別吉 Kazbegi","29/9–1/10","2","Booking.com","—","HK$1,359","免費取消 · 單臥室小木屋","ok"),
  ("Schuchmann Wines Chateau, Villas & SPA","卡赫季 Kisiskhevi","1–2/10","1","酒莊直接","RP8S","GEL 525","含品酒晚餐+SPA","ok"),
- ("★ 未訂 — Kutaisi","庫塔伊西","2–3/10","1","—","—","—","可同 5/10 一齊訂","no"),
+ ("AUTOGRAPH Kutaisi","庫塔伊西 Kutaisi","2–3/10","1","Booking.com","—","—","9.7 傑出 · 110a Gelati St","ok"),
  ("Guest House Keti Margiani","梅斯蒂亞 Mestia","3–4/10","1","Agoda","69553611","—","—","ok"),
  ("Mountain house","烏樹故里 Ushguli","4–5/10","1","Agoda","69553611","—","—","ok"),
  ("Newport Hotel Kutaisi","庫塔伊西 Kutaisi","5–6/10","1","Agoda","69553611","—","—","ok"),
@@ -59,7 +59,6 @@ RENTAL = {
 TODO = [
  ("🔴 即刻","覆 Slava 改租車期 29 Sep–6 Oct","email","—","講明唔過境，慳 250 GEL×2"),
  ("🔴 即刻","**訂 GoTrip 包車（7/10 Tbilisi→Yerevan）**","gotrip.ge","US$150–300","要停 Debed 三修道院 — 最後一項交通"),
- ("🔴 即刻","**訂 Kutaisi（2/10）— 最後一晚未訂**","Booking／Agoda","US$66–110","同 5/10 Newport 一齊訂最方便"),
  ("🟠 2週內","約 Schuchmann 酒浴 SPA 時段（1/10）","wine-spa 網上／+995 598 656 306","已含房價","11:00–20:00"),
  ("🟠 2週內","IDP ×2 + 電單車保險","運輸署／保險公司","HKD80 ×2","保險要明確保 >125cc"),
  ("🟡 3–4週","Barbarestan（9/10 告別晚餐）","電話／IG","100–150 GEL/人","全城最難訂"),
