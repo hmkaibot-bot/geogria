@@ -14,7 +14,7 @@ TRIP = {
 FLIGHTS = [
     ("26/9 六", "QR 855", "21:50", "23:55", "吉隆坡 KUL T1", "多哈 DOH", "經濟艙 · 25kg"),
     ("28/9 一", "QR 253", "15:30", "20:10", "多哈 DOH", "第比利斯 TBS", "經濟艙 · 25kg"),
-    ("9/10 五", "3F 583", "11:00", "11:40", "耶烈萬 EVN", "第比利斯 TBS", "FlyOne A320 · ⚠️未訂"),
+    ("9/10 五", "3F 583", "11:00", "11:40", "耶烈萬 EVN", "第比利斯 TBS", "FlyOne A320 · ✅已訂"),
     ("10/10 六", "QR 256", "14:00", "16:15", "第比利斯 TBS", "多哈 DOH", "經濟艙 · 25kg"),
     ("11/10 日", "QR 852", "02:35", "15:10", "多哈 DOH", "吉隆坡 KUL T1", "經濟艙 · 25kg"),
 ]
@@ -33,8 +33,7 @@ BOOKINGS = [
  ("Eaton Residence Unique Home KLCC","吉隆坡 Kuala Lumpur","25–26/9","1","Booking.com","—","HK$694","免費取消","ok"),
  ("Souq Al Wakra Hotel By Tivoli","多哈 Al Wakra","26–28/9","2","Qatar Holidays","Q878Z4FG","套票內","套票條款","ok"),
  ("Pura Vida Boutique Hotel Tbilisi","第比利斯 Tbilisi","28–29/9","1","Booking.com","—","HK$398","免費取消","ok"),
- ("Gagma Chalets Kazbegi","卡茲別克 Kazbegi","29–30/9","1","—","—","≈HK$679","單臥室小木屋","ok"),
- ("★ 未訂 — Kazbegi 第二晚","史特潘茨明達","30/9–1/10","1","—","—","—","建議續住 Gagma","no"),
+ ("Gagma Chalets Kazbegi","卡茲別吉 Kazbegi","29/9–1/10","2","Booking.com","—","HK$1,359","免費取消 · 單臥室小木屋","ok"),
  ("Schuchmann Wines Chateau, Villas & SPA","卡赫季 Kisiskhevi","1–2/10","1","酒莊直接","RP8S","GEL 525","含品酒晚餐+SPA","ok"),
  ("★ 未訂 — Kutaisi","庫塔伊西","2–3/10","1","—","—","—","可同 5/10 一齊訂","no"),
  ("Guest House Keti Margiani","梅斯蒂亞 Mestia","3–4/10","1","Agoda","69553611","—","—","ok"),
@@ -58,11 +57,9 @@ RENTAL = {
 }
 
 TODO = [
- ("🔴 即刻","訂 FlyOne 3F 583（9/10 EVN→TBS）","flyone.am","~HK$375–457 ×2","星期五唯一班"),
  ("🔴 即刻","覆 Slava 改租車期 29 Sep–6 Oct","email","—","講明唔過境，慳 250 GEL×2"),
- ("🔴 即刻","訂 GoTrip 包車（7/10 Tbilisi→Yerevan）","gotrip.ge","US$150–300","要停 Debed 三修道院"),
- ("🔴 即刻","**訂 Kazbegi 第二晚（30/9）**","問 Gagma Chalets 續住","≈HK$679","只剩 2 晚未訂之一"),
- ("🔴 即刻","**訂 Kutaisi（2/10）**","Booking／Agoda","US$66–110","可同 5/10 Newport 一齊訂"),
+ ("🔴 即刻","**訂 GoTrip 包車（7/10 Tbilisi→Yerevan）**","gotrip.ge","US$150–300","要停 Debed 三修道院 — 最後一項交通"),
+ ("🔴 即刻","**訂 Kutaisi（2/10）— 最後一晚未訂**","Booking／Agoda","US$66–110","同 5/10 Newport 一齊訂最方便"),
  ("🟠 2週內","約 Schuchmann 酒浴 SPA 時段（1/10）","wine-spa 網上／+995 598 656 306","已含房價","11:00–20:00"),
  ("🟠 2週內","IDP ×2 + 電單車保險","運輸署／保險公司","HKD80 ×2","保險要明確保 >125cc"),
  ("🟡 3–4週","Barbarestan（9/10 告別晚餐）","電話／IG","100–150 GEL/人","全城最難訂"),
