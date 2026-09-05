@@ -22,7 +22,7 @@ inner.append(R.block("✈️ 機票 — Qatar Airways Holidays 套票",
     f'<div class="meta">{e(f["paid"])}　·　{e(f["promo"])}</div>'
     f'<div class="meta small">{e(f["contact"])}</div></div>' +
     R.tbl(["日期","航班","起飛","抵達","航段","備註"],
-      [[e(a),f"<b>{e(b)}</b>",e(c),e(d),f"{e(g)} → {e(h)}",e(i)] for a,b,c,d,g,h,i in C.FLIGHTS],
+      [[e(a),f"<b>{e(b)}</b>",e(c),e(d),f"{e(g)} → {e(h)}",R.md(e(i))] for a,b,c,d,g,h,i in C.FLIGHTS],
       [None,None,"t","t",None,None]) +
     R.tbl(["旅客","出生日期","機票號碼"],
       [[e(n),e(dob),f'<span class="c">{e(tk)}</span>'] for n,dob,tk in f["tickets"]]) +
@@ -32,7 +32,7 @@ brows = []
 for n,city,dates,nights,plat,ref,amt,ref2,st in C.BOOKINGS:
     badge = R.pill("已訂","ok") if st=="ok" else R.pill("要訂","no")
     brows.append([badge+" "+e(n), e(city), f"<b>{e(dates)}</b>", e(nights), e(plat),
-                  f'<span class="c">{e(ref)}</span>', f"<b>{e(amt)}</b>", e(ref2)])
+                  f'<span class="c">{e(ref)}</span>', f"<b>{e(amt)}</b>", R.md(e(ref2))])
 inner.append(R.block("🏨 住宿訂單（14 晚）",
     R.tbl(["酒店","城市","日期","晚","平台","訂單編號","金額","備註"], brows,
           [None,None,"t",None,None,None,None,None]) +
@@ -55,11 +55,11 @@ for d in DD.D:
             [[f'<b>{e(t)}</b>', R.md(w)] for t,w in d["sched"]], ["t",None])))
     if d.get("legs"):
         b.append(R.block("🛣 行車段", R.tbl(["由","到","距離","時間","路況／備註"],
-            [[e(a),e(bb),f"<b>{e(km)}</b>",f"<b>{e(tm)}</b>",R.md(e(nt))] for a,bb,km,tm,nt in d["legs"]],
+            [[e(a),e(bb),f"<b>{e(km)}</b>",R.md(e(tm)),R.md(e(nt))] for a,bb,km,tm,nt in d["legs"]],
             [None,None,"km","km",None])))
     h = d.get("hotel")
     if h and h.get("name"):
-        b.append(R.block("🏨 住宿", R.hotel_card({**h, "extra": R.md(h.get("extra",""))})))
+        b.append(R.block("🏨 住宿", R.hotel_card({**h, "extra": R.md(h.get("extra","")), "name": h.get("name","")})))
     if d.get("meals"):
         rows = []
         for slot, opts in d["meals"].items():
