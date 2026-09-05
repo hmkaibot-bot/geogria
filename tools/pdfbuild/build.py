@@ -118,6 +118,27 @@ parts.append(R.section("出發前 TO-DO", "ACTION LIST · 按死線排序",
     R.tbl(["死線","事項","點做","價","備註"],
       [[f"<b>{e(a)}</b>", R.md(b), e(c), e(dv), R.md(e(ev))] for a,b,c,dv,ev in C.TODO], ["t",None,None,None,None])))
 
+# ========== 4b. 預約清單 ==========
+bk = []
+bk.append(R.block("🔴 而家喺香港訂（真係會冇位／得一場）",
+    R.tbl(["","項目","日期","點訂","價","點解一定要訂"],
+      [[R.pill("必訂","no"), f"<b>{e(n)}</b>", e(dt), R.md(e(hw)), e(pr), R.md(e(why))]
+       for _,n,dt,hw,pr,why in C.BOOK_NOW], [None,None,"t",None,None,None])))
+bk.append(R.block("🟡 到咗先訂 / 或 1–2 星期前（易訂，唔會冇位）",
+    R.tbl(["","項目","日期","點訂","價","備註"],
+      [[R.pill("建議","m"), f"<b>{e(n)}</b>", e(dt), R.md(e(hw)), e(pr), R.md(e(why))]
+       for _,n,dt,hw,pr,why in C.BOOK_LATER], [None,None,"t",None,None,None])))
+bk.append(R.block("⚪ 唔使訂（walk-in 就得，訂都冇用）", f'<div class="hotel small">{C.BOOK_NEVER}</div>'))
+bk.append(R.block("⚠️ 研究揪出嚟嘅陷阱",
+    R.tbl(["發現","影響"], [[f"<b>{e(k)}</b>", R.md(e(v))] for k,v in C.TRAPS], ["t",None])))
+bk.append(R.block("📱 到咗當地點訂？", f'<div class="note">{C.ONARRIVAL}</div>'))
+bk.append(R.note("<b>訂位範本：</b>「Hello! Could we book a table for 2 people on [DATE] at [TIME]? "
+    "Name: Alex · Phone/WhatsApp: [NUMBER]. We are visiting from Hong Kong. Thank you!」<br>"
+    "<b>問民宿餐食：</b>「Hello, we have a booking for [DATES] (2 people, motorcycles). "
+    "1) Can you please provide DINNER on [DATE] around 19:30? 2) Can we have BREAKFAST on [DATE] at 07:30? "
+    "3) Could you prepare a PACKED LUNCH for [DATE]? Please tell us the price per person. We will pay cash in GEL.」"))
+parts.append(R.section("預約清單", "RESERVATIONS · 而家訂 / 到咗訂 / 唔使訂", "".join(bk)))
+
 # ========== 5. 實用 ==========
 parts.append(R.section("實用資料", "PRACTICAL",
     R.tbl(["項目","詳情"], [[f"<b>{e(k)}</b>", R.md(e(v))] for k,v in C.PRACTICAL], ["t",None]) +

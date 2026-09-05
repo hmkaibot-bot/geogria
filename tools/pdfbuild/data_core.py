@@ -87,3 +87,53 @@ PRACTICAL = [
  ("騎行","日落 18:30 前埋站 · 牛／羊群隨時封路 · 盲彎有車爬頭 · 唔好夜騎"),
  ("酒駕","格魯吉亞 0.03%（≈一杯已中），罰 700 GEL 起 → 品酒只安排喺過夜點"),
 ]
+
+
+# ===== 預約清單（研究後） =====
+# tier, name, date, how, price, why
+BOOK_NOW = [
+ ("🔴","雙子塔 Skybridge","26/9 六","eticket.petronastwintowers.com.my","RM80–98/人","全程唯一真正會賣完 · 限時入場+每日上限 · 週六最差 · 揀 10:00–12:00"),
+ ("🔴","Maisi 晚餐","29/9 二","📧 reservations@mountaway.com · FB RestaurantMaisi · ☎+995 575 75 73 37","100–150 GEL/人","超細間 · 每晚只得 19:30／21:00 兩場 · 訂 19:30（要騎 10km 返木屋）"),
+ ("🔴","Toma's Wine Cellar","2/10 五","FB facebook.com/TomasWineCellar · 📧 tomaswinecellar@gmail.com","~50 GEL/人","冇餐牌，按確認人數煮 — 唔訂就冇得食 · ⚠️逢二休"),
+ ("🔴","Schuchmann 酒浴 SPA 療程","1/10 四","schuchmann-wines.com/hotel/wine-spa/wine-spa-reservation/","355 GEL/90分","⚠️房價只包 SPA 入場，療程另計 · 得一間療程房"),
+ ("🔴","Chreli-Abano 硫磺浴","9/10 五晚","booking.chreli-abano.ge · ☎+995 322 93 00 93","130 GEL/房/鐘","星期五最旺 · 呢個尺寸只得 3 間房 · 訂 17:00 或 18:00"),
+ ("🔴","ARARAT 白蘭地英文團","8/10 四","araratbrandy.com/en/museum/ · ☎+374 10 51 01 49","4,500 AMD/人","每日淨得一場英文團(~11:30) · 直接訂平一半 · 同 Garni 撞"),
+ ("🔴","Gagma Chalets 問餐食","29–30/9","Booking 訊息 thread","—","⚠️自助式冇餐廳、離鎮 10km — 問清楚有冇早餐/可否煮晚餐"),
+ ("🔴","Keti Margiani 訂餐","3–4/10","Booking 訊息 thread","晚餐 25–45 · 早餐 15 GEL","早餐唔包、晚餐要 on request · 仲要叫佢整 4/10 乾糧午餐"),
+ ("🔴","Mountain house 訂餐","4–5/10","Agoda 訊息 thread","晚餐 30–50 GEL 現金","冇早餐冇 half-board · 5/10 朝要過 Zagari"),
+]
+BOOK_LATER = [
+ ("🟡","Dolmama","8/10 Yerevan","dolmamarestaurant.com/en/online-reservation","20–30k AMD","葡萄藤庭院 3–11月開，要寫明"),
+ ("🟡","In Vino 導賞品酒","7 或 8/10","GetYourGuide · ☎+374 10 521931","~US$21","導賞一定要預約（酒吧本身 walk-in OK）"),
+ ("🟡","Jiwan @ NMoQ","27/9 多哈","WhatsApp +974 7102 7750 · jiwan.qa","set lunch QAR 100","米芝蓮必比登 · 逢二休 · 要露台位講明"),
+ ("🟡","IDAM by Ducasse（可選）","27/9 多哈","idam.com · ☎+974 4422 4488","QAR 350/人","米芝蓮一星 · ⚠️只做日–四，12:30–14:00／19:00–21:00"),
+ ("🟡","Gastro Yard Garni 打餅","8/10","叫 R&R 前台／司機 · WhatsApp +374 77 520710","~US$18/人","標明「需預約／團體」— 兩人 walk-in 未必燒爐"),
+ ("🟡","Palaty","5/10 Kutaisi","rezto.ge/reservation/palaty","20–60 GEL","網上訂有 10% 折 · 現場鋼琴"),
+ ("🟡","Craft Wine Restaurant","6/10 Tbilisi","craft-wine-bar-tbilisi.resos.com","70–110 GEL","⚠️星期二只做 18:00–24:00"),
+ ("🟡","Li Yen @ Ritz-Carlton","26/9 KL","OpenTable（即時確認）","RM120–200","全 KL 唯一值得訂"),
+ ("🟡","Cafe Laila","3/10 Mestia","☎+995 577 57 76 77 · FB Messenger","30–50 GEL","✅收信用卡（更正）· 到咗先訂"),
+ ("🟡","Lilestan","2 或 5/10 Kutaisi","WhatsApp +995 577 90 15 90","30–50 GEL","英文 OK · 燈串庭院"),
+]
+BOOK_NEVER = """<b>格魯吉亞</b>　Rooms Kazbegi The Kitchen（⚠️非住客根本唔收訂位，18:30 早到）· Korbuda · Qondari · Stancia · Tiba ·
+El Depo（24h，現金）· Baraqa · Bikentia's（12 GEL，現金）· Sapere · Old House（現金）· Lushnu Qor ·
+<b>Ushguli 全部</b>（Koshki／Cafe Svaneti／Murkvam／Shumeri — 係有爐嘅村屋，唔係有 booking book 嘅餐廳）· FARM（Fabrika 內 08:00）· Ghebi（24h）· Amo Rame<br>
+<b>亞美尼亞</b>　Tumanyan Khinkali · Tavern Yerevan · Sherep · Anteb · Old Garni · Harmonia Garden · Qefilyan（叫司機提前打 +374 55 210210 就夠）<br>
+<b>景點門票</b>　IAMM RM20 · 黑風洞 免費 · Msheireb 免費 · Garni 1,500 AMD · Geghard 免費 · Cascade 免費 · Gelati 免費 ·
+Uplistsikhe 15 GEL · 史太林博物館 15 GEL · 斯瓦涅季博物館 20 GEL · Narikala 纜車 2.5 GEL（⚠️要 Metromoney 卡，唔收現金）"""
+
+TRAPS = [
+ ("Gagma Chalets 唔喺鎮上","喺 Sioni，離 Stepantsminda 10km／15分鐘，自助式冇餐廳 → 每餐要騎車入鎮再返夜路。對策：Maisi 訂 19:30 早場；30/9 買餸用木屋 BBQ"),
+ ("Rooms Kazbegi 非住客唔收訂位","30/9 想去就 18:30 早到 walk-in"),
+ ("Cafe Laila 收信用卡","更正之前「只收現金」· Old House 先係只收現金"),
+ ("NMoQ 而家半價 QAR 25","部分展廳維修到 2026/12/30 — 平咗但睇唔晒"),
+ ("Cascade 室內畫廊只開五–日","你 7–8/10（三、四）入唔到，戶外階梯照行"),
+ ("Zagari 通常開到 10月中","5/10 已近尾聲 — 出發前 24–48 小時問 SLAVATOUR 同 Ushguli 房東"),
+ ("Mestia ATM 會抽乾","3/10 一到即撳 400–600 GEL，唔好等 4/10 朝"),
+ ("AUTOGRAPH ≠ 萬豪 Autograph Collection","係前身 Green House Guest House 改名嘅民宿，唔好期望酒店餐廳"),
+ ("KL Tower 加價","Sky Deck 而家 RM140（唔係 RM78）"),
+ ("Gelati 長期維修中","2/10 晚叫 AUTOGRAPH 前台打電話確認 3/10 主教堂開唔開"),
+]
+ONARRIVAL = """格魯吉亞<b>冇 OpenTable／TheFork</b> — 唯一好用嘅網上系統係 <b>rezto.ge</b>（Palaty）同 <b>resOS</b>（Craft Wine）。<br>
+最有效渠道係 <b>Facebook Messenger</b>，其次 WhatsApp／Viber，最後先係電話 — 山區餐廳好多冇人聽電話但會覆 Messenger。<br>
+<b>叫酒店／民宿前台幫你打電話最快</b>，尤其 Kazbegi／Mestia／Ushguli。<br>
+格魯吉亞人 <b>20:00–21:00</b> 先食晚飯，19:00 去多數有位 · 訂位一般唔使按金、唔會 no-show 收費 · 好多餐廳自動加 <b>10% service</b>，加咗就唔使再畀貼士。"""
