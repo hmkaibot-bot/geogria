@@ -1,0 +1,344 @@
+{
+ "kl_petronas": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/5193/14388080334_d415d5ff09_b.jpg",
+  "artist": "Simon_sees",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/39551170@N02/14388080334",
+  "w": 1000,
+  "h": 667
+ },
+ "kl_batu": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/2599/4012265820_c9d0d29f39_b.jpg",
+  "artist": "Kojach",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/37325040@N07/4012265820",
+  "w": 1000,
+  "h": 668
+ },
+ "kl_iamm": {
+  "src": "wikimedia",
+  "file": "https://upload.wikimedia.org/wikipedia/commons/7/75/Islamic_Arts_Museum_Malaysia.JPG",
+  "artist": "Chongkian",
+  "license": "CC BY-SA 4.0",
+  "landing": "https://commons.wikimedia.org/w/index.php?curid=48241797",
+  "w": 1000,
+  "h": 750
+ },
+ "doha_mia": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4115/4754905352_162c10fe31_b.jpg",
+  "artist": "jemasmith",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/26085795@N02/4754905352",
+  "w": 1000,
+  "h": 665
+ },
+ "doha_souq": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4143/4754784082_62f340c42e_b.jpg",
+  "artist": "jemasmith",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/26085795@N02/4754784082",
+  "w": 1000,
+  "h": 665
+ },
+ "ge_jvari": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/1790/42878790821_0d4f8a5816_b.jpg",
+  "artist": "cat_collector",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/75938119@N04/42878790821",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_svetitskhoveli": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4086/5088667149_4e690e5737_b.jpg",
+  "artist": "svani1",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/27436715@N02/5088667149",
+  "w": 980,
+  "h": 1023
+ },
+ "ge_ananuri": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/8299/7923712598_5a432cb407_b.jpg",
+  "artist": "Randy Shan",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/85851141@N08/7923712598",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_gergeti": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4517/37571648135_f1b16ac152_b.jpg",
+  "artist": "Geo Max",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/107021564@N05/37571648135",
+  "w": 1000,
+  "h": 664
+ },
+ "ge_kazbek": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4549/37743346544_ddb936c8aa_b.jpg",
+  "artist": "Geo Max",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/107021564@N05/37743346544",
+  "w": 1000,
+  "h": 530
+ },
+ "ge_truso": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4361/36196352963_ecb7e375b2_b.jpg",
+  "artist": "Shalika999",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/10414946@N02/36196352963",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_dariali": {
+  "src": "wikimedia",
+  "file": "https://upload.wikimedia.org/wikipedia/commons/1/10/Dariali_Gorge%2C_Georgia_%28A%29.jpg",
+  "artist": "Kober",
+  "license": "CC BY 2.0",
+  "landing": "https://commons.wikimedia.org/w/index.php?curid=4849081",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_tsinandali": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/538/18420485692_af0fdd404b_b.jpg",
+  "artist": "Adam Jones, Ph.D. - Global Photo Archive",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/41000732@N04/18420485692",
+  "w": 768,
+  "h": 1024
+ },
+ "ge_uplistsikhe": {
+  "src": "Wikimedia Commons",
+  "file": "Middle_ages_Basilica_on_the_top_of_the_cave,_Uplistsikhe_20230920_(II).jpg",
+  "artist": "Supanut Arunoprayote",
+  "license": "CC BY 4.0",
+  "landing": "https://commons.wikimedia.org/wiki/File:Middle_ages_Basilica_on_the_top_of_the_cave,_Uplistsikhe_20230920_(II).jpg",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_gori": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/6150/5960087437_daf598d4b2_b.jpg",
+  "artist": "luigig",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/51035803402@N01/5960087437",
+  "w": 1000,
+  "h": 750
+ },
+ "ge_bagrati": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/2830/12622942614_786c2ff097_b.jpg",
+  "artist": "rost8668",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/56938735@N03/12622942614",
+  "w": 1000,
+  "h": 561
+ },
+ "ge_gelati": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/2938/14547065945_6079d2b390_b.jpg",
+  "artist": "rost8668",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/56938735@N03/14547065945",
+  "w": 1000,
+  "h": 676
+ },
+ "ge_enguri": {
+  "src": "wikimedia",
+  "file": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Enguri_Dam_2016.jpg",
+  "artist": "Gaga.vaa",
+  "license": "CC BY-SA 4.0",
+  "landing": "https://commons.wikimedia.org/w/index.php?curid=48281932",
+  "w": 1000,
+  "h": 562
+ },
+ "ge_mestia": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4295/35252565354_d605601a11_b.jpg",
+  "artist": "Arian Zwegers",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/67769030@N07/35252565354",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_ushguli": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/2591/3872438726_f9d54b01e8_b.jpg",
+  "artist": "Gytis Liutkus",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/25458079@N00/3872438726",
+  "w": 1000,
+  "h": 737
+ },
+ "ge_shkhara": {
+  "src": "Wikimedia Commons",
+  "file": "Mt_Shkhara_as_seen_from_Khalde_(Photo_A._Muhranoff,_2011).jpg",
+  "artist": "Aleksey Muhranoff",
+  "license": "CC BY-SA 3.0",
+  "landing": "https://commons.wikimedia.org/wiki/File:Mt_Shkhara_as_seen_from_Khalde_(Photo_A._Muhranoff,_2011).jpg",
+  "w": 1000,
+  "h": 771
+ },
+ "ge_katskhi": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/8150/7544243774_94198bd42d_b.jpg",
+  "artist": "Levan Nioradze",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/30903829@N05/7544243774",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_tbilisi": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3810/13797075673_3b775026ec_b.jpg",
+  "artist": "young shanahan",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/14759783@N04/13797075673",
+  "w": 1000,
+  "h": 750
+ },
+ "ge_abanotubani": {
+  "src": "wikimedia",
+  "file": "https://upload.wikimedia.org/wikipedia/commons/7/74/2014_Tbilisi%2C_%C5%81a%C5%BAnie_siarkowe_w_Abanotubani_%2821%29.jpg",
+  "artist": "Marcin Konsek",
+  "license": "CC BY-SA 4.0",
+  "landing": "https://commons.wikimedia.org/w/index.php?curid=49404507",
+  "w": 1000,
+  "h": 667
+ },
+ "ge_fabrika": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4596/38749580964_3897e12bce_b.jpg",
+  "artist": "Aleksandr Zykov",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/84292292@N00/38749580964",
+  "w": 1000,
+  "h": 750
+ },
+ "am_haghpat": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4306/35959364221_d6051fe697_b.jpg",
+  "artist": "Arian Zwegers",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/67769030@N07/35959364221",
+  "w": 1000,
+  "h": 667
+ },
+ "am_sanahin": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3139/2872634238_96eb1b1599_b.jpg",
+  "artist": "hercegnovi",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/22458455@N06/2872634238",
+  "w": 1000,
+  "h": 670
+ },
+ "am_republic": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3373/3648728544_b67e6391bd_b.jpg",
+  "artist": "Arthur Chapman",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/32005048@N06/3648728544",
+  "w": 1000,
+  "h": 667
+ },
+ "am_cascade": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3309/3649058520_6447ff6cb2_b.jpg",
+  "artist": "Arthur Chapman",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/32005048@N06/3649058520",
+  "w": 1000,
+  "h": 667
+ },
+ "am_garni": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4400/37008499602_c50936822e_b.jpg",
+  "artist": "D-Stanley",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/79721788@N00/37008499602",
+  "w": 1000,
+  "h": 750
+ },
+ "am_geghard": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/8342/8176194313_f998ed5901_b.jpg",
+  "artist": "oksidor",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/59929637@N00/8176194313",
+  "w": 1000,
+  "h": 553
+ },
+ "am_khorvirap": {
+  "src": "wikimedia",
+  "file": "https://upload.wikimedia.org/wikipedia/commons/4/47/Khor_Virap._Ararat.jpg",
+  "artist": "Old Pionear",
+  "license": "CC BY-SA 4.0",
+  "landing": "https://commons.wikimedia.org/w/index.php?curid=138489157",
+  "w": 1000,
+  "h": 664
+ },
+ "doha_nmoq": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/65535/52624405651_33dde9564d_b.jpg",
+  "artist": "young shanahan",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/14759783@N04/52624405651",
+  "w": 1000,
+  "h": 664
+ },
+ "doha_wakra": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7607/16788864366_44ed9153c6_b.jpg",
+  "artist": "Mohamod Fasil",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/131688925@N04/16788864366",
+  "w": 1000,
+  "h": 750
+ },
+ "ge_kakheti": {
+  "src": "wikimedia",
+  "file": "https://upload.wikimedia.org/wikipedia/commons/5/54/Alazani_Valley_%282%29.jpg",
+  "artist": "Andrei Kalamkarov (www.andreikalamkarov.com)",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://commons.wikimedia.org/w/index.php?curid=3487750",
+  "w": 900,
+  "h": 600
+ },
+ "ge_zagari": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/2460/3872440058_b46f45dce1_b.jpg",
+  "artist": "Gytis Liutkus",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/25458079@N00/3872440058",
+  "w": 1000,
+  "h": 646
+ },
+ "ge_chiatura": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4171/33705162583_e8b91de8b1_b.jpg",
+  "artist": "VicunaR",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/144510328@N03/33705162583",
+  "w": 1000,
+  "h": 562
+ },
+ "am_matenadaran": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3396/3648156387_56fd37ab2c_b.jpg",
+  "artist": "Arthur Chapman",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/32005048@N06/3648156387",
+  "w": 1000,
+  "h": 667
+ }
+}

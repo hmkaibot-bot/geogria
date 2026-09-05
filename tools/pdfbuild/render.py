@@ -45,31 +45,74 @@ def hotel_card(h):
     if h.get("extra"): out += f'<div class="meta small">{h["extra"]}</div>'
     return out + "</div>"
 
-def day(dnum, date, weekday, route, stats, blocks):
+def _photo_strip(keys, IM):
+    keys = [k for k in keys if IM.has(k)]
+    if not keys: return ""
+    cells = "".join(
+        f'<div class="s"><img src="{IM.thumb(k)}"><div class="cap">{e(IM.CAPTION.get(k,k))}</div></div>' for k in keys)
+    return f'<div class="strip">{cells}</div>'
+
+def day(dnum, date, weekday, route, stats, blocks, IM=None, hero=None, strip=()):
     right = "<br>".join(e(s) for s in stats)
-    return f"""<div class="day"><div class="day-hd">
+    hd = f"""<div class="day-hd">
 <div class="l"><span class="dnum">{e(dnum)}</span><span class="date">{e(date)}（{e(weekday)}）</span>
 <span class="route">{e(route)}</span></div>
-<div class="r">{right}</div></div>
-<div class="day-body">{''.join(blocks)}</div></div>"""
+<div class="r">{right}</div></div>"""
+    if IM and hero and IM.has(hero):
+        top = (f'<div class="day-hero"><img class="bg" src="{IM.path(hero)}"><div class="shade"></div>'
+               f'<div class="cr">📷 {e(IM.CAPTION.get(hero,""))} · {e(IM.credit(hero))}</div>{hd}</div>')
+    else:
+        inner = hd.split(">", 1)[1]  # drop the opening <div class="day-hd">
+        top = f'<div class="day-hero" style="height:auto;position:relative"><div class="day-hd" style="position:static;background:#2e4a43">{inner}</div>'
+    body = (_photo_strip(strip, IM) if IM else "") + "".join(blocks)
+    return f'<div class="day">{top}<div class="day-body">{body}</div></div>'
 
-def section(title, tag, inner):
-    return f"""<div class="sec"><div class="sec-head"><h2>{e(title)}</h2>
-<span class="tag">{e(tag)}</span></div>{inner}</div>"""
+def section(title, tag, inner, IM=None, banner=None):
+    if IM and banner and IM.has(banner):
+        head = (f'<div class="sec-banner"><img src="{IM.path(banner)}"><div class="shade"></div>'
+                f'<div class="t"><h2>{e(title)}</h2><span class="tag">{e(tag)}</span></div>'
+                f'<div class="cr">📷 {e(IM.CAPTION.get(banner,""))} · {e(IM.credit(banner))}</div></div>')
+    else:
+        head = f'<div class="sec-head"><h2>{e(title)}</h2><span class="tag">{e(tag)}</span></div>'
+    return f'<div class="sec">{head}{inner}</div>'
 
-def cover(t):
+def overview(items, IM):
+    cells = []
+    for d, date, place, key in items:
+        if not IM.has(key): continue
+        cells.append(f'<div class="c"><img src="{IM.path(key)}"><span class="d">{e(d)}</span>'
+                     f'<div class="cap"><b>{e(place)}</b><span>{e(date)} · {e(IM.CAPTION.get(key,""))}</span></div></div>')
+    return f'<div class="ov">{"".join(cells)}</div>'
+
+def credits_page(IM):
+    cells = []
+    for k in sorted(IM.CREDITS):
+        if not IM.has(k): continue
+        c = IM.CREDITS[k]
+        src = c.get("landing") or c.get("file") or ""
+        cells.append(f'<div class="k"><img src="{IM.thumb(k)}"><b>{e(IM.CAPTION.get(k,k))}</b>'
+                     f'{e(c.get("artist",""))} · {e(c.get("license",""))} · {e(str(c.get("src","")))}'
+                     f'<div class="u">{e(src)}</div></div>')
+    return f'<div class="credits">{"".join(cells)}</div>'
+
+def cover(t, IM=None, photo=None, updated=""):
     cells = [("日期", t["dates"]), ("旅客", t["travellers"]),
              ("車", t["bikes"]), ("里程", t["distance"])]
     cg = "".join(f'<div class="cell"><b>{e(k)}</b><span>{e(v)}</span></div>' for k, v in cells)
-    return f"""<div class="cover">
+    bg = ""
+    cr = ""
+    if IM and photo and IM.has(photo):
+        bg = f'<img class="bg" src="{IM.path(photo)}"><div class="shade"></div>'
+        cr = f'📷 {e(IM.CAPTION.get(photo,""))} · {e(IM.credit(photo))}'
+    return f"""<div class="cover">{bg}<div class="in">
 <div class="kicker">Itinerary · 完整行程表</div>
 <h1>{e(t["title"])}</h1>
 <div class="sub">{e(t["subtitle"])}</div>
 <div class="rule"></div>
-<div class="sub" style="font-size:9.5pt;opacity:.8;line-height:1.6">{e(t["route"])}</div>
+<div class="sub" style="font-size:9.5pt;opacity:.85;line-height:1.6">{e(t["route"])}</div>
 <div class="grid">{cg}</div>
-<div class="foot">含座標 · 行車時間 · 酒店訂單 · 餐廳 · 景點　|　最後更新 2026-09-03</div>
-</div>"""
+<div class="foot"><span>含座標 · 行車時間 · 酒店訂單 · 餐廳 · 景點　|　最後更新 {e(updated)}</span><span>{cr}</span></div>
+</div></div>"""
 
 def html_doc(css, body):
     return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">

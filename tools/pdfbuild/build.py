@@ -7,12 +7,20 @@ from style import CSS
 import render as R
 import data_core as C
 import data_days as DD
+import images as IM
+
+UPDATED = "2026-09-05"
 
 PRI = {"must":("must","★ 必去"), "alt":("alt","○ 替代"),
        "bon":("bon","＋ 加碼"), "skip":("skip","✕ 可跳")}
 TIER = {"平":"b","中":"m","貴":"s"}
 
-parts = [R.cover(C.TRIP)]
+parts = [R.cover(C.TRIP, IM, IM.COVER, UPDATED)]
+
+# ========== 0. 行程一覽（相片） ==========
+parts.append(R.section("行程一覽", "OVERVIEW · 17 日 · 相片全部為真實 CC 授權相，來源見最後一頁", R.overview(IM.OVERVIEW, IM) +
+    R.note("<b>點用呢本 PDF：</b>每日一頁 — 時間表 → 行車段 → 酒店（訂單編號）→ 三餐（平／中／貴）→ 景點（座標）。"
+           "座標可以直接 copy 入 Google Maps；全部點亦喺《座標總表》一次過列出。")))
 
 # ========== 1. 訂單 + 航班 ==========
 inner = []
@@ -45,7 +53,7 @@ inner.append(R.block("🏍 租車 — " + r["company"],
       [("聯絡", r["contact"]),("車", r["bikes"]),("租期", r["period"]),("押金", r["deposit"]),
        ("保險", r["insurance"]),("牌照要求", r["licence"]),("亞美尼亞", r["armenia"]),("行李", r["luggage"])]],
       ["t",None])))
-parts.append(R.section("訂單總覽", "BOOKINGS · ✅ 14/14 晚已訂 · 最後更新 2026-09-03", "".join(inner)))
+parts.append(R.section("訂單總覽", f"BOOKINGS · ✅ 14/14 晚已訂 · 最後更新 {UPDATED}", "".join(inner), IM, IM.SECTION_BANNER["訂單總覽"]))
 
 # ========== 2. 逐日 ==========
 for d in DD.D:
@@ -77,7 +85,8 @@ for d in DD.D:
             [None,None,"c",None])))
     for w in d.get("warns",[]):  b.append(R.warn("⚠️ " + R.md(w)))
     for n in d.get("notes",[]):  b.append(R.note("💡 " + R.md(n)))
-    parts.append(R.day(d["num"], d["date"], d["wd"], d["route"], d["stats"], b))
+    parts.append(R.day(d["num"], d["date"], d["wd"], d["route"], d["stats"], b,
+                       IM, IM.DAY_HERO.get(d["num"]), IM.DAY_STRIP.get(d["num"], ())))
 
 # ========== 3. 座標總表 ==========
 rows = []
@@ -108,13 +117,13 @@ extra = [
  ("Hamad Intl Airport (DOH)","25.2609, 51.6138","D02-04","Logistics","轉機"),
 ]
 rows.extend([[e(a), f'<span class="c">{b}</span>', e(c), e(dd), e(ee)] for a,b,c,dd,ee in extra])
-parts.append(R.section("座標總表", f"COORDINATES · {len(rows)} 點 · 可匯入 Google My Maps",
+parts.append(R.section("座標總表", f"COORDINATES · {len(rows)} 點 · 可匯入 Google My Maps", IM=IM, banner=IM.SECTION_BANNER["座標總表"], inner=
     R.tbl(["名稱","座標（緯度, 經度）","日","類別","備註"], rows, [None,"c","t",None,None]) +
     R.note("匯入方法：電腦開 <b>mymaps.google.com</b> → 建立新地圖 → 匯入 <b>file13-pins.csv</b> → "
            "位置欄揀 Latitude + Longitude、標題揀 Name → 用 Category 分色。手機 Google Maps → 已儲存 → 離線都睇到。")))
 
 # ========== 4. TODO ==========
-parts.append(R.section("出發前 TO-DO", "ACTION LIST · 按死線排序",
+parts.append(R.section("出發前 TO-DO", "ACTION LIST · 按死線排序", IM=IM, banner=IM.SECTION_BANNER["出發前 TO-DO"], inner=
     R.tbl(["死線","事項","點做","價","備註"],
       [[f"<b>{e(a)}</b>", R.md(b), e(c), e(dv), R.md(e(ev))] for a,b,c,dv,ev in C.TODO], ["t",None,None,None,None])))
 
@@ -137,14 +146,19 @@ bk.append(R.note("<b>訂位範本：</b>「Hello! Could we book a table for 2 pe
     "<b>問民宿餐食：</b>「Hello, we have a booking for [DATES] (2 people, motorcycles). "
     "1) Can you please provide DINNER on [DATE] around 19:30? 2) Can we have BREAKFAST on [DATE] at 07:30? "
     "3) Could you prepare a PACKED LUNCH for [DATE]? Please tell us the price per person. We will pay cash in GEL.」"))
-parts.append(R.section("預約清單", "RESERVATIONS · 而家訂 / 到咗訂 / 唔使訂", "".join(bk)))
+parts.append(R.section("預約清單", "RESERVATIONS · 而家訂 / 到咗訂 / 唔使訂", "".join(bk), IM, IM.SECTION_BANNER["預約清單"]))
 
 # ========== 5. 實用 ==========
-parts.append(R.section("實用資料", "PRACTICAL",
+parts.append(R.section("實用資料", "PRACTICAL", IM=IM, banner=IM.SECTION_BANNER["實用資料"], inner=
     R.tbl(["項目","詳情"], [[f"<b>{e(k)}</b>", R.md(e(v))] for k,v in C.PRACTICAL], ["t",None]) +
     R.warn("<b>只收現金：</b>Ushguli 全村 · Cafe Laila（Mestia）· Bikentia's（Kutaisi）· Nunu's（Lentekhi）· "
            "Zugdidi 巴刹 · Dry Bridge 市集 · Surami nazuki 攤 · Garni 小檔 · 多哈街邊 karak · KL 小販檔") +
     R.note("<b>每日出發前 check：</b>georoad.ge（格魯吉亞路況）· armroad.am（亞美尼亞）· 天氣（按山口高度睇，唔係市鎮）· 當日景點營業")))
+
+# ========== 6. 相片來源 ==========
+parts.append(R.section("相片來源", "PHOTO CREDITS · Creative Commons",
+    R.note("所有相片均為 <b>Creative Commons</b> 授權嘅真實相片（Flickr 經 Openverse／Wikimedia Commons），作者同授權條款如下；本 PDF 只作私人旅行用途。") +
+    '<div style="height:3mm"></div>' + R.credits_page(IM)))
 
 open(os.path.join(HERE,"itinerary.html"),"w",encoding="utf-8").write(R.html_doc(CSS,"".join(parts)))
 print("HTML written:", sum(len(p) for p in parts), "chars,", len(DD.D), "days,", len(rows), "coords")
