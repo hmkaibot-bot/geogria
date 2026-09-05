@@ -35,7 +35,7 @@ BOOKINGS = [
  ("Eaton Residence Unique Home KLCC","吉隆坡 Kuala Lumpur","25–26/9","1","Booking.com","—","HK$694","免費取消","ok"),
  ("Souq Al Wakra Hotel By Tivoli","多哈 Al Wakra","26–28/9","2","Qatar Holidays","Q878Z4FG","套票內","套票條款","ok"),
  ("Pura Vida Boutique Hotel Tbilisi","第比利斯 Tbilisi","28–29/9","1","Booking.com","—","HK$398","免費取消","ok"),
- ("Gagma Chalets Kazbegi","卡茲別吉 Kazbegi","29/9–1/10","2","Booking.com","—","HK$1,359","免費取消 · 單臥室小木屋","ok"),
+ ("Landscapes Hotel Kazbegi","卡茲別吉 Kazbegi","29/9–1/10","2","（待補）","（待補）","（待補）","鎮內 Marjanishvili St · 5 房小酒店 · 露台山景","ok"),
  ("Schuchmann Wines Chateau, Villas & SPA","卡赫季 Kisiskhevi","1–2/10","1","酒莊直接","RP8S","GEL 525","含品酒晚餐+SPA","ok"),
  ("AUTOGRAPH Kutaisi","庫塔伊西 Kutaisi","2–3/10","1","Booking.com","—","—","9.7 傑出 · 110a Gelati St","ok"),
  ("Guest House Keti Margiani","梅斯蒂亞 Mestia","3–4/10","1","Agoda","69553611","—","—","ok"),
@@ -93,12 +93,12 @@ PRACTICAL = [
 # tier, name, date, how, price, why
 BOOK_NOW = [
  ("🔴","雙子塔 Skybridge","26/9 六","eticket.petronastwintowers.com.my","RM80–98/人","全程唯一真正會賣完 · 限時入場+每日上限 · 週六最差 · 揀 10:00–12:00"),
- ("🔴","Maisi 晚餐","29/9 二","📧 reservations@mountaway.com · FB RestaurantMaisi · ☎+995 575 75 73 37","100–150 GEL/人","超細間 · 每晚只得 19:30／21:00 兩場 · 訂 19:30（要騎 10km 返木屋）"),
+ ("🔴","Maisi 晚餐","29/9 二","📧 reservations@mountaway.com · FB RestaurantMaisi · ☎+995 575 75 73 37","100–150 GEL/人","超細間 · 每晚只得 19:30／21:00 兩場 · 酒店喺鎮內 2km，坐的士去，兩場都得"),
  ("🔴","Toma's Wine Cellar","2/10 五","FB facebook.com/TomasWineCellar · 📧 tomaswinecellar@gmail.com","~50 GEL/人","冇餐牌，按確認人數煮 — 唔訂就冇得食 · ⚠️逢二休"),
  ("🔴","Schuchmann 酒浴 SPA 療程","1/10 四","schuchmann-wines.com/hotel/wine-spa/wine-spa-reservation/","355 GEL/90分","⚠️房價只包 SPA 入場，療程另計 · 得一間療程房"),
  ("🔴","Chreli-Abano 硫磺浴","9/10 五晚","booking.chreli-abano.ge · ☎+995 322 93 00 93","130 GEL/房/鐘","星期五最旺 · 呢個尺寸只得 3 間房 · 訂 17:00 或 18:00"),
  ("🔴","ARARAT 白蘭地英文團","8/10 四","araratbrandy.com/en/museum/ · ☎+374 10 51 01 49","4,500 AMD/人","每日淨得一場英文團(~11:30) · 直接訂平一半 · 同 Garni 撞"),
- ("🔴","Gagma Chalets 問餐食","29–30/9","Booking 訊息 thread","—","⚠️自助式冇餐廳、離鎮 10km — 問清楚有冇早餐/可否煮晚餐"),
+ ("🔴","Landscapes Hotel 問早餐＋泊車","29–30/9","訂房平台訊息 · ☎ +995 32 247 01 49","—","官網列有早餐但未必包喺房價 · 問兩架電單車泊邊、幾點 check-in"),
  ("🔴","Keti Margiani 訂餐","3–4/10","Booking 訊息 thread","晚餐 25–45 · 早餐 15 GEL","早餐唔包、晚餐要 on request · 仲要叫佢整 4/10 乾糧午餐"),
  ("🔴","Mountain house 訂餐","4–5/10","Agoda 訊息 thread","晚餐 30–50 GEL 現金","冇早餐冇 half-board · 5/10 朝要過 Zagari"),
 ]
@@ -122,7 +122,7 @@ El Depo（24h，現金）· Baraqa · Bikentia's（12 GEL，現金）· Sapere �
 Uplistsikhe 15 GEL · 史太林博物館 15 GEL · 斯瓦涅季博物館 20 GEL · Narikala 纜車 2.5 GEL（⚠️要 Metromoney 卡，唔收現金）"""
 
 TRAPS = [
- ("Gagma Chalets 唔喺鎮上","喺 Sioni，離 Stepantsminda 10km／15分鐘，自助式冇餐廳 → 每餐要騎車入鎮再返夜路。對策：Maisi 訂 19:30 早場；30/9 買餸用木屋 BBQ"),
+ ("Kazbegi 酒店已改 Landscapes Hotel（鎮內）","Marjanishvili St，離廣場 600m／10 分鐘，Tiba 6 分、Rooms 7 分 — 之前 Gagma 離鎮 10km 嘅問題已經冇咗。Maisi 喺 Gergeti 村 2km，坐的士"),
  ("Rooms Kazbegi 非住客唔收訂位","30/9 想去就 18:30 早到 walk-in"),
  ("Cafe Laila 收信用卡","更正之前「只收現金」· Old House 先係只收現金"),
  ("NMoQ 而家半價 QAR 25","部分展廳維修到 2026/12/30 — 平咗但睇唔晒"),
