@@ -41,7 +41,7 @@
 |---|---|---|---|---|---|
 | 13 | 9/10 晚 | ⭐ **Barbarestan**（告別晚餐） | 電話 / IG @barbarestan | 100–150 GEL | **全城最難訂**;19世紀公爵夫人食譜復刻 |
 | 14 | 8/10 晚 | ⭐ **Dolmama**（Yerevan） | dolmamarestaurant.com / WhatsApp | 25,000–40,000 AMD | 週末要 3–5 日前;要 190 年葡萄藤庭院位 |
-| 15 | 27/9 午 | ⭐ **Jiwan @ 國家博物館**（多哈） | jiwan.qa / +974 4452 5555 | **set lunch QAR 100** | 米芝蓮必比登,性價比之王 |
+| 15 | 27/9 午 | ✅ **已訂 13:00 · 2 位** — ⭐ **Jiwan @ 國家博物館**（多哈） | jiwan.qa / +974 4452 5555 | **set lunch QAR 100** | 米芝蓮必比登,性價比之王 |
 | 16 | 27/9 | （可選）**IDAM by Ducasse** | idam.com | 4道菜 QAR 250 | 米芝蓮一星;同 Jiwan 二揀一 |
 | 17 | 27/9 晚 | （可選）**Nobu Doha** | nobu.doh@fourseasons.com | QAR 250–450 | 多哈唯一可以飲酒嘅 splurge |
 
@@ -52,8 +52,8 @@
 | # | 邊日 | 項目 | 點訂 | 價 | ⚠️ |
 |---|---|---|---|---|---|
 | 18 | 7/10 晚 | **Lavash**（Yerevan） | +374 10 608800 | 12,000–20,000 AMD | 平日 1 日前夠 |
-| 19 | 2/10 晚 | **Palaty**（Kutaisi） | rezto.ge/reservation/palaty | 40–60 GEL | 要現場鋼琴嗰邊嘅位 |
-| 20 | 29/9 晚 | **Maisi**（Kazbegi） | Facebook Messenger「Maisi」 | 100+ GEL | **逢三休**,29/9 星期二啱 |
+| 19 | 2/10 晚 | ✅ **已訂 19:30** — **Palaty**（Kutaisi） | rezto.ge/reservation/palaty | 40–60 GEL | 要現場鋼琴嗰邊嘅位 |
+| 20 | 29/9 晚 | ✅ **已訂 19:30–21:00** — **Maisi**（Kazbegi） | Facebook Messenger「Maisi」 | 100+ GEL | **逢三休**,29/9 星期二啱 |
 | 21 | 9/10 傍晚 | **Chreli-Abano 硫磺浴** | booking.chreli-abano.ge | **120–200 GEL/房/鐘** | 實價比舊資料貴好多,兩人分 |
 | 22 | 1/10 | **Schuchmann 酒窖 tour + 晚餐** | 訂房時 / +995 350 200 728 | tour+品酒 30–60 GEL | 要露台位睇日落 |
 

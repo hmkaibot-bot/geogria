@@ -8,8 +8,27 @@ import render as R
 import data_core as C
 import data_days as DD
 import images as IM
+import json
+ROUTES = {}
+_rp = os.path.join(HERE, "routes.json")
+if os.path.exists(_rp):
+    ROUTES = {r["day"]: r for r in json.load(open(_rp, encoding="utf-8"))}
+QR_DIR = os.path.join(HERE, "img", "qr")
+def qr_for(key, url):
+    """Render a QR PNG for url (cached) and return a file:// path, or None."""
+    if not url: return None
+    os.makedirs(QR_DIR, exist_ok=True)
+    fp = os.path.join(QR_DIR, key + ".png")
+    if not os.path.exists(fp):
+        try:
+            import qrcode
+            img = qrcode.make(url, box_size=4, border=1)
+            img.save(fp)
+        except Exception as ex:
+            print("QR failed", key, ex); return None
+    return "file://" + fp
 
-UPDATED = "2026-09-05"
+UPDATED = "2026-09-06"
 
 PRI = {"must":("must","★ 必去"), "alt":("alt","○ 替代"),
        "bon":("bon","＋ 加碼"), "skip":("skip","✕ 可跳")}
@@ -18,7 +37,15 @@ TIER = {"平":"b","中":"m","貴":"s"}
 parts = [R.cover(C.TRIP, IM, IM.COVER, UPDATED)]
 
 # ========== 0. 行程一覽（相片） ==========
-parts.append(R.section("行程一覽", "OVERVIEW · 17 日 · 相片全部為真實 CC 授權相，來源見最後一頁", R.overview(IM.OVERVIEW, IM) +
+LOOP_URL = ("https://www.google.com/maps/dir/?api=1&origin=41.78000,44.74000&destination=41.78000,44.74000"
+            "&waypoints=42.65506,44.64829%7C41.87000,45.52000%7C41.98470,44.11560%7C42.27450,42.71740"
+            "%7C43.04831,42.73045%7C42.91517,43.01148%7C42.27284,42.70651&travelmode=driving")
+loop_html = (f'<div class="ov-route"><img class="qr" src="{qr_for("LOOP", LOOP_URL)}"><div class="rt" style="font-size:7.8pt;line-height:1.45">'
+             f'<b style="color:#1d3b34;font-size:9pt">🗺 電單車全程總覽路線（29/9–6/10 · 8 日 · 約 1,500 km）</b><br>'
+             f'Pura Vida → Kazbegi → Kisiskhevi 酒莊 → Gori → Kutaisi → Mestia → Ushguli → Kutaisi → Pura Vida<br>'
+             f'<span style="font-family:ui-monospace,monospace;font-size:6.2pt;color:#1f5f52;word-break:break-all"><a href="{LOOP_URL}">{LOOP_URL}</a></span><br>'
+             f'<span style="color:#8a4d2e">⚠️ Google 唔識行 Zagari 山口（Ushguli→Lentekhi），會改行 Zugdidi；嗰段用 OsmAnd／Organic Maps 離線地圖。每日路線見各日頁頂。</span></div></div>')
+parts.append(R.section("行程一覽", "OVERVIEW · 17 日 · 相片全部為真實 CC 授權相，來源見最後一頁", R.overview(IM.OVERVIEW, IM) + loop_html +
     R.note("<b>點用呢本 PDF：</b>每日一頁 — 時間表 → 行車段 → 酒店（訂單編號）→ 三餐（平／中／貴）→ 景點（座標）。"
            "座標可以直接 copy 入 Google Maps；全部點亦喺《座標總表》一次過列出。")))
 
@@ -58,9 +85,20 @@ parts.append(R.section("訂單總覽", f"BOOKINGS · ✅ 14/14 晚已訂 · 最�
 # ========== 2. 逐日 ==========
 for d in DD.D:
     b = []
+    rt = ROUTES.get(d["num"])
+    if rt:
+        b.append(R.route_bar(rt, qr_for(d["num"].replace(" ",""), rt.get("maps_url"))))
     if d["sched"]:
-        b.append(R.block("⏱ 時間表", R.tbl(["時間","行程"],
-            [[f'<b>{e(t)}</b>', R.md(w)] for t,w in d["sched"]], ["t",None])))
+        ride = {}
+        if rt:
+            for x in rt.get("timeline", []):
+                if x.get("ride"): ride.setdefault(x["time"], x["ride"])
+        if ride:
+            b.append(R.block("⏱ 時間表（含行車距離）", R.tbl(["時間","行程","行車"],
+                [[f'<b>{e(t)}</b>', R.md(w), e(ride.get(t,""))] for t,w in d["sched"]], ["t",None,"ride"])))
+        else:
+            b.append(R.block("⏱ 時間表", R.tbl(["時間","行程"],
+                [[f'<b>{e(t)}</b>', R.md(w)] for t,w in d["sched"]], ["t",None])))
     if d.get("legs"):
         b.append(R.block("🛣 行車段", R.tbl(["由","到","距離","時間","路況／備註"],
             [[e(a),e(bb),f"<b>{e(km)}</b>",R.md(e(tm)),R.md(e(nt))] for a,bb,km,tm,nt in d["legs"]],
@@ -131,12 +169,12 @@ parts.append(R.section("出發前 TO-DO", "ACTION LIST · 按死線排序", IM=I
 bk = []
 bk.append(R.block("🔴 而家喺香港訂（真係會冇位／得一場）",
     R.tbl(["","項目","日期","點訂","價","點解一定要訂"],
-      [[R.pill("必訂","no"), f"<b>{e(n)}</b>", e(dt), R.md(e(hw)), e(pr), R.md(e(why))]
-       for _,n,dt,hw,pr,why in C.BOOK_NOW], [None,None,"t",None,None,None])))
+      [[R.pill("已訂","ok") if st=="✅" else R.pill("必訂","no"), f"<b>{e(n)}</b>", e(dt), R.md(e(hw)), e(pr), R.md(e(why))]
+       for st,n,dt,hw,pr,why in C.BOOK_NOW], [None,None,"t",None,None,None])))
 bk.append(R.block("🟡 到咗先訂 / 或 1–2 星期前（易訂，唔會冇位）",
     R.tbl(["","項目","日期","點訂","價","備註"],
-      [[R.pill("建議","m"), f"<b>{e(n)}</b>", e(dt), R.md(e(hw)), e(pr), R.md(e(why))]
-       for _,n,dt,hw,pr,why in C.BOOK_LATER], [None,None,"t",None,None,None])))
+      [[R.pill("已訂","ok") if st=="✅" else R.pill("建議","m"), f"<b>{e(n)}</b>", e(dt), R.md(e(hw)), e(pr), R.md(e(why))]
+       for st,n,dt,hw,pr,why in C.BOOK_LATER], [None,None,"t",None,None,None])))
 bk.append(R.block("⚪ 唔使訂（walk-in 就得，訂都冇用）", f'<div class="hotel small">{C.BOOK_NEVER}</div>'))
 bk.append(R.block("⚠️ 研究揪出嚟嘅陷阱",
     R.tbl(["發現","影響"], [[f"<b>{e(k)}</b>", R.md(e(v))] for k,v in C.TRAPS], ["t",None])))

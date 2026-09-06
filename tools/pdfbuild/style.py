@@ -33,7 +33,7 @@ a { color: #1f5f52; text-decoration: none; }
 
 /* ---------- overview photo grid ---------- */
 .ov { display: grid; grid-template-columns: repeat(3,1fr); gap: 3mm; }
-.ov .c { position: relative; height: 44mm; border-radius: 3px; overflow: hidden; background: #2e4a43; }
+.ov .c { position: relative; height: 39mm; border-radius: 3px; overflow: hidden; background: #2e4a43; }
 .ov .c img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ov .c .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 6mm 2.6mm 2.2mm; color: #fff;
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.72) 100%); }
@@ -117,6 +117,16 @@ td.c { font-family: ui-monospace,"DejaVu Sans Mono",monospace; font-size: 7.1pt;
 ul.tight { margin: .8mm 0 0; padding-left: 4mm; }
 ul.tight li { margin-bottom: .5mm; }
 .legend { font-size: 7.2pt; color: #6b7a74; margin-top: 2mm; }
+.route { display: flex; align-items: center; gap: 3mm; background: #f4f7f5; border: 1px solid #d6ded9;
+  border-radius: 2px; padding: 1.8mm 2.4mm; margin-bottom: 3mm; }
+.route img.qr { width: 17mm; height: 17mm; flex: 0 0 17mm; border-radius: 1px; background: #fff; }
+.route .rt { flex: 1; font-size: 7.6pt; line-height: 1.4; }
+.route .rt b { color: #1d3b34; font-size: 8.4pt; }
+.route .rt .u { font-family: ui-monospace,"DejaVu Sans Mono",monospace; font-size: 6.2pt; color: #1f5f52; word-break: break-all; }
+.route .rt .cv { color: #8a4d2e; }
+td.ride { white-space: nowrap; font-size: 7.2pt; color: #2e4a43; font-weight: 700; width: 22mm; }
+.ov-route { display: flex; align-items: center; gap: 3mm; margin-top: 3mm; page-break-inside: avoid; background: #f4f7f5; border: 1px solid #d6ded9; border-radius: 3px; padding: 2mm 3mm; }
+.ov-route img.qr { width: 22mm; height: 22mm; }
 .credits { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.8mm; }
 .credits .k { font-size: 6.2pt; line-height: 1.28; color: #4a5b55; }
 .credits .k img { width: 100%; height: 13mm; object-fit: cover; border-radius: 2px; display: block; margin-bottom: .8mm; }
