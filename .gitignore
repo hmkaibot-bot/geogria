@@ -1,0 +1,3 @@
+tools/pdfbuild/wf_*.js
+tools/pdfbuild/img/qr/
+__pycache__/
