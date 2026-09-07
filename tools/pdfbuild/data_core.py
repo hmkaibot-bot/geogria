@@ -87,7 +87,7 @@ PRACTICAL = [
  ("道路 2025–26","Rikoti 高速（第比利斯–Kutaisi）2025年12月全線通車，51 條隧道 — 比舊資料快"),
  ("騎行","日落 18:30 前埋站 · 牛／羊群隨時封路 · 盲彎有車爬頭 · 唔好夜騎"),
  ("酒駕","格魯吉亞 0.03%（≈一杯已中），罰 700 GEL 起 → 品酒只安排喺過夜點"),
- ("🚕 叫車 app","**第比利斯／Kutaisi**：Bolt（最多車）+ Yandex Go · **Gori／Telavi**：Bolt 有但車少 · **Kazbegi**：Bolt 名單有但實際極少，用廣場（Kazbegi 像對面停車場）／巴士站的士或叫酒店約司機，鎮內 15–25 GEL · **Mestia／Ushguli**：冇 app，靠民宿 · **耶烈萬**：GG（本地龍頭）+ Yandex Go（高峰加價）· 全部現金為主，上車前講定價"),
+ ("🚕 叫車 app","**第比利斯／Kutaisi**：Bolt（最多車）+ Yandex Go · **Gori／Telavi**：Bolt 有但車少 · **Kazbegi**：Bolt 名單有但實際極少，用廣場（Kazbegi 像對面停車場）／巴士站的士或叫酒店約司機，鎮內開價 10–12 GEL 可講到 8 · **Mestia／Ushguli**：冇 app，靠民宿 · **耶烈萬**：GG（本地龍頭）+ Yandex Go（高峰加價）· 全部現金為主，上車前講定價"),
 ]
 
 
@@ -95,7 +95,7 @@ PRACTICAL = [
 # tier, name, date, how, price, why
 BOOK_NOW = [
  ("🔴","雙子塔 Skybridge","26/9 六","eticket.petronastwintowers.com.my","RM80–98/人","全程唯一真正會賣完 · 限時入場+每日上限 · 週六最差 · 揀 10:00–12:00"),
- ("✅","Maisi 晚餐","29/9 二 19:30–21:00","📧 reservations@mountaway.com · ☎+995 575 75 73 37","100–150 GEL/人","✅已訂 · 的士去返 Gergeti 村（叫酒店 call）"),
+ ("✅","Maisi 晚餐","29/9 二 19:30–21:00","📧 reservations@mountaway.com · ☎+995 593 06 02 20（TripAdvisor／mountaway.com 核實）","100–150 GEL/人","✅已訂 · 的士去返 Gergeti 村（叫酒店 call）"),
  ("🔴","Toma's Wine Cellar","2/10 五","FB facebook.com/TomasWineCellar · 📧 tomaswinecellar@gmail.com","~50 GEL/人","冇餐牌，按確認人數煮 — 唔訂就冇得食 · ⚠️逢二休"),
  ("✅","Schuchmann 酒浴 Wine SPA","1/10 四 18:00–19:00","wine.spa@schuchmann-wines.com · ☎+995 598 656 306","355 GEL/90分","✅已訂 · 同酒莊講晚餐改 19:30 開"),
  ("🔴","Chreli-Abano 硫磺浴","9/10 五晚","booking.chreli-abano.ge · ☎+995 322 93 00 93","130 GEL/房/鐘","星期五最旺 · 呢個尺寸只得 3 間房 · 訂 17:00 或 18:00"),
