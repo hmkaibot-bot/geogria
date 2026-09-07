@@ -87,14 +87,15 @@ for d in DD.D:
     b = []
     rt = ROUTES.get(d["num"])
     if rt:
-        b.append(R.route_bar(rt, qr_for(d["num"].replace(" ",""), rt.get("maps_url"))))
+        urls = [u.strip() for u in (rt.get("maps_url") or "").split("|") if u.strip()]
+        b.append(R.route_bar(rt, [qr_for(d["num"].replace(" ","") + (f"_{i+1}" if len(urls)>1 else ""), u) for i,u in enumerate(urls)]))
     if d["sched"]:
         ride = {}
         if rt:
             for x in rt.get("timeline", []):
                 if x.get("ride"): ride.setdefault(x["time"], x["ride"])
         if ride:
-            b.append(R.block("⏱ 時間表（含行車距離）", R.tbl(["時間","行程","行車"],
+            b.append(R.block("⏱ 時間表（右欄＝該行之後嘅行車距離）", R.tbl(["時間","行程","之後行車"],
                 [[f'<b>{e(t)}</b>', R.md(w), e(ride.get(t,""))] for t,w in d["sched"]], ["t",None,"ride"])))
         else:
             b.append(R.block("⏱ 時間表", R.tbl(["時間","行程"],

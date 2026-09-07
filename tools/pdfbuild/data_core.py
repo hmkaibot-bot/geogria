@@ -87,6 +87,7 @@ PRACTICAL = [
  ("道路 2025–26","Rikoti 高速（第比利斯–Kutaisi）2025年12月全線通車，51 條隧道 — 比舊資料快"),
  ("騎行","日落 18:30 前埋站 · 牛／羊群隨時封路 · 盲彎有車爬頭 · 唔好夜騎"),
  ("酒駕","格魯吉亞 0.03%（≈一杯已中），罰 700 GEL 起 → 品酒只安排喺過夜點"),
+ ("🚕 叫車 app","**第比利斯／Kutaisi**：Bolt（最多車）+ Yandex Go · **Gori／Telavi**：Bolt 有但車少 · **Kazbegi**：Bolt 名單有但實際極少，用廣場（Kazbegi 像對面停車場）／巴士站的士或叫酒店約司機，鎮內 15–25 GEL · **Mestia／Ushguli**：冇 app，靠民宿 · **耶烈萬**：GG（本地龍頭）+ Yandex Go（高峰加價）· 全部現金為主，上車前講定價"),
 ]
 
 
@@ -99,6 +100,7 @@ BOOK_NOW = [
  ("✅","Schuchmann 酒浴 Wine SPA","1/10 四 18:00–19:00","wine.spa@schuchmann-wines.com · ☎+995 598 656 306","355 GEL/90分","✅已訂 · 同酒莊講晚餐改 19:30 開"),
  ("🔴","Chreli-Abano 硫磺浴","9/10 五晚","booking.chreli-abano.ge · ☎+995 322 93 00 93","130 GEL/房/鐘","星期五最旺 · 呢個尺寸只得 3 間房 · 訂 17:00 或 18:00"),
  ("🔴","ARARAT 白蘭地英文團","8/10 四","araratbrandy.com/en/museum/ · ☎+374 10 51 01 49","4,500 AMD/人","每日淨得一場英文團(~11:30) · 直接訂平一半 · 同 Garni 撞"),
+ ("🔴","🏜 沙漠內海日出團（27/9 日）","27/9 03:45–09:00","Discover Qatar「Sunrise in the Desert」discoverqatar.qa（03:30–09:30，私人，包 Outpost 早餐）· 或 GetYourGuide「Sunrise Desert Safari to Khor Al Adaid」04:00–08:00（24 小時前免費取消）· 365 Adventures 365adventures.me","QAR 320（每人／每車待確認）～ 私人團約 QAR 600–900/車","⚠️訂單要寫明接客點 Souq Al Wakra Hotel（Al Wakrah）同時間 — 官網只寫 Doha 市內接送 · 訂私人 2 人團唔好拼團 · 唔好用 gulf-adventures.com（網站疑被入侵）"),
  ("🔴","Landscapes Hotel 問早餐＋泊車","29–30/9","訂房平台訊息 · ☎ +995 32 247 01 49","—","官網列有早餐但未必包喺房價 · 問兩架電單車泊邊、幾點 check-in"),
  ("🔴","Keti Margiani 訂餐","3–4/10","Booking 訊息 thread","晚餐 25–45 · 早餐 15 GEL","早餐唔包、晚餐要 on request · 仲要叫佢整 4/10 乾糧午餐"),
  ("🔴","Mountain house 訂餐","4–5/10","Agoda 訊息 thread","晚餐 30–50 GEL 現金","冇早餐冇 half-board · 5/10 朝要過 Zagari"),
@@ -112,6 +114,7 @@ BOOK_LATER = [
  ("✅","Palaty","2/10 五 19:30 Kutaisi","rezto.ge/reservation/palaty","20–60 GEL","✅已訂 · 現場鋼琴 · AUTOGRAPH 行 23 分／Bolt"),
  ("🟡","Craft Wine Restaurant","6/10 Tbilisi","craft-wine-bar-tbilisi.resos.com","70–110 GEL","⚠️星期二只做 18:00–24:00"),
  ("🟡","Li Yen @ Ritz-Carlton","26/9 KL","OpenTable（即時確認）","RM120–200","全 KL 唯一值得訂"),
+ ("🟡","Agra Ushguli 晚餐","4/10 日 Ushguli","Instagram @agraushguli DM（facebook.com/agraushguli）· 冇電話／email","價錢未公開（估 30–50 GEL）","1–2 週前 DM 講明 4/10 星期日 18:30 兩位；3/10 再確認 · 全年開但十月村內隨時閂 · 後備：叫 Mountain house 煮"),
  ("🟡","Cafe Laila","3/10 Mestia","☎+995 577 57 76 77 · FB Messenger","30–50 GEL","✅收信用卡（更正）· 到咗先訂"),
  ("🟡","Lilestan","2 或 5/10 Kutaisi","WhatsApp +995 577 90 15 90","30–50 GEL","英文 OK · 燈串庭院"),
 ]

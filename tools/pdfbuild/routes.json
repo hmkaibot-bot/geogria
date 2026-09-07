@@ -1,0 +1,2140 @@
+[
+ {
+  "day": "DAY 01",
+  "mode": "✈️ 機場接駁／的士",
+  "waypoints": [
+   {
+    "name": "KLIA Terminal 1",
+    "lat": 2.7456,
+    "lng": 101.7099
+   },
+   {
+    "name": "Eaton Residence Unique Home KLCC",
+    "lat": 3.15153,
+    "lng": 101.71996
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=2.74560,101.70990&destination=3.15153,101.71996&travelmode=driving",
+  "segments": [
+   {
+    "from": "KLIA Terminal 1",
+    "to": "Eaton Residence Unique Home KLCC",
+    "km": 57,
+    "mins": 45,
+    "osrm_km": 56.7,
+    "osrm_mins": 60,
+    "note": "Grab RM75–110 · 夜晚冇塞車約 45 分（OSRM 60 分係一般日間估算）· KLIA Ekspres 首班約 05:00 等唔到 · 里數／時間取自 DAY 02 legs「KLIA→市區（夜晚）57 km／45 分」"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "18:30",
+    "ride": ""
+   },
+   {
+    "time": "21:30",
+    "ride": "✈️ 4h00"
+   },
+   {
+    "time": "01:30+1",
+    "ride": "🚕 57 km · 45 分"
+   }
+  ],
+  "total_km": 57,
+  "total_ride_time": "約 0:45 車程（另 ✈️ 4h00）",
+  "caveat": "地面段只有 KLIA T1→Eaton（01:30 落機後 Grab，約 45 分）。"
+ },
+ {
+  "day": "DAY 02",
+  "mode": "🚶/🚕 市內（吉隆坡）",
+  "waypoints": [
+   {
+    "name": "Eaton Residence Unique Home KLCC（出發）",
+    "lat": 3.15153,
+    "lng": 101.71996
+   },
+   {
+    "name": "雙子塔 Skybridge + L86",
+    "lat": 3.15785,
+    "lng": 101.7117
+   },
+   {
+    "name": "Eaton Residence Unique Home KLCC（退房）",
+    "lat": 3.15153,
+    "lng": 101.71996
+   },
+   {
+    "name": "KL Sentral（Dr. Locker 寄存行李）",
+    "lat": 3.1344,
+    "lng": 101.6865
+   },
+   {
+    "name": "伊斯蘭藝術博物館 IAMM",
+    "lat": 3.142,
+    "lng": 101.6889
+   },
+   {
+    "name": "唐人街／中央市場（茨廠街）",
+    "lat": 3.1444,
+    "lng": 101.698
+   },
+   {
+    "name": "KL Sentral（取行李 · KLIA Ekspres）",
+    "lat": 3.1344,
+    "lng": 101.6865
+   },
+   {
+    "name": "KLIA Terminal 1",
+    "lat": 2.7456,
+    "lng": 101.7099
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=3.15153,101.71996&destination=2.74560,101.70990&waypoints=3.15785,101.71170%7C3.15153,101.71996%7C3.13440,101.68650%7C3.14200,101.68890%7C3.14440,101.69800%7C3.13440,101.68650&travelmode=driving",
+  "segments": [
+   {
+    "from": "Eaton Residence Unique Home KLCC（出發）",
+    "to": "雙子塔 Skybridge + L86",
+    "km": 1.5,
+    "mins": 20,
+    "osrm_km": 2.2,
+    "osrm_mins": 6,
+    "note": "步行 18–20 分（legs）或 Grab 5 分 · OSRM 為行車路線"
+   },
+   {
+    "from": "雙子塔 Skybridge + L86",
+    "to": "Eaton Residence Unique Home KLCC（退房）",
+    "km": 1.5,
+    "mins": 20,
+    "osrm_km": 3.6,
+    "osrm_mins": 7,
+    "note": "步行返 Eaton 退房（11:00–12:00）· 估算同去程一樣 · OSRM 行車因單程路繞遠"
+   },
+   {
+    "from": "Eaton Residence Unique Home KLCC（退房）",
+    "to": "KL Sentral（Dr. Locker 寄存行李）",
+    "km": 5,
+    "mins": 28,
+    "osrm_km": 6.5,
+    "osrm_mins": 10,
+    "note": "MRT 布城線 Conlay→KL Sentral 25–30 分 RM3–5（Conlay 站離 Eaton 行 5 分鐘）· legs 無里數，5 km 係估算 · OSRM 為行車"
+   },
+   {
+    "from": "KL Sentral（Dr. Locker 寄存行李）",
+    "to": "伊斯蘭藝術博物館 IAMM",
+    "km": 1.2,
+    "mins": 15,
+    "osrm_km": 3.2,
+    "osrm_mins": 6,
+    "note": "步行約 15 分（或 Grab 5 分）· legs 無此段，估算 · OSRM 為行車"
+   },
+   {
+    "from": "伊斯蘭藝術博物館 IAMM",
+    "to": "唐人街／中央市場（茨廠街）",
+    "km": 1.2,
+    "mins": 15,
+    "osrm_km": 2.2,
+    "osrm_mins": 6,
+    "note": "步行約 15 分（經國家清真寺一帶）· legs 無此段，估算 · OSRM 為行車"
+   },
+   {
+    "from": "唐人街／中央市場（茨廠街）",
+    "to": "KL Sentral（取行李 · KLIA Ekspres）",
+    "km": 1.5,
+    "mins": 18,
+    "osrm_km": 3.3,
+    "osrm_mins": 6,
+    "note": "步行 18–20 分或 LRT Pasar Seni→KL Sentral 1 站 · 取 Dr. Locker 行李 · 估算 · OSRM 為行車"
+   },
+   {
+    "from": "KL Sentral（取行李 · KLIA Ekspres）",
+    "to": "KLIA Terminal 1",
+    "km": 57,
+    "mins": 28,
+    "osrm_km": 64.4,
+    "osrm_mins": 62,
+    "note": "KLIA Ekspres RM55（網上 RM49.50）28 分（legs）· OSRM 64 km／62 分係公路行車，只供參考"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "01:30",
+    "ride": ""
+   },
+   {
+    "time": "02:15",
+    "ride": "🚕 57 km · 45 分"
+   },
+   {
+    "time": "03:00",
+    "ride": ""
+   },
+   {
+    "time": "09:30",
+    "ride": ""
+   },
+   {
+    "time": "11:00",
+    "ride": "🚶 1.5 km · 18–20 分"
+   },
+   {
+    "time": "12:00",
+    "ride": "🚶 1.5 km · 20 分（雙子塔行返 Eaton）"
+   },
+   {
+    "time": "12:30",
+    "ride": "🚇 MRT 5 km · 25–30 分"
+   },
+   {
+    "time": "13:30",
+    "ride": ""
+   },
+   {
+    "time": "14:30",
+    "ride": "🚶 1.2 km · 15 分"
+   },
+   {
+    "time": "16:30",
+    "ride": "🚶 1.2 km · 15 分"
+   },
+   {
+    "time": "17:15",
+    "ride": ""
+   },
+   {
+    "time": "18:15",
+    "ride": "🚶 1.5 km · 18 分 + 🚆 KLIA Ekspres 28 分"
+   },
+   {
+    "time": "18:50",
+    "ride": ""
+   },
+   {
+    "time": "21:50",
+    "ride": "✈️ 7h05"
+   }
+  ],
+  "total_km": 68.9,
+  "total_ride_time": "約 2:25（步行＋MRT＋KLIA Ekspres）",
+  "caveat": "市內以步行＋MRT 為主，連結用車路只作參考；先去 KL Sentral 寄存行李。"
+ },
+ {
+  "day": "DAY 03",
+  "mode": "🏜 4x4 日出團 + 🚕 市內（多哈）",
+  "waypoints": [
+   {
+    "name": "Souq Al Wakra Hotel",
+    "lat": 25.17381,
+    "lng": 51.61045
+   },
+   {
+    "name": "Sealine 沙漠入口",
+    "lat": 24.913,
+    "lng": 51.545
+   },
+   {
+    "name": "Souq Al Wakra Hotel（沖涼）",
+    "lat": 25.17381,
+    "lng": 51.61045
+   },
+   {
+    "name": "NMoQ · Jiwan",
+    "lat": 25.2867,
+    "lng": 51.5514
+   },
+   {
+    "name": "MIA",
+    "lat": 25.2952,
+    "lng": 51.5397
+   },
+   {
+    "name": "Souq Waqif",
+    "lat": 25.287,
+    "lng": 51.5333
+   },
+   {
+    "name": "Souq Al Wakra Hotel",
+    "lat": 25.17381,
+    "lng": 51.61045
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=25.17381,51.61045&destination=25.17381,51.61045&waypoints=24.91300,51.54500%7C25.17381,51.61045%7C25.28670,51.55140%7C25.29520,51.53970%7C25.28700,51.53330&travelmode=driving",
+  "segments": [
+   {
+    "from": "酒店",
+    "to": "Sealine",
+    "km": 45,
+    "mins": 40,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "4x4 團車；內海段越野 40–60 分"
+   },
+   {
+    "from": "Sealine",
+    "to": "酒店",
+    "km": 45,
+    "mins": 40,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": ""
+   },
+   {
+    "from": "酒店",
+    "to": "NMoQ",
+    "km": 16,
+    "mins": 20,
+    "osrm_km": 16.0,
+    "osrm_mins": 17,
+    "note": "的士 QAR 40–60"
+   },
+   {
+    "from": "NMoQ",
+    "to": "MIA",
+    "km": 1.7,
+    "mins": 5,
+    "osrm_km": 1.7,
+    "osrm_mins": 5,
+    "note": ""
+   },
+   {
+    "from": "MIA",
+    "to": "Souq Waqif",
+    "km": 1.5,
+    "mins": 5,
+    "osrm_km": 1.5,
+    "osrm_mins": 5,
+    "note": "或行 15 分"
+   },
+   {
+    "from": "Souq Waqif",
+    "to": "酒店",
+    "km": 18,
+    "mins": 25,
+    "osrm_km": 17.0,
+    "osrm_mins": 20,
+    "note": "夜晚的士"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "00:30",
+    "ride": ""
+   },
+   {
+    "time": "03:45",
+    "ride": "🚙 45 km · 0:40"
+   },
+   {
+    "time": "04:30",
+    "ride": "🏜 越野 40–60 分"
+   },
+   {
+    "time": "05:30",
+    "ride": ""
+   },
+   {
+    "time": "08:15",
+    "ride": "🚙 45 km · 0:40"
+   },
+   {
+    "time": "11:15",
+    "ride": "🚕 16 km · 20 分"
+   },
+   {
+    "time": "12:00",
+    "ride": ""
+   },
+   {
+    "time": "13:00",
+    "ride": ""
+   },
+   {
+    "time": "14:30",
+    "ride": "🚕 1.7 km · 5 分"
+   },
+   {
+    "time": "16:00",
+    "ride": ""
+   },
+   {
+    "time": "17:30",
+    "ride": "🚶 1.5 km · 15 分"
+   },
+   {
+    "time": "18:30",
+    "ride": ""
+   },
+   {
+    "time": "19:30",
+    "ride": "🚕 18 km · 25 分"
+   }
+  ],
+  "total_km": 127,
+  "total_ride_time": "約 2:15 車程（含沙漠團來回）",
+  "caveat": "沙漠內海本身冇路，Google 只畫到 Sealine；內海段由團車越野。酒店→市區實際約 16 km／20 分。"
+ },
+ {
+  "day": "DAY 04",
+  "mode": "✈️ 機場接駁／的士",
+  "waypoints": [
+   {
+    "name": "Souq Al Wakra Hotel By Tivoli（出發）",
+    "lat": 25.17381,
+    "lng": 51.61045
+   },
+   {
+    "name": "Msheireb 博物館",
+    "lat": 25.287,
+    "lng": 51.525
+   },
+   {
+    "name": "Souq Al Wakra Hotel By Tivoli（執嘢 · 退房）",
+    "lat": 25.17381,
+    "lng": 51.61045
+   },
+   {
+    "name": "Hamad International Airport (DOH)",
+    "lat": 25.2609,
+    "lng": 51.6138
+   },
+   {
+    "name": "Tbilisi Airport (TBS)",
+    "lat": 41.6692,
+    "lng": 44.9547
+   },
+   {
+    "name": "Pura Vida Boutique Hotel（Camp Hotel Pura Vida · Digomi）",
+    "lat": 41.78,
+    "lng": 44.74
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=25.17381,51.61045&destination=25.26090,51.61380&waypoints=25.28700,51.52500%7C25.17381,51.61045&travelmode=driving | https://www.google.com/maps/dir/?api=1&origin=41.66920,44.95470&destination=41.78000,44.74000&travelmode=driving",
+  "segments": [
+   {
+    "from": "Souq Al Wakra Hotel By Tivoli（出發）",
+    "to": "Msheireb 博物館",
+    "km": 24,
+    "mins": 30,
+    "osrm_km": 16.3,
+    "osrm_mins": 17,
+    "note": "的士／Uber 25–35 分（DAY 03 legs 23–25 km；Msheireb 同 Souq Waqif 相鄰）· OSRM 約 16 km／17 分 · 若 09:00 改行 Al Wakra 老市集（酒店隔籬）則免此段同下一段（慳約 48 km／1 小時）"
+   },
+   {
+    "from": "Msheireb 博物館",
+    "to": "Souq Al Wakra Hotel By Tivoli（執嘢 · 退房）",
+    "km": 24,
+    "mins": 30,
+    "osrm_km": 16.7,
+    "osrm_mins": 18,
+    "note": "11:45 返酒店執嘢 → 12:00 退房 · 同上估算"
+   },
+   {
+    "from": "Souq Al Wakra Hotel By Tivoli（執嘢 · 退房）",
+    "to": "Hamad International Airport (DOH)",
+    "km": 15,
+    "mins": 20,
+    "osrm_km": 13.5,
+    "osrm_mins": 15,
+    "note": "的士 QAR 40–60（legs ~15 km／~20 分）· ⚠️ Qatar 14:30 閂櫃，12:15 準時走"
+   },
+   {
+    "from": "Hamad International Airport (DOH)",
+    "to": "Tbilisi Airport (TBS)",
+    "km": 0,
+    "mins": 220,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "✈️ QR253 15:30→20:10（多哈 UTC+3 → 第比利斯 UTC+4，實飛約 3h40）· 直線約 1,920 km，唔計入 total_km · 航段冇道路，OSRM 不適用（-1）"
+   },
+   {
+    "from": "Tbilisi Airport (TBS)",
+    "to": "Pura Vida Boutique Hotel（Camp Hotel Pura Vida · Digomi）",
+    "km": 20,
+    "mins": 35,
+    "osrm_km": 30.1,
+    "osrm_mins": 40,
+    "note": "Bolt 25–35 GEL 30–40 分（legs ~20 km）· OSRM 由機場（東南）到 Digomi（西北）約 30 km／40 分，legs 里數可能偏低 · Pura Vida 座標 41.78,44.74 係約數（Booking「Camp Hotel Pura Vida」，Bolt 搜呢個名）"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🚕 24 km · 30 分"
+   },
+   {
+    "time": "11:45",
+    "ride": "🚕 24 km · 30 分（返酒店）"
+   },
+   {
+    "time": "12:00",
+    "ride": ""
+   },
+   {
+    "time": "12:15",
+    "ride": "🚕 15 km · 20 分"
+   },
+   {
+    "time": "12:45",
+    "ride": ""
+   },
+   {
+    "time": "15:30",
+    "ride": "✈️ 3h40"
+   },
+   {
+    "time": "20:10",
+    "ride": ""
+   },
+   {
+    "time": "21:00",
+    "ride": "🚕 Bolt 20 km · 30–40 分"
+   },
+   {
+    "time": "21:45",
+    "ride": ""
+   }
+  ],
+  "total_km": 83,
+  "total_ride_time": "約 1:55 車程（另 ✈️ 3h40）",
+  "caveat": "兩條連結：① 多哈段（酒店→Msheireb→機場）② 第比利斯段（機場→Pura Vida 約 30 km／40 分）。"
+ },
+ {
+  "day": "DAY 05",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Pura Vida / Camp Hotel（SLAVATOUR 基地，Digomi）",
+    "lat": 41.78,
+    "lng": 44.74
+   },
+   {
+    "name": "Jvari 修道院",
+    "lat": 41.8383,
+    "lng": 44.7328
+   },
+   {
+    "name": "Svetitskhoveli 大教堂（Mtskheta）",
+    "lat": 41.8419,
+    "lng": 44.7206
+   },
+   {
+    "name": "Ananuri 城堡",
+    "lat": 42.1631,
+    "lng": 44.7028
+   },
+   {
+    "name": "Pasanauri · Korbuda 午餐",
+    "lat": 42.3489,
+    "lng": 44.6822
+   },
+   {
+    "name": "Gudauri 入油",
+    "lat": 42.4783,
+    "lng": 44.4783
+   },
+   {
+    "name": "俄格友誼紀念碑（Jvari 山口前）",
+    "lat": 42.4906,
+    "lng": 44.4531
+   },
+   {
+    "name": "Landscapes Hotel Kazbegi（check-in）",
+    "lat": 42.65506,
+    "lng": 44.64829
+   },
+   {
+    "name": "Gergeti 聖三一教堂",
+    "lat": 42.6625,
+    "lng": 44.6203
+   },
+   {
+    "name": "Landscapes Hotel Kazbegi",
+    "lat": 42.65506,
+    "lng": 44.64829
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=41.78000,44.74000&destination=42.65506,44.64829&waypoints=41.83830,44.73280%7C41.84190,44.72060%7C42.16310,44.70280%7C42.34890,44.68220%7C42.47830,44.47830%7C42.49060,44.45310%7C42.65506,44.64829%7C42.66250,44.62030&travelmode=driving",
+  "segments": [
+   {
+    "from": "Pura Vida（Digomi）",
+    "to": "Jvari 修道院",
+    "km": 18,
+    "mins": 25,
+    "osrm_km": 15.6,
+    "osrm_mins": 21,
+    "note": "legs 值係 Pura Vida→Mtskheta 18 km · 0:25；Jvari 喺 Mtskheta 路口對面山頂，OSRM 15.6 km 吻合。"
+   },
+   {
+    "from": "Jvari 修道院",
+    "to": "Svetitskhoveli 大教堂",
+    "km": 10,
+    "mins": 15,
+    "osrm_km": 12.4,
+    "osrm_mins": 16,
+    "note": "估算（legs 無此段）：落山、過橋入 Mtskheta 舊城；OSRM 12.4 km（25% 內）。"
+   },
+   {
+    "from": "Svetitskhoveli（Mtskheta）",
+    "to": "Ananuri 城堡",
+    "km": 40,
+    "mins": 45,
+    "osrm_km": 46.0,
+    "osrm_mins": 53,
+    "note": "legs 40 km · 0:45；軍事公路；OSRM 46 km（15% 內）。"
+   },
+   {
+    "from": "Ananuri 城堡",
+    "to": "Pasanauri（Korbuda）",
+    "km": 24,
+    "mins": 30,
+    "osrm_km": 24.3,
+    "osrm_mins": 29,
+    "note": "估算：legs 只有 Ananuri→Gudauri 30 km · 0:40 一段，明顯偏低——OSRM Ananuri→Pasanauri→Gudauri 共 58 km。信 OSRM（Ananuri 喺公路 km 65、Gudauri km 120 左右）。"
+   },
+   {
+    "from": "Pasanauri（Korbuda）",
+    "to": "Gudauri 入油",
+    "km": 34,
+    "mins": 40,
+    "osrm_km": 34.1,
+    "osrm_mins": 33,
+    "note": "估算，同上：legs Ananuri→Gudauri 30 km 實際約 58 km；爬升段。"
+   },
+   {
+    "from": "Gudauri 入油",
+    "to": "俄格友誼紀念碑",
+    "km": 5,
+    "mins": 10,
+    "osrm_km": 5.1,
+    "osrm_mins": 11,
+    "note": "估算；油站 pin 喺度假村內，紀念碑喺上山口方向路邊觀景台。"
+   },
+   {
+    "from": "俄格友誼紀念碑",
+    "to": "Landscapes Hotel（Stepantsminda）",
+    "km": 30,
+    "mins": 45,
+    "osrm_km": 28.9,
+    "osrm_mins": 29,
+    "note": "legs Gudauri→Stepantsminda 30 km · 0:45；經 Jvari 山口 2,379m + 雪崩廊道（開大燈、除太陽眼鏡）。OSRM 29 分偏樂觀，信 legs 0:45。"
+   },
+   {
+    "from": "Landscapes Hotel",
+    "to": "Gergeti 聖三一教堂",
+    "km": 6,
+    "mins": 20,
+    "osrm_km": 6.9,
+    "osrm_mins": 15,
+    "note": "legs 6 km · 0:20；鋪裝髮夾彎上山，黃昏金光。"
+   },
+   {
+    "from": "Gergeti 聖三一教堂",
+    "to": "Landscapes Hotel",
+    "km": 6,
+    "mins": 15,
+    "osrm_km": 7.2,
+    "osrm_mins": 13,
+    "note": "估算（落山返酒店，legs 無此段）；OSRM 7.2 km。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:45",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": ""
+   },
+   {
+    "time": "09:45",
+    "ride": "🏍 18 km · 0:25"
+   },
+   {
+    "time": "10:15",
+    "ride": "🏍 ~10 km · 0:15"
+   },
+   {
+    "time": "10:50",
+    "ride": ""
+   },
+   {
+    "time": "11:45",
+    "ride": "🏍 40 km · 0:45"
+   },
+   {
+    "time": "12:15",
+    "ride": "🏍 24 km · 0:30"
+   },
+   {
+    "time": "13:15",
+    "ride": "🏍 34 km · 0:40"
+   },
+   {
+    "time": "14:30",
+    "ride": "🏍 ~5 km · 0:10"
+   },
+   {
+    "time": "15:15",
+    "ride": "🏍 30 km · 0:45"
+   },
+   {
+    "time": "16:00",
+    "ride": ""
+   },
+   {
+    "time": "16:45",
+    "ride": "🏍 12 km · 0:35（上落 Gergeti）"
+   },
+   {
+    "time": "19:15",
+    "ride": "🚕 2 km · 5 分"
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   },
+   {
+    "time": "21:00",
+    "ride": "🚕 2 km · 5 分"
+   }
+  ],
+  "total_km": 173,
+  "total_ride_time": "約 4:05 純騎行",
+  "caveat": "Ananuri→Gudauri 實際約 58 km（經 Pasanauri），行車段已修正；全日約 173 km。"
+ },
+ {
+  "day": "DAY 06",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Landscapes Hotel Kazbegi",
+    "lat": 42.65506,
+    "lng": 44.64829
+   },
+   {
+    "name": "Gergeti 聖三一教堂（黎明）",
+    "lat": 42.6625,
+    "lng": 44.6203
+   },
+   {
+    "name": "Truso 山谷盡頭 · Zakagori 要塞",
+    "lat": 42.61163,
+    "lng": 44.37398
+   },
+   {
+    "name": "Dariali 峽谷 · Gveleti 瀑布",
+    "lat": 42.735,
+    "lng": 44.626
+   },
+   {
+    "name": "Landscapes Hotel Kazbegi",
+    "lat": 42.65506,
+    "lng": 44.64829
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=42.65506,44.64829&destination=42.65506,44.64829&waypoints=42.66250,44.62030%7C42.61163,44.37398%7C42.73500,44.62600&travelmode=driving",
+  "segments": [
+   {
+    "from": "Landscapes Hotel",
+    "to": "Gergeti 聖三一教堂",
+    "km": 6,
+    "mins": 20,
+    "osrm_km": 6.9,
+    "osrm_mins": 15,
+    "note": "legs（DAY 05 表）6 km · 0:20；07:30 黎明版，落返嚟食早餐。"
+   },
+   {
+    "from": "Gergeti 聖三一教堂",
+    "to": "Truso 山谷盡頭（Zakagori）",
+    "km": 41,
+    "mins": 90,
+    "osrm_km": 24.5,
+    "osrm_mins": 27,
+    "note": "估算：落山 6 km + 鎮→Kobi/Almasiani 轉入口 10 km（legs 0:15）+ 碎石 25 km 單程（legs 註，約 1:00）。⚠️OSRM 路網完全冇 Truso 碎石路：終點被吸附到谷口 Almasiani（偏離 11.8 km；用 Ketrisi 試過一樣），24.5 km 只係 Gergeti→谷口嘅鋪裝段，碎石段冇計——信估算。另 OSRM 顯示鎮→谷口約 17 km 而非 legs 嘅 10 km，但實際碎石段大概 18–20 km 而非 25 km，兩者大致抵銷。"
+   },
+   {
+    "from": "Truso 山谷盡頭（Zakagori）",
+    "to": "Dariali 峽谷",
+    "km": 47,
+    "mins": 95,
+    "osrm_km": 29.3,
+    "osrm_mins": 28,
+    "note": "估算：碎石 25 km 折返（~1:00）+ 谷口→鎮 10 km（0:15）+ 鎮→Dariali 12 km（legs 0:20）；中途返鎮午餐時間唔計。OSRM 同樣只由谷口 Almasiani 起計，碎石段冇計。Dariali 段近俄邊境有貨車龍。"
+   },
+   {
+    "from": "Dariali 峽谷",
+    "to": "Landscapes Hotel",
+    "km": 12,
+    "mins": 20,
+    "osrm_km": 12.0,
+    "osrm_mins": 12,
+    "note": "legs 12 km · 0:20；鋪裝，OSRM 12.0 km 完全吻合。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "07:30",
+    "ride": "🏍 12 km · 0:35（上落 Gergeti）"
+   },
+   {
+    "time": "09:00",
+    "ride": ""
+   },
+   {
+    "time": "10:00",
+    "ride": "🏍 ~70 km 來回 · 2:30（10 km 鋪裝＋25 km 碎石 單程）"
+   },
+   {
+    "time": "14:00",
+    "ride": ""
+   },
+   {
+    "time": "15:00",
+    "ride": "🏍 24 km 來回 · 0:40"
+   },
+   {
+    "time": "17:00",
+    "ride": ""
+   },
+   {
+    "time": "19:00",
+    "ride": "🚶 6–12 分"
+   }
+  ],
+  "total_km": 106,
+  "total_ride_time": "約 3:45 純騎行",
+  "caveat": "Truso 碎石段 Google 未必畫到尾：去到 Kobi 轉入口後跟唯一嗰條路入谷；帶實體護照。"
+ },
+ {
+  "day": "DAY 07",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Landscapes Hotel Kazbegi",
+    "lat": 42.65506,
+    "lng": 44.64829
+   },
+   {
+    "name": "第比利斯外環（Gldani 段，唔入城）",
+    "lat": 41.80208,
+    "lng": 44.87401
+   },
+   {
+    "name": "Vaziani（Gombori 公路起點）",
+    "lat": 41.68605,
+    "lng": 45.04916
+   },
+   {
+    "name": "Gombori 山口 1,620m",
+    "lat": 41.8643,
+    "lng": 45.2793
+   },
+   {
+    "name": "Schuchmann Wines Chateau（Kisiskhevi）",
+    "lat": 41.87,
+    "lng": 45.52
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=42.65506,44.64829&destination=41.87000,45.52000&waypoints=41.80208,44.87401%7C41.68605,45.04916%7C41.86430,45.27930&travelmode=driving",
+  "segments": [
+   {
+    "from": "Landscapes Hotel（Stepantsminda）",
+    "to": "第比利斯外環（Gldani 段）",
+    "km": 155,
+    "mins": 165,
+    "osrm_km": 146.8,
+    "osrm_mins": 146,
+    "note": "legs 155 km · 2:45；落軍事公路（Jvari 山口→Gudauri→Ananuri→Natakhtari）再上外環，唔入城。外環座標取自 OSM「თბილისის შემოსავლელი გზა」Gldani 北面主幹段（OSRM 吸附 0 m）。OSRM 146.8 km 吻合。"
+   },
+   {
+    "from": "第比利斯外環（Gldani 段）",
+    "to": "Vaziani",
+    "km": 26,
+    "mins": 30,
+    "osrm_km": 26.1,
+    "osrm_mins": 26,
+    "note": "估算；外環東段落到 Kakheti 公路 Vaziani，即「ვაზიანი–გომბორი–თელავი」（Vaziani–Gombori–Telavi）公路起點。"
+   },
+   {
+    "from": "Vaziani",
+    "to": "Gombori 山口",
+    "km": 49,
+    "mins": 50,
+    "osrm_km": 49.1,
+    "osrm_mins": 52,
+    "note": "估算；經 Ujarma 上森林連續髮夾彎。legs「外環→Gombori ~60 km · 1:15」= 本段 + 上段 ≈ 75 km（OSRM），legs 略低但 25% 內。山口座標用 OSM 41.8643,45.2793（days.json 嘅 41.80,45.25 同指示嘅 41.95,45.28 都唔喺山口上）。"
+   },
+   {
+    "from": "Gombori 山口",
+    "to": "Schuchmann Wines Chateau",
+    "km": 40,
+    "mins": 45,
+    "osrm_km": 38.4,
+    "osrm_mins": 81,
+    "note": "legs ~40 km · 0:45；落 Alazani 谷經 Telavi 南面到 Kisiskhevi。OSRM 81 分係佢對山路嘅保守估算（距離 38.4 km 吻合），電單車 45–60 分合理，信 legs。rtveli 季有運葡萄拖拉機。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🏍 155 km · 2:45"
+   },
+   {
+    "time": "11:30",
+    "ride": "🏍 ~60 km · 1:15"
+   },
+   {
+    "time": "12:30",
+    "ride": "🏍 ~40 km · 0:45"
+   },
+   {
+    "time": "14:00",
+    "ride": ""
+   },
+   {
+    "time": "15:00",
+    "ride": ""
+   },
+   {
+    "time": "16:30",
+    "ride": ""
+   },
+   {
+    "time": "18:00",
+    "ride": ""
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   }
+  ],
+  "total_km": 270,
+  "total_ride_time": "約 4:50 純騎行",
+  "caveat": "連結已加外環同 Vaziani 過路點，確保行外環唔穿市區；全日約 270 km。"
+ },
+ {
+  "day": "DAY 08",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Schuchmann Wines Chateau（Kisiskhevi）",
+    "lat": 41.87,
+    "lng": 45.52
+   },
+   {
+    "name": "Gombori 山口 1,620m",
+    "lat": 41.8643,
+    "lng": 45.2793
+   },
+   {
+    "name": "Vaziani",
+    "lat": 41.68605,
+    "lng": 45.04916
+   },
+   {
+    "name": "第比利斯外環（Gldani 段，唔入城）",
+    "lat": 41.80208,
+    "lng": 44.87401
+   },
+   {
+    "name": "Gori 史太林博物館",
+    "lat": 41.9847,
+    "lng": 44.1156
+   },
+   {
+    "name": "Uplistsikhe 石窟城",
+    "lat": 41.9661,
+    "lng": 44.2078
+   },
+   {
+    "name": "AUTOGRAPH Kutaisi（110a Gelati St）",
+    "lat": 42.283,
+    "lng": 42.725
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=41.87000,45.52000&destination=42.28300,42.72500&waypoints=41.86430,45.27930%7C41.68605,45.04916%7C41.80208,44.87401%7C41.98470,44.11560%7C41.96610,44.20780&travelmode=driving",
+  "segments": [
+   {
+    "from": "Schuchmann Wines Chateau",
+    "to": "Gombori 山口",
+    "km": 38,
+    "mins": 50,
+    "osrm_km": 38.4,
+    "osrm_mins": 81,
+    "note": "估算（legs 只有 Kisiskhevi→Gori 160 km · 2:30 一整段）；再過一次 Gombori 森林彎路。OSRM 81 分係山路保守值，距離吻合。"
+   },
+   {
+    "from": "Gombori 山口",
+    "to": "Vaziani",
+    "km": 50,
+    "mins": 55,
+    "osrm_km": 49.9,
+    "osrm_mins": 54,
+    "note": "估算；落 Ujarma 到 Kakheti 公路。"
+   },
+   {
+    "from": "Vaziani",
+    "to": "第比利斯外環（Gldani 段）",
+    "km": 26,
+    "mins": 30,
+    "osrm_km": 25.9,
+    "osrm_mins": 26,
+    "note": "估算；上外環東段，唔入城。"
+   },
+   {
+    "from": "第比利斯外環（Gldani 段）",
+    "to": "Gori 史太林博物館",
+    "km": 78,
+    "mins": 65,
+    "osrm_km": 78.0,
+    "osrm_mins": 63,
+    "note": "估算；外環西段 → Mtskheta 交匯 → E60 西行。⚠️legs Kisiskhevi→Gori「160 km · 2:30」對比 OSRM 192 km · 3:45（本表估算 3:20），legs 偏低約 20%——信 OSRM，08:45 出發最快 12:00 先到 Gori。"
+   },
+   {
+    "from": "Gori 史太林博物館",
+    "to": "Uplistsikhe 石窟城",
+    "km": 12,
+    "mins": 20,
+    "osrm_km": 10.3,
+    "osrm_mins": 57,
+    "note": "legs 12 km · 0:20；Uplistsikhe 喺 Gori 東面，要折返少少。OSRM 57 分明顯錯（行咗慢速小路），信 legs。"
+   },
+   {
+    "from": "Uplistsikhe 石窟城",
+    "to": "AUTOGRAPH Kutaisi",
+    "km": 160,
+    "mins": 150,
+    "osrm_km": 152.1,
+    "osrm_mins": 175,
+    "note": "legs 160 km · 2:30；返 E60 經新 Rikoti 隧道群，⚠️區間測速。OSRM 152 km 吻合。AUTOGRAPH 座標用 days.json 嘅「約 42.2830,42.7250」（OSRM 吸附到 135 m 外嘅街道）；指示提供嘅 42.2745,42.7174 相差約 1 km，同屬 Gelati St 一帶。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "07:45",
+    "ride": ""
+   },
+   {
+    "time": "08:30",
+    "ride": "🏍 190 km · 3:15"
+   },
+   {
+    "time": "11:45",
+    "ride": ""
+   },
+   {
+    "time": "12:45",
+    "ride": "🏍 12 km · 0:20"
+   },
+   {
+    "time": "13:30",
+    "ride": ""
+   },
+   {
+    "time": "15:15",
+    "ride": "🏍 160 km · 2:30"
+   },
+   {
+    "time": "17:30",
+    "ride": ""
+   },
+   {
+    "time": "18:00",
+    "ride": "🏍 ~2 km · 0:05（或 🚕／🚶 25 分）"
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   }
+  ],
+  "total_km": 364,
+  "total_ride_time": "約 6:10 純騎行",
+  "caveat": "Kisiskhevi→Gori 實際約 190 km／3:15（舊估偏低）— 出發已提早到 08:30，Palaty 19:30 唔受影響。"
+ },
+ {
+  "day": "DAY 09",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "AUTOGRAPH Kutaisi",
+    "lat": 42.2745,
+    "lng": 42.7174
+   },
+   {
+    "name": "Gelati 修道院",
+    "lat": 42.2953,
+    "lng": 42.7683
+   },
+   {
+    "name": "Motsameta 修道院",
+    "lat": 42.28194,
+    "lng": 42.75917
+   },
+   {
+    "name": "Zugdidi（午餐＋入滿油）",
+    "lat": 42.5088,
+    "lng": 41.8709
+   },
+   {
+    "name": "恩古里水壩觀景",
+    "lat": 42.7628,
+    "lng": 42.0281
+   },
+   {
+    "name": "Guest House Keti Margiani（Mestia）",
+    "lat": 43.04831,
+    "lng": 42.73045
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=42.27450,42.71740&destination=43.04831,42.73045&waypoints=42.29530,42.76830%7C42.28194,42.75917%7C42.50880,41.87090%7C42.76280,42.02810&travelmode=driving",
+  "segments": [
+   {
+    "from": "AUTOGRAPH Kutaisi",
+    "to": "Gelati 修道院",
+    "km": 11,
+    "mins": 20,
+    "osrm_km": 6.7,
+    "osrm_mins": 10,
+    "note": "legs 表 11 km/0:20 係由 Kutaisi 市中心計；酒店本身已喺 Gelati Street，OSRM 由酒店起計 6.7 km/10 分（差 >25%）— 距離信 OSRM（~7 km），時間保留 0:20（山路＋泊車）。酒店座標用任務提供嘅 42.27450,42.71740；days.json 記「約 42.2830, 42.7250」（相差 ~1 km，兩者都喺 Gelati St）。"
+   },
+   {
+    "from": "Gelati 修道院",
+    "to": "Motsameta 修道院",
+    "km": 6,
+    "mins": 15,
+    "osrm_km": 5.9,
+    "osrm_mins": 9,
+    "note": "估算（sched 10:00 離開 Gelati → 10:15 到）。⚠️ Motsameta 座標已改用 Wikipedia 42.28194,42.75917：days.json/任務嘅 42.2903,42.7847 落喺路網外 ~2.2 km，OSRM 要 snap 921 m 而且算出假嘅 20.9 km；修正後 snap 到「მოწამეთას მონასტრის გზა（Motsameta 修道院路）」，5.9 km/9 分，同 sched 吻合。"
+   },
+   {
+    "from": "Motsameta 修道院",
+    "to": "Zugdidi（午餐＋入滿油）",
+    "km": 105,
+    "mins": 100,
+    "osrm_km": 119.9,
+    "osrm_mins": 120,
+    "note": "legs Kutaisi→Zugdidi 100 km/1:30 ＋ 由 Motsameta 返 Kutaisi ~5 km。OSRM 119.9 km/2:00（多 13%，行 Samtredia–Senaki 主幹）— 兩者都可信，預 1:45–2:00，Zugdidi 午餐可能滑到 ~12:45。"
+   },
+   {
+    "from": "Zugdidi（午餐＋入滿油）",
+    "to": "恩古里水壩觀景",
+    "km": 40,
+    "mins": 45,
+    "osrm_km": 45.9,
+    "osrm_mins": 96,
+    "note": "legs Zugdidi→Mestia 130 km/3:00–3:30 拆開嘅前段。OSRM 45.9 km（多 15%）合理；OSRM 96 分係佢對山路嘅減速懲罰，實際 ~45–50 分。水壩觀景 pin 唔喺路網上（snap 824 m），路邊即停。"
+   },
+   {
+    "from": "恩古里水壩觀景",
+    "to": "Guest House Keti Margiani（Mestia）",
+    "km": 90,
+    "mins": 135,
+    "osrm_km": 119.5,
+    "osrm_mins": 258,
+    "note": "差 >25%：OSRM 經呢個 pin 會多走 ~20 km（Zugdidi→Mestia 直接查係 144 km/3:59，經水壩 pin 變 165 km）。信 legs：Zugdidi–Mestia 公路實際 ~130–136 km → 呢段 ~90 km。2:15 係實際（sched 16:30 到 Mestia 只預咗 1:45，較大機會 ~17:00 到，仍早過 18:46 日落）。OSRM 258 分係恩古里峽谷減速懲罰，唔使信。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🏍 11 km · 0:20"
+   },
+   {
+    "time": "10:15",
+    "ride": "🏍 6 km · 0:15"
+   },
+   {
+    "time": "11:00",
+    "ride": "🏍 105 km · 1:40"
+   },
+   {
+    "time": "12:30",
+    "ride": ""
+   },
+   {
+    "time": "13:45",
+    "ride": "🏍 40 km · 0:45"
+   },
+   {
+    "time": "14:30",
+    "ride": "🏍 90 km · 2:15"
+   },
+   {
+    "time": "16:30",
+    "ride": ""
+   },
+   {
+    "time": "17:00",
+    "ride": "🚶 3 分（同一條街上面）"
+   },
+   {
+    "time": "19:30",
+    "ride": "🚶 ~8 分（落 Seti 廣場）"
+   }
+  ],
+  "total_km": 252,
+  "total_ride_time": "約 5:15 純騎行",
+  "caveat": "Motsameta 座標已修正；Mestia 約 17:00 到（日落 18:46 前）。"
+ },
+ {
+  "day": "DAY 10",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Guest House Keti Margiani（Mestia）",
+    "lat": 43.04831,
+    "lng": 42.73045
+   },
+   {
+    "name": "斯瓦涅季博物館",
+    "lat": 43.043,
+    "lng": 42.729
+   },
+   {
+    "name": "Mestia Socar 油站",
+    "lat": 43.042,
+    "lng": 42.725
+   },
+   {
+    "name": "Ushguli · Mountain house（check-in）",
+    "lat": 42.91517,
+    "lng": 43.01148
+   },
+   {
+    "name": "Shkhara 冰川路盡頭（約）",
+    "lat": 42.93,
+    "lng": 43.04
+   },
+   {
+    "name": "Mountain house（Ushguli）",
+    "lat": 42.91517,
+    "lng": 43.01148
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=43.04831,42.73045&destination=42.91517,43.01148&waypoints=43.04300,42.72900%7C43.04200,42.72500%7C42.91517,43.01148%7C42.93000,43.04000&travelmode=driving",
+  "segments": [
+   {
+    "from": "Guest House Keti Margiani（Mestia）",
+    "to": "斯瓦涅季博物館",
+    "km": 1.1,
+    "mins": 5,
+    "osrm_km": 1.1,
+    "osrm_mins": 3,
+    "note": "鎮內短程（估算＝OSRM）；博物館座標取自 days.json sights（43.0430, 42.7290）。行路都係 ~10 分，騎車方便睇完直落油站。"
+   },
+   {
+    "from": "斯瓦涅季博物館",
+    "to": "Mestia Socar 油站",
+    "km": 0.4,
+    "mins": 2,
+    "osrm_km": 0.4,
+    "osrm_mins": 1,
+    "note": "⛽ Mestia Socar（days.json pins 43.0420,42.7250）— Ushguli／Zagari 全程冇油站，下一個係 DAY 11 嘅 Lentekhi。估算＝OSRM。"
+   },
+   {
+    "from": "Mestia Socar 油站",
+    "to": "Ushguli · Mountain house（check-in）",
+    "km": 46,
+    "mins": 90,
+    "osrm_km": 42.8,
+    "osrm_mins": 80,
+    "note": "legs 45–47 km／1:15–2:00（Agoda 45.3 km/1h15）；OSRM 42.8 km/1:20 一致（差 7%）。2024 鋪裝＋短碎石；入村用行人速度。⚠️ days.json 註明 Mountain house 座標「待確認（有兩間同名）」— 到村口先問。"
+   },
+   {
+    "from": "Ushguli · Mountain house（check-in）",
+    "to": "Shkhara 冰川路盡頭（約）",
+    "km": 7.3,
+    "mins": 30,
+    "osrm_km": 3.1,
+    "osrm_mins": 30,
+    "note": "legs：谷內頭 7.3 km 係 4x4 車路，電單車可騎，0:30。呢個 pin（days.json，「約」）只喺村上游 ~3 km，OSRM 都只識部分車路（3.1 km），實際路盡頭再上約 4 km（~42.95,43.07 一帶）— 信 legs 7.3 km。Google 同 OSRM 都唔會為呢段導航，沿恩古里河源頭向東北望住 Shkhara 冰川壁行就得。"
+   },
+   {
+    "from": "Shkhara 冰川路盡頭（約）",
+    "to": "Mountain house（Ushguli）",
+    "km": 7.3,
+    "mins": 30,
+    "osrm_km": 4.2,
+    "osrm_mins": 43,
+    "note": "原路折返（OSRM 去回程 3.1/4.2 km 唔對稱純粹係 snap 問題）。返村後 Lamaria 教堂／石塔黃昏行路。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "09:00",
+    "ride": ""
+   },
+   {
+    "time": "09:30",
+    "ride": "🏍 1.1 km · 0:05"
+   },
+   {
+    "time": "11:00",
+    "ride": "🏍 0.4 km · 0:02"
+   },
+   {
+    "time": "11:30",
+    "ride": "🏍 46 km · 1:30"
+   },
+   {
+    "time": "13:00",
+    "ride": ""
+   },
+   {
+    "time": "14:00",
+    "ride": "🏍 7.3 km · 0:30"
+   },
+   {
+    "time": "16:30",
+    "ride": "🏍 7.3 km · 0:30（冰川路折返）"
+   },
+   {
+    "time": "19:00",
+    "ride": "🚶 村內步行"
+   }
+  ],
+  "total_km": 62.1,
+  "total_ride_time": "約 2:37 純騎行",
+  "caveat": "總計 62 km 已包 Shkhara 冰川路來回 14.6 km；Mountain house 座標待民宿確認。"
+ },
+ {
+  "day": "DAY 11",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Mountain house（Ushguli）",
+    "lat": 42.91517,
+    "lng": 43.01148
+   },
+   {
+    "name": "Zagari 山口 2,623m",
+    "lat": 42.86,
+    "lng": 43.0
+   },
+   {
+    "name": "Lentekhi（⛽入油＋午餐）",
+    "lat": 42.7889,
+    "lng": 42.725
+   },
+   {
+    "name": "Tsageri（Muri 要塞，可選）",
+    "lat": 42.645,
+    "lng": 42.77
+   },
+   {
+    "name": "Newport Hotel Kutaisi",
+    "lat": 42.27284,
+    "lng": 42.70651
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=42.91517,43.01148&destination=42.78890,42.72500&waypoints=42.86000,43.00000&travelmode=driving | https://www.google.com/maps/dir/?api=1&origin=42.78890,42.72500&destination=42.27284,42.70651&waypoints=42.64500,42.77000&travelmode=driving",
+  "segments": [
+   {
+    "from": "Mountain house（Ushguli）",
+    "to": "Zagari 山口 2,623m",
+    "km": 25,
+    "mins": 60,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "OSRM detours：OSRM 對 Ushguli→Zagari 回覆 330.3 km／10:10（經 Zugdidi 兜圈），因為 Ushguli 側 ~8 km 路段喺路網缺失，山口 pin 本身要 snap 4.3 km。真實：~25 km／1:00，2,623 m，2024 鋪裝 90–99%，清晨黑冰——等太陽出咗先過。"
+   },
+   {
+    "from": "Zagari 山口 2,623m",
+    "to": "Lentekhi（⛽入油＋午餐）",
+    "km": 48,
+    "mins": 60,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "OSRM detours：OSRM 由 snap 咗嘅點落 Lentekhi 只識下半段 38.2 km（210 分），上半段缺失。真實：~48 km／1:00，短碎石補丁＋路邊漫水。Lentekhi 係 Mestia 之後第一個油站／ATM。"
+   },
+   {
+    "from": "Lentekhi（⛽入油＋午餐）",
+    "to": "Tsageri（Muri 要塞，可選）",
+    "km": 22,
+    "mins": 30,
+    "osrm_km": 22.1,
+    "osrm_mins": 25,
+    "note": "legs 只有 Lentekhi→Kutaisi 90 km/2:00（經 Tsageri）；按 OSRM 拆分呢段 22 km/0:25–0:30。sched 12:00→13:00 預咗 1:00，即係 Lechkhumi 風景路有 30 分影相位。Tsageri pin 用 days.json Muri 要塞座標（42.6500,42.7700），可選停留。"
+   },
+   {
+    "from": "Tsageri（Muri 要塞，可選）",
+    "to": "Newport Hotel Kutaisi",
+    "km": 68,
+    "mins": 90,
+    "osrm_km": 81.7,
+    "osrm_mins": 90,
+    "note": "68 km ＝ legs 90 − 22；OSRM 81.7 km/1:30（多 20%，Lajanuri→Alpana→Rioni 峽谷入 Kutaisi）。Agoda 顯示全日 161.3 km，減 Zagari 段 73 km 剩 88 km，同 legs 90 吻合——以 legs 為準但預 1:30–1:45。"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "07:30",
+    "ride": ""
+   },
+   {
+    "time": "08:30",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🏍 73 km · 2:00（Ushguli→Zagari 25 km 1:00 → Lentekhi 48 km 1:00）"
+   },
+   {
+    "time": "11:00",
+    "ride": ""
+   },
+   {
+    "time": "12:00",
+    "ride": "🏍 22 km · 0:30"
+   },
+   {
+    "time": "13:00",
+    "ride": "🏍 68 km · 1:30"
+   },
+   {
+    "time": "14:30",
+    "ride": ""
+   },
+   {
+    "time": "16:00",
+    "ride": ""
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   }
+  ],
+  "total_km": 163,
+  "total_ride_time": "約 4:00 純騎行",
+  "caveat": "🔴 第一條連結（Ushguli→Zagari→Lentekhi）Google 會兜 Zugdidi 300+ km — 唔好跟！用 OsmAnd／Organic Maps 離線地圖跟唯一嗰條路（73 km／約 2 小時）。第二條 Lentekhi→Kutaisi 正常。"
+ },
+ {
+  "day": "DAY 12",
+  "mode": "🏍 電單車",
+  "waypoints": [
+   {
+    "name": "Newport Hotel Kutaisi",
+    "lat": 42.27284,
+    "lng": 42.70651
+   },
+   {
+    "name": "Katskhi 石柱（可選）",
+    "lat": 42.289,
+    "lng": 43.217
+   },
+   {
+    "name": "Chiatura 蘇聯纜車（可選）",
+    "lat": 42.29,
+    "lng": 43.28
+   },
+   {
+    "name": "Surami（nazuki 攤／午餐）",
+    "lat": 42.025,
+    "lng": 43.555
+   },
+   {
+    "name": "Pura Vida / SLAVATOUR（還車）",
+    "lat": 41.78,
+    "lng": 44.74
+   },
+   {
+    "name": "Fabrika Hostel & Suites",
+    "lat": 41.7028,
+    "lng": 44.7995
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=42.27284,42.70651&destination=41.70280,44.79950&waypoints=42.28900,43.21700%7C42.29000,43.28000%7C42.02500,43.55500%7C41.78000,44.74000&travelmode=driving",
+  "segments": [
+   {
+    "from": "Newport Hotel Kutaisi",
+    "to": "Katskhi 石柱（可選）",
+    "km": 50,
+    "mins": 50,
+    "osrm_km": 66.8,
+    "osrm_mins": 74,
+    "note": "legs「Kutaisi→Katskhi/Chiatura ~50 km 0:50」係粗估；OSRM 66.8 km/1:14（Zestaponi→Sachkhere 路，差 >25%）更可信——信 OSRM，預 1:10。Katskhi 座標用任務提供 42.28900,43.21700（days.json 四位數 42.29,43.22；Wikipedia 42.2881,43.2178，同一地方）。"
+   },
+   {
+    "from": "Katskhi 石柱（可選）",
+    "to": "Chiatura 蘇聯纜車（可選）",
+    "km": 10,
+    "mins": 20,
+    "osrm_km": 10.3,
+    "osrm_mins": 23,
+    "note": "估算＝OSRM。Chiatura 座標取 days.json sights（纜車，42.2900,43.2800），任務列 43.2900，相差 ~800 m，市中心細，兩者都得。"
+   },
+   {
+    "from": "Chiatura 蘇聯纜車（可選）",
+    "to": "Surami（nazuki 攤／午餐）",
+    "km": 85,
+    "mins": 85,
+    "osrm_km": 85.1,
+    "osrm_mins": 86,
+    "note": "估算＝OSRM：Chiatura 落返 Zestaponi 上 E60／Rikoti 隧道群，出東口即係 Surami。Surami 座標用任務提供 42.02500,43.55500（days.json 冇），nazuki 攤喺舊路穿鎮嗰段。"
+   },
+   {
+    "from": "Surami（nazuki 攤／午餐）",
+    "to": "Pura Vida / SLAVATOUR（還車）",
+    "km": 125,
+    "mins": 95,
+    "osrm_km": 124.8,
+    "osrm_mins": 93,
+    "note": "估算＝OSRM：Khashuri→Gori→Tbilisi E60/S1 快路，1:35。入第比利斯先⛽加滿油再還車。參考：legs Kutaisi→第比利斯直行 230 km/2:30–3:00（唔繞 Katskhi）。"
+   },
+   {
+    "from": "Pura Vida / SLAVATOUR（還車）",
+    "to": "Fabrika Hostel & Suites",
+    "km": 13,
+    "mins": 25,
+    "osrm_km": 12.8,
+    "osrm_mins": 17,
+    "note": "🚕 Bolt（還咗車之後），非騎行，唔計入 total_km。OSRM 17 分，市區塞車預 25–30 分。",
+    "mode": "🚕 非騎行（唔計入 total_km）"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🏍 50 km · 0:50"
+   },
+   {
+    "time": "10:00",
+    "ride": "🏍 10 km · 0:20（→Chiatura）＋ 85 km · 1:25（→Surami）"
+   },
+   {
+    "time": "12:00",
+    "ride": "🏍 125 km · 1:35"
+   },
+   {
+    "time": "14:30",
+    "ride": ""
+   },
+   {
+    "time": "15:00",
+    "ride": ""
+   },
+   {
+    "time": "16:00",
+    "ride": ""
+   },
+   {
+    "time": "17:30",
+    "ride": "🚕 13 km · 0:25"
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   }
+  ],
+  "total_km": 270,
+  "total_ride_time": "約 4:10 純騎行（直行唔繞 2:30–3:00）",
+  "caveat": "Katskhi／Chiatura 係可選繞路（+80 km／+1:30）；16:00 還車死線先行，直行 Rikoti 約 230 km。"
+ },
+ {
+  "day": "DAY 13",
+  "mode": "🚗 GoTrip 包車",
+  "waypoints": [
+   {
+    "name": "Fabrika Hostel & Suites（第比利斯）",
+    "lat": 41.7028,
+    "lng": 44.7995
+   },
+   {
+    "name": "Sadakhlo／Bagratashen 口岸",
+    "lat": 41.2094,
+    "lng": 44.8156
+   },
+   {
+    "name": "Akhtala 修道院",
+    "lat": 41.1531,
+    "lng": 44.7592
+   },
+   {
+    "name": "Haghpat 修道院",
+    "lat": 41.0919,
+    "lng": 44.7114
+   },
+   {
+    "name": "Sanahin 修道院",
+    "lat": 41.0839,
+    "lng": 44.6672
+   },
+   {
+    "name": "R&R Hotel Yerevan",
+    "lat": 40.1815,
+    "lng": 44.5145
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=41.70280,44.79950&destination=40.18150,44.51450&waypoints=41.20940,44.81560%7C41.15310,44.75920%7C41.09190,44.71140%7C41.08390,44.66720&travelmode=driving",
+  "segments": [
+   {
+    "from": "Fabrika Hostel & Suites（第比利斯）",
+    "to": "Sadakhlo／Bagratashen 口岸",
+    "km": 75,
+    "mins": 60,
+    "osrm_km": 75.4,
+    "osrm_mins": 94,
+    "note": "legs 表：75 km／1:00 · 之後過境 30 分–2 小時（未計入）"
+   },
+   {
+    "from": "Sadakhlo／Bagratashen 口岸",
+    "to": "Akhtala 修道院",
+    "km": 30,
+    "mins": 40,
+    "osrm_km": 30.3,
+    "osrm_mins": 42,
+    "note": "估算（legs 只有「口岸→Debed 峽谷 ~40 km」）· M6 沿 Debed 河南下再上 Akhtala · 口岸點 OSRM 吸附偏差約 1.1 km"
+   },
+   {
+    "from": "Akhtala 修道院",
+    "to": "Haghpat 修道院",
+    "km": 18,
+    "mins": 30,
+    "osrm_km": 17.7,
+    "osrm_mins": 26,
+    "note": "估算 · 落返 M6 經 Alaverdi 上 Haghpat"
+   },
+   {
+    "from": "Haghpat 修道院",
+    "to": "Sanahin 修道院",
+    "km": 15,
+    "mins": 20,
+    "osrm_km": 15.3,
+    "osrm_mins": 20,
+    "note": "估算 · Haghpat↔Sanahin 直線只 4 km 但要落谷再上"
+   },
+   {
+    "from": "Sanahin 修道院",
+    "to": "R&R Hotel Yerevan",
+    "km": 180,
+    "mins": 165,
+    "osrm_km": 170.0,
+    "osrm_mins": 186,
+    "note": "legs 表：~180 km／2:30–3:00（取 2:45）· M6→Vanadzor→M4 經 Dilijan 入耶烈萬"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🚗 75 km · 1:00"
+   },
+   {
+    "time": "10:00",
+    "ride": "🛂 過境 30分–2小時 + 🚗 30 km · 40 分"
+   },
+   {
+    "time": "11:30",
+    "ride": "🚗 18 km · 30 分"
+   },
+   {
+    "time": "13:00",
+    "ride": "🚗 15 km · 20 分"
+   },
+   {
+    "time": "14:30",
+    "ride": ""
+   },
+   {
+    "time": "15:30",
+    "ride": "🚗 180 km · 2:45"
+   },
+   {
+    "time": "18:00",
+    "ride": ""
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   }
+  ],
+  "total_km": 318,
+  "total_ride_time": "約 5:15 車程 + 過境 30 分–2 小時（OSRM 308.6 km／6:08）",
+  "caveat": "Sadakhlo／Bagratashen 過境排隊 30 分–2 小時未計；Google 經 Sadakhlo 係正確口岸。"
+ },
+ {
+  "day": "DAY 14",
+  "mode": "🚗 的士／包車",
+  "waypoints": [
+   {
+    "name": "R&R Hotel Yerevan",
+    "lat": 40.1815,
+    "lng": 44.5145
+   },
+   {
+    "name": "Geghard 修道院",
+    "lat": 40.1597,
+    "lng": 44.8181
+   },
+   {
+    "name": "Garni 神廟",
+    "lat": 40.1122,
+    "lng": 44.73
+   },
+   {
+    "name": "R&R Hotel Yerevan",
+    "lat": 40.1815,
+    "lng": 44.5145
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=40.18150,44.51450&destination=40.18150,44.51450&waypoints=40.15970,44.81810%7C40.11220,44.73000&travelmode=driving",
+  "segments": [
+   {
+    "from": "R&R Hotel Yerevan",
+    "to": "Geghard 修道院",
+    "km": 40,
+    "mins": 50,
+    "osrm_km": 39.1,
+    "osrm_mins": 58,
+    "note": "legs 表：~40 km／0:50 · 東郊，09:00 出發避 10:30 旅遊巴"
+   },
+   {
+    "from": "Geghard 修道院",
+    "to": "Garni 神廟",
+    "km": 10,
+    "mins": 20,
+    "osrm_km": 13.7,
+    "osrm_mins": 31,
+    "note": "legs 表：~10 km／0:20 · 同一條谷（OSRM 13.7 km 因吸附到 Garni 村道）"
+   },
+   {
+    "from": "Garni 神廟",
+    "to": "R&R Hotel Yerevan",
+    "km": 35,
+    "mins": 50,
+    "osrm_km": 29.0,
+    "osrm_mins": 37,
+    "note": "legs 表：~35 km／0:50 · 返市區午餐"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": ""
+   },
+   {
+    "time": "09:00",
+    "ride": "🚗 40 km · 0:50"
+   },
+   {
+    "time": "10:00",
+    "ride": "🚗 10 km · 0:20"
+   },
+   {
+    "time": "11:15",
+    "ride": "🚗 35 km · 0:50"
+   },
+   {
+    "time": "13:30",
+    "ride": "🚶 1.5 km · 20 分"
+   },
+   {
+    "time": "15:00",
+    "ride": "🚶 0.5 km · 7 分"
+   },
+   {
+    "time": "17:30",
+    "ride": "🚶 1.2 km · 15 分"
+   },
+   {
+    "time": "19:30",
+    "ride": ""
+   }
+  ],
+  "total_km": 85,
+  "total_ride_time": "2:00 車程（OSRM 81.8 km／2:07）+ 市內步行約 3 km",
+  "caveat": "次序跟行程表：先 Geghard 後 Garni；市內 Matenadaran／Cascade 步行。"
+ },
+ {
+  "day": "DAY 15",
+  "mode": "✈️ + 🚶 市內（第比利斯）",
+  "waypoints": [
+   {
+    "name": "R&R Hotel Yerevan",
+    "lat": 40.1815,
+    "lng": 44.5145
+   },
+   {
+    "name": "Zvartnots 機場 EVN",
+    "lat": 40.1473,
+    "lng": 44.3959
+   },
+   {
+    "name": "第比利斯機場 TBS",
+    "lat": 41.6692,
+    "lng": 44.9547
+   },
+   {
+    "name": "Fabrika Hostel & Suites（第比利斯）",
+    "lat": 41.7028,
+    "lng": 44.7995
+   },
+   {
+    "name": "舊城 Kala · Abanotubani 浴場區",
+    "lat": 41.6895,
+    "lng": 44.8095
+   },
+   {
+    "name": "Chreli-Abano 硫磺浴",
+    "lat": 41.688,
+    "lng": 44.811
+   },
+   {
+    "name": "Narikala 山脊／纜車上站",
+    "lat": 41.6875,
+    "lng": 44.8078
+   },
+   {
+    "name": "和平橋 + Rike 公園",
+    "lat": 41.6925,
+    "lng": 44.8085
+   },
+   {
+    "name": "Barbarestan 餐廳",
+    "lat": 41.7112,
+    "lng": 44.7943
+   },
+   {
+    "name": "Fabrika Hostel & Suites（第比利斯）",
+    "lat": 41.7028,
+    "lng": 44.7995
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=40.18150,44.51450&destination=40.14730,44.39590&travelmode=driving | https://www.google.com/maps/dir/?api=1&origin=41.66920,44.95470&destination=41.70280,44.79950&waypoints=41.70280,44.79950%7C41.68950,44.80950%7C41.68800,44.81100%7C41.68750,44.80780%7C41.69250,44.80850%7C41.71120,44.79430&travelmode=driving",
+  "segments": [
+   {
+    "from": "R&R Hotel Yerevan",
+    "to": "Zvartnots 機場 EVN",
+    "km": 10,
+    "mins": 20,
+    "osrm_km": 12.4,
+    "osrm_mins": 17,
+    "note": "legs 表：~10 km／0:20 · 酒店接送／的士"
+   },
+   {
+    "from": "Zvartnots 機場 EVN",
+    "to": "第比利斯機場 TBS",
+    "km": 0,
+    "mins": 40,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "✈️ FlyOne 3F583 11:00→11:40（40 分）· 非路段，OSRM 不適用"
+   },
+   {
+    "from": "第比利斯機場 TBS",
+    "to": "Fabrika Hostel & Suites（第比利斯）",
+    "km": 18,
+    "mins": 30,
+    "osrm_km": 17.8,
+    "osrm_mins": 25,
+    "note": "legs 表：~18 km／0:30 · Bolt 25–35 GEL"
+   },
+   {
+    "from": "Fabrika Hostel & Suites（第比利斯）",
+    "to": "舊城 Kala · Abanotubani 浴場區",
+    "km": 2.3,
+    "mins": 30,
+    "osrm_km": 3.9,
+    "osrm_mins": 5,
+    "note": "估算步行（酒店資料：約 30 分鐘到舊城）· Bolt 約 4 km／10 分 · OSRM 係駕車數字"
+   },
+   {
+    "from": "舊城 Kala · Abanotubani 浴場區",
+    "to": "Chreli-Abano 硫磺浴",
+    "km": 0.2,
+    "mins": 3,
+    "osrm_km": 0.3,
+    "osrm_mins": 1,
+    "note": "估算 · 同一浴場區內步行"
+   },
+   {
+    "from": "Chreli-Abano 硫磺浴",
+    "to": "Narikala 山脊／纜車上站",
+    "km": 0.6,
+    "mins": 12,
+    "osrm_km": 1.5,
+    "osrm_mins": 5,
+    "note": "估算 · 上斜步行；或由 Rike 公園坐纜車上（2.5 GEL）· 城堡本體維修封閉，山脊照行"
+   },
+   {
+    "from": "Narikala 山脊／纜車上站",
+    "to": "和平橋 + Rike 公園",
+    "km": 0.7,
+    "mins": 10,
+    "osrm_km": 1.7,
+    "osrm_mins": 3,
+    "note": "估算 · 纜車落 Rike 公園約 3 分，或步行落山"
+   },
+   {
+    "from": "和平橋 + Rike 公園",
+    "to": "Barbarestan 餐廳",
+    "km": 3,
+    "mins": 10,
+    "osrm_km": 3.2,
+    "osrm_mins": 5,
+    "note": "估算 · Bolt 約 3 km／10 分（步行約 2.8 km／35 分）· Barbarestan 座標來自已知清單（檔案冇）"
+   },
+   {
+    "from": "Barbarestan 餐廳",
+    "to": "Fabrika Hostel & Suites（第比利斯）",
+    "km": 1.2,
+    "mins": 15,
+    "osrm_km": 2.5,
+    "osrm_mins": 5,
+    "note": "估算步行 · Barbarestan 同 Fabrika 都喺 Chughureti 左岸"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "07:00",
+    "ride": ""
+   },
+   {
+    "time": "08:30",
+    "ride": "🚕 10 km · 20 分"
+   },
+   {
+    "time": "09:30",
+    "ride": ""
+   },
+   {
+    "time": "11:00",
+    "ride": "✈️ 3F583 40 分"
+   },
+   {
+    "time": "11:40",
+    "ride": "🚕 18 km · 30 分"
+   },
+   {
+    "time": "12:45",
+    "ride": "🚶 2.3 km · 30 分"
+   },
+   {
+    "time": "13:30",
+    "ride": "🚶 0.2 km · 3 分"
+   },
+   {
+    "time": "15:00",
+    "ride": "🚶 0.6 km · 12 分"
+   },
+   {
+    "time": "16:45",
+    "ride": "🚶 0.7 km · 10 分（或纜車）"
+   },
+   {
+    "time": "18:28",
+    "ride": "🚕 3 km · 10 分"
+   },
+   {
+    "time": "20:00",
+    "ride": "🚶 1.2 km · 15 分"
+   }
+  ],
+  "total_km": 36,
+  "total_ride_time": "約 1:00 車 + ✈️ 40 分 + 約 1:10 步行",
+  "caveat": "兩條連結：① R&R→EVN 機場 ② TBS 機場→Fabrika→舊城→Barbarestan；舊城段全部行得到。"
+ },
+ {
+  "day": "DAY 16",
+  "mode": "🚶 市內 + ✈️",
+  "waypoints": [
+   {
+    "name": "Fabrika Hostel & Suites（第比利斯）",
+    "lat": 41.7028,
+    "lng": 44.7995
+   },
+   {
+    "name": "舊城核心（The Blue Fox 早餐）",
+    "lat": 41.69,
+    "lng": 44.807
+   },
+   {
+    "name": "Dry Bridge 古董市集",
+    "lat": 41.6987,
+    "lng": 44.8028
+   },
+   {
+    "name": "Dezerter 巴刹（可選）",
+    "lat": 41.708,
+    "lng": 44.792
+   },
+   {
+    "name": "Fabrika Hostel & Suites（第比利斯）",
+    "lat": 41.7028,
+    "lng": 44.7995
+   },
+   {
+    "name": "第比利斯機場 TBS",
+    "lat": 41.6692,
+    "lng": 44.9547
+   }
+  ],
+  "maps_url": "https://www.google.com/maps/dir/?api=1&origin=41.70280,44.79950&destination=41.66920,44.95470&waypoints=41.69000,44.80700%7C41.69870,44.80280%7C41.70800,44.79200%7C41.70280,44.79950&travelmode=driving",
+  "segments": [
+   {
+    "from": "Fabrika Hostel & Suites（第比利斯）",
+    "to": "舊城核心（The Blue Fox 早餐）",
+    "km": 2.2,
+    "mins": 28,
+    "osrm_km": 4.4,
+    "osrm_mins": 6,
+    "note": "估算步行（08:00 前出發，未列入時間軸）· Bolt 約 4 km／8 分 · The Blue Fox 檔案冇座標，用舊城核心 41.6900,44.8070 代替"
+   },
+   {
+    "from": "舊城核心（The Blue Fox 早餐）",
+    "to": "Dry Bridge 古董市集",
+    "km": 1.3,
+    "mins": 16,
+    "osrm_km": 2.9,
+    "osrm_mins": 6,
+    "note": "估算 · legs 表 Fabrika→Dry Bridge 直行 1.2 km／0:14 作參考 · OSRM 係駕車繞行"
+   },
+   {
+    "from": "Dry Bridge 古董市集",
+    "to": "Dezerter 巴刹（可選）",
+    "km": 1.6,
+    "mins": 20,
+    "osrm_km": 2.0,
+    "osrm_mins": 3,
+    "note": "估算 · Dezerter 係可選（sched 10:00 三揀一），週六最旺、順路返 Fabrika"
+   },
+   {
+    "from": "Dezerter 巴刹（可選）",
+    "to": "Fabrika Hostel & Suites（第比利斯）",
+    "km": 1.0,
+    "mins": 13,
+    "osrm_km": 4.2,
+    "osrm_mins": 6,
+    "note": "估算步行 · OSRM 4.2 km 係單程路繞行"
+   },
+   {
+    "from": "Fabrika Hostel & Suites（第比利斯）",
+    "to": "第比利斯機場 TBS",
+    "km": 20,
+    "mins": 27,
+    "osrm_km": 20.0,
+    "osrm_mins": 26,
+    "note": "legs 表：20 km／0:27 · Bolt 約 20 GEL · 10:45 出發＝起飛前 2h40"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "08:00",
+    "ride": "🚶 1.3 km · 16 分"
+   },
+   {
+    "time": "09:00",
+    "ride": "🚶 1.6 km · 20 分"
+   },
+   {
+    "time": "10:00",
+    "ride": "🚶 1.0 km · 13 分"
+   },
+   {
+    "time": "10:45",
+    "ride": "🚕 20 km · 27 分"
+   },
+   {
+    "time": "11:45",
+    "ride": ""
+   },
+   {
+    "time": "14:00",
+    "ride": "✈️ QR256 3 小時 15 分"
+   }
+  ],
+  "total_km": 26.1,
+  "total_ride_time": "27 分車 + 約 1:15 步行（含早餐前 2.2 km）+ ✈️ 3:15",
+  "caveat": "早餐前由 Fabrika 行去舊城約 2.2 km（或 Bolt 8 分）；Dry Bridge 市集只收現金。"
+ },
+ {
+  "day": "DAY 17",
+  "mode": "✈️ 轉機",
+  "waypoints": [
+   {
+    "name": "多哈 Hamad Intl DOH",
+    "lat": 25.2609,
+    "lng": 51.6138
+   },
+   {
+    "name": "吉隆坡 KLIA T1",
+    "lat": 2.7456,
+    "lng": 101.7099
+   },
+   {
+    "name": "香港機場 HKG",
+    "lat": 22.308,
+    "lng": 113.9185
+   }
+  ],
+  "maps_url": "",
+  "segments": [
+   {
+    "from": "多哈 Hamad Intl DOH",
+    "to": "吉隆坡 KLIA T1",
+    "km": 0,
+    "mins": 450,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "✈️ QR852 02:35→15:10（約 7.5 小時）· 非路段"
+   },
+   {
+    "from": "吉隆坡 KLIA T1",
+    "to": "香港機場 HKG",
+    "km": 0,
+    "mins": 240,
+    "osrm_km": -1,
+    "osrm_mins": -1,
+    "note": "✈️ CX724 17:40→22:00（約 4 小時）· 中間 KLIA T1 內 2h30 自行轉機（兩張票，行李唔直掛）"
+   }
+  ],
+  "timeline": [
+   {
+    "time": "02:35",
+    "ride": "✈️ QR852 約 7.5 小時"
+   },
+   {
+    "time": "15:10",
+    "ride": ""
+   },
+   {
+    "time": "15:20",
+    "ride": "🚶 T1 內：取行李→入境→國泰重新 check-in（2h30）"
+   },
+   {
+    "time": "16:40",
+    "ride": ""
+   },
+   {
+    "time": "17:40",
+    "ride": "✈️ CX724 約 4 小時"
+   },
+   {
+    "time": "22:00",
+    "ride": ""
+   }
+  ],
+  "total_km": 0,
+  "total_ride_time": "✈️ 約 11.5 小時飛行 + 2h30 轉機",
+  "caveat": "全日航班，冇道路段；KLIA T1 兩張機票自轉機只得 2h30。"
+ }
+]

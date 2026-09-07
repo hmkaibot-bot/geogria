@@ -13,6 +13,7 @@
 | 1 | **FlyOne 3F 583**（9/10 EVN→TBS 11:00） | flyone.am 或 OTA | ~HK$375–457 ×2 | **星期五唯一一班**,冇 plan B（只剩包車揸 5 鐘返） |
 | 2 | **覆 Slava 改租車期 29 Sep–6 Oct** | email SLAVATOUR | 已報價 | 同時講明**只在格魯吉亞、唔過境** → 慳返 250 GEL×2 授權書 + 唔使畀護照副本 |
 | 3 | **GoTrip 包車**（7/10 Tbilisi→Yerevan） | gotrip.ge | US$150–300/車 | 講明要停 Akhtala / Haghpat / Sanahin |
+| 4a | 🏜 **沙漠內海日出團**（27/9 03:45） | discoverqatar.qa「Sunrise in the Desert」或 GetYourGuide 日出團 | QAR 320–900 | **訂單寫明 Al Wakra 酒店接客**；團 09:00 完先去 Jiwan |
 | 4 | **雙子塔 Skybridge**（26/9） | eticket.petronastwintowers.com.my | RM98 ×2 | 週六位早清;揀下午場,出嚟即刻去 KLCC 公園影塔 |
 
 ---

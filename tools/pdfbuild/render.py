@@ -67,16 +67,20 @@ def day(dnum, date, weekday, route, stats, blocks, IM=None, hero=None, strip=())
     body = (_photo_strip(strip, IM) if IM else "") + "".join(blocks)
     return f'<div class="day">{top}<div class="day-body">{body}</div></div>'
 
-def route_bar(rt, qr_src=None):
-    """rt: dict(mode, maps_url, total_km, total_ride_time, caveat, waypoints[list of dict name])"""
+def route_bar(rt, qr_srcs=()):
+    """rt: dict(mode, maps_url, total_km, total_ride_time, caveat, waypoints[list of dict name]).
+    maps_url may hold several URLs joined by " | "; qr_srcs is a parallel list of QR image paths."""
     if not rt or not rt.get("maps_url"): return ""
+    urls = [u.strip() for u in rt["maps_url"].split("|") if u.strip()]
     wps = " → ".join(e(w["name"]) for w in rt.get("waypoints", []))
     tot = f' · 總計 <b>{rt["total_km"]:g} km</b>' if rt.get("total_km") else ""
     trt = f' · {e(rt["total_ride_time"])}' if rt.get("total_ride_time") else ""
     cv  = f'<div class="cv">⚠️ {e(rt["caveat"])}</div>' if rt.get("caveat") else ""
-    qr  = f'<img class="qr" src="{qr_src}">' if qr_src else ""
-    return (f'<div class="route">{qr}<div class="rt"><b>🗺 Google Maps 路線</b>　{e(rt.get("mode",""))}{tot}{trt}'
-            f'<div>{wps}</div><div class="u"><a href="{e(rt["maps_url"])}">{e(rt["maps_url"])}</a></div>{cv}</div></div>')
+    qrs = "".join(f'<img class="qr" src="{q}">' for q in qr_srcs if q)
+    links = "".join((f'<div class="u">{"① " if len(urls)>1 and i==0 else "② " if len(urls)>1 else ""}'
+                     f'<a href="{e(u)}">{e(u)}</a></div>') for i,u in enumerate(urls))
+    return (f'<div class="route">{qrs}<div class="rt"><b>🗺 Google Maps 路線</b>　{e(rt.get("mode",""))}{tot}{trt}'
+            f'<div>{wps}</div>{links}{cv}</div></div>')
 
 def section(title, tag, inner, IM=None, banner=None):
     if IM and banner and IM.has(banner):
