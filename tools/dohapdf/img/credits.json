@@ -1,0 +1,178 @@
+{
+ "doha_skyline": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/5005/5359444683_7d47d933b1_b.jpg",
+  "artist": "SJByles",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/37748462@N07/5359444683",
+  "title": "Doha Skyline from The Pearl",
+  "w": 1024,
+  "h": 356
+ },
+ "doha_inlandsea": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/65535/49125815982_3e2fa53de3_b.jpg",
+  "artist": "flashpacker-travelguide.de",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/149324445@N08/49125815982",
+  "title": "Khor Al Adaid Inland Sea and desert in Katar",
+  "w": 1024,
+  "h": 768
+ },
+ "doha_dunes": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3338/3210533462_900dcb8049_b.jpg",
+  "artist": "Pedronet",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/40271931@N00/3210533462",
+  "title": "Singing sand dunes",
+  "w": 1024,
+  "h": 768
+ },
+ "doha_dhow": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3769/12544843784_73d47127de_b.jpg",
+  "artist": "Francisco Anzola",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/10345599@N03/12544843784",
+  "title": "Dhows off old Doha",
+  "w": 1024,
+  "h": 681
+ },
+ "doha_katara": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/5550/10995278063_c8e2404293_b.jpg",
+  "artist": "Paul Trafford",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/64771032@N00/10995278063",
+  "title": "Outside the Amphitheatre, Katara",
+  "w": 1024,
+  "h": 768
+ },
+ "doha_msheireb": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/3724/10123879184_669e427ae7_b.jpg",
+  "artist": "Christine und Hagen Graf",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/17963290@N00/10123879184",
+  "title": "Msheireb Downtown Doha - World's First Sustainable Downtown Regeneration Project",
+  "w": 1024,
+  "h": 609
+ },
+ "doha_library": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/65535/52967392563_61621fe64f_b.jpg",
+  "artist": "young shanahan",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/14759783@N04/52967392563",
+  "title": "Qatar National Library.",
+  "w": 1024,
+  "h": 484
+ },
+ "doha_zubarah": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7283/16782286205_32db734566_b.jpg",
+  "artist": "Mohamod Fasil",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/131688925@N04/16782286205",
+  "title": "Al Zubarah Fort, Qatar",
+  "w": 1024,
+  "h": 768
+ },
+ "doha_zekreet": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7230/7242411142_7b13f69bd7_b.jpg",
+  "artist": "SJByles",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/37748462@N07/7242411142",
+  "title": "Zekreet",
+  "w": 1024,
+  "h": 682
+ },
+ "doha_falcon": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4101/4754777314_1e34087d53_b.jpg",
+  "artist": "jemasmith",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/26085795@N02/4754777314",
+  "title": "Falconry, Doha, Qatar.",
+  "w": 1024,
+  "h": 683
+ },
+ "doha_camel": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4066/4623221751_40994fde7e_b.jpg",
+  "artist": "christian.senger",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/30928442@N08/4623221751",
+  "title": "Warmup",
+  "w": 1024,
+  "h": 680
+ },
+ "doha_purple": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7100/7382965342_26a9177a70_b.jpg",
+  "artist": "Qatar Foundation International",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/49698233@N06/7382965342",
+  "title": "",
+  "w": 1000,
+  "h": 667
+ },
+ "doha_pearl": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7245/7320605916_551c963719_b.jpg",
+  "artist": "SJByles",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/37748462@N07/7320605916",
+  "title": "Marsa Arabia June 2012",
+  "w": 1024,
+  "h": 768
+ },
+ "doha_corniche": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7864/39758724893_907528f89b_b.jpg",
+  "artist": "dungodung",
+  "license": "CC BY-SA 2.0",
+  "landing": "https://www.flickr.com/photos/16953270@N00/39758724893",
+  "title": "West Bay in Doha",
+  "w": 1024,
+  "h": 768
+ },
+ "doha_mia": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4115/4754905352_162c10fe31_b.jpg",
+  "artist": "jemasmith",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/26085795@N02/4754905352",
+  "w": 1000,
+  "h": 665
+ },
+ "doha_nmoq": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/65535/52624405651_33dde9564d_b.jpg",
+  "artist": "young shanahan",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/14759783@N04/52624405651",
+  "w": 1000,
+  "h": 664
+ },
+ "doha_souq": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/4143/4754784082_62f340c42e_b.jpg",
+  "artist": "jemasmith",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/26085795@N02/4754784082",
+  "w": 1000,
+  "h": 665
+ },
+ "doha_wakra": {
+  "src": "flickr",
+  "file": "https://live.staticflickr.com/7607/16788864366_44ed9153c6_b.jpg",
+  "artist": "Mohamod Fasil",
+  "license": "CC BY 2.0",
+  "landing": "https://www.flickr.com/photos/131688925@N04/16788864366",
+  "w": 1000,
+  "h": 750
+ }
+}
