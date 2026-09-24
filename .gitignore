@@ -3,3 +3,4 @@ tools/pdfbuild/img/qr/
 __pycache__/
 tools/pptbuild/node_modules/
 tools/pptbuild/package*.json
+tools/packlist/wf_*.js
