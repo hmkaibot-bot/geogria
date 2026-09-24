@@ -1,0 +1,1375 @@
+<title>高加索行李清單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+:root{
+  --bg:#F2F5F3; --paper:#FFFFFF; --ink:#1D3B34; --ink-2:#4D635C; --ink-3:#7C8F88;
+  --line:#D7E0DB; --line-2:#E8EEEA; --accent:#D59A3C; --accent-ink:#8A5A17; --accent-soft:#F7EBD6;
+  --ok:#2F6B4F; --warn:#A33B2A; --tag:#1D3B34; --tag-ink:#F4E6C8;
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1916; --paper:#15231F; --ink:#E4EDE9; --ink-2:#A9BBB4; --ink-3:#7E918A;
+    --line:#2A3F39; --line-2:#1F302B; --accent:#E3AE55; --accent-ink:#EDC27A; --accent-soft:#2E2718;
+    --ok:#6DBB92; --warn:#E58371; --tag:#E3AE55; --tag-ink:#1B1508;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1916; --paper:#15231F; --ink:#E4EDE9; --ink-2:#A9BBB4; --ink-3:#7E918A;
+  --line:#2A3F39; --line-2:#1F302B; --accent:#E3AE55; --accent-ink:#EDC27A; --accent-soft:#2E2718;
+  --ok:#6DBB92; --warn:#E58371; --tag:#E3AE55; --tag-ink:#1B1508;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;margin:0}
+a{color:var(--accent-ink)}
+.wrap{max-width:820px;margin:0 auto;padding-inline:16px;padding-block:0 64px;min-width:0}
+.wrap > *{min-width:0;max-width:100%}
+
+/* ---- luggage-tag masthead ---- */
+.tag{margin-top:18px;background:var(--tag);color:var(--tag-ink);border-radius:10px 10px 10px 10px;padding:18px 20px 16px;position:relative;overflow:hidden}
+.tag::before{content:"";position:absolute;right:18px;top:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 3px color-mix(in srgb,var(--tag-ink) 35%,transparent)}
+.tag .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.tag h1{font-family:var(--serif);font-weight:900;font-size:clamp(24px,5.4vw,34px);line-height:1.2;margin:6px 0 10px;text-wrap:balance}
+.route{font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.route .ar{opacity:.55}
+.intro{color:var(--ink-2);font-size:14px;margin:12px 2px 0}
+.intro p{margin:.3em 0}
+
+/* ---- sticky control bar ---- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding-block:10px 8px;margin-top:10px;border-bottom:1px solid var(--line)}
+.bar-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.who{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:3px}
+.who button{font:inherit;font-weight:700;font-size:14px;border:0;background:transparent;color:var(--ink-2);padding:6px 16px;border-radius:999px;cursor:pointer;min-height:36px}
+.who button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.who button:focus-visible,.toggle:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.prog{flex:1 1 160px;display:flex;align-items:center;gap:10px;min-width:0}
+.meter{flex:1;height:8px;border-radius:99px;background:var(--line-2);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.pct{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.toggle{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--paper);color:var(--ink-2);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.toggle[aria-pressed="true"]{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft)}
+.sync{font-size:12px;color:var(--ink-3);width:100%}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-block:8px 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:inline-flex;gap:6px;align-items:center;text-decoration:none;color:var(--ink-2);font-size:13px;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:4px 10px;white-space:nowrap}
+.chip-n{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.chip.done{border-color:color-mix(in srgb,var(--ok) 55%,var(--line))}
+.chip.done .chip-n{color:var(--ok)}
+
+/* ---- sections ---- */
+.sec{margin-top:26px;scroll-margin-top:150px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.sec-h h2{font-family:var(--serif);font-weight:700;font-size:20px;line-height:1.3;margin:0;text-wrap:balance}
+.sec-n{font-family:var(--mono);font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sec-n.done{color:var(--ok)}
+.sec-b{padding-top:6px}
+.sec-b h3{font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--accent-ink);margin:20px 0 4px}
+.sec-b h4{font-size:14px;margin:14px 0 4px}
+.sec-b,.intro{overflow-wrap:anywhere;min-width:0}
+.sec-b p,.sec-b li{max-width:68ch}
+.sec-b li a,.sec-b p a{word-break:break-all}
+.sec-b ul:not(.checks) li,.sec-b ol li{margin:.15em 0}
+.checks + ul,.checks + ol{margin-top:-4px;margin-bottom:12px;padding:8px 12px 8px 2.4em;background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 8px 8px;font-size:14px;color:var(--ink-2)}
+.sec-b blockquote{margin:10px 0;padding:8px 12px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 6px 6px 0;color:var(--ink)}
+.sec-b blockquote p{margin:.25em 0}
+.sec-b code{font-family:var(--mono);font-size:.88em;background:var(--line-2);padding:1px 5px;border-radius:4px}
+.sec-b ol,.sec-b ul:not(.checks){padding-left:1.3em}
+
+/* tables */
+.tw{overflow-x:auto;margin:10px 0;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--line-2)}
+th{font-weight:700;color:var(--ink-2);background:color-mix(in srgb,var(--line-2) 60%,var(--paper));white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td{min-width:6em}
+
+/* checklist rows */
+.checks{list-style:none;margin:6px 0 10px;padding:0;background:var(--paper);border:1px solid var(--line);border-radius:8px}
+.item{border-bottom:1px solid var(--line-2)}
+.item:last-child{border-bottom:0}
+.item label{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;min-height:44px;cursor:pointer}
+.item input{position:absolute;opacity:0;width:1px;height:1px}
+.box{flex:0 0 22px;height:22px;margin-top:1px;border:2px solid var(--ink-3);border-radius:5px;display:grid;place-items:center;background:var(--paper);transition:background .15s,border-color .15s}
+.box::after{content:"";width:6px;height:11px;border:solid var(--paper);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px);opacity:0}
+.item input:checked + .box{background:var(--accent);border-color:var(--accent)}
+.item input:checked + .box::after{opacity:1;border-color:var(--tag-ink)}
+.item input:focus-visible + .box{outline:2px solid var(--accent);outline-offset:2px}
+.txt{flex:1;min-width:0;overflow-wrap:anywhere}
+.item.done .txt{color:var(--ink-3)}
+.item.done .txt strong{color:var(--ink-3)}
+.item.owned .box{border-color:var(--ok)}
+body.hide-done .item.done{display:none}
+body.hide-done .checks:not(:has(.item:not(.done))){display:none}
+
+.foot{margin-top:40px;font-size:12px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:12px}
+@media (prefers-reduced-motion:reduce){.meter i,.box{transition:none}}
+@media (max-width:520px){
+  .sec{scroll-margin-top:190px}
+  .who button{padding:6px 12px}
+}
+</style>
+
+<div class="wrap">
+  <div class="tag">
+    <div class="eyebrow">Baggage · 2 pax · 25 SEP – 11 OCT 2026</div>
+    <h1>26 · 行李清單（25/9–11/10 · 香港→吉隆坡→多哈→格魯吉亞→亞美尼亞）</h1>
+    <div class="route" aria-label="航線">
+      <span>HKG</span><span class="ar">→</span><span>KUL</span><span class="ar">→</span><span>DOH</span><span class="ar">→</span><span>TBS</span><span class="ar">⇢</span><span>EVN</span><span class="ar">→</span><span>TBS</span><span class="ar">→</span><span>DOH</span><span class="ar">→</span><span>KUL</span><span class="ar">→</span><span>HKG</span>
+    </div>
+  </div>
+  <div class="intro"><blockquote>
+<p>2 人：<strong>Alex、Hugo</strong>。已計入你自備嘅 <strong>Insta360 X4、DJI Neo 2／Mini 4、notebook、jacket、越野頭盔、越野褲、行山靴</strong>，同埋<strong>馬鞍袋</strong>。
+「每人」即係 ×2；「共用」即係兩個人一份。<strong>✅已有</strong> 係你講過自己有嘅嘢；冇 ✅ 嘅，自己核對有冇，冇就買（見 ⏰ 買嘢）。<strong>Hugo 自己有咩裝備未知</strong>，所以全部當每人一份計，今晚要問（⏰ #0）。
+資料 <strong>2026-09-24</strong> 核實。<strong>「未確認」</strong> 即係冇官方來源，唔好當係規定。
+✅ <strong>你加指定嘅兩樣都放咗入去</strong>：<strong>飛機帶</strong>（綁馬鞍袋／防水袋落車尾架，見 🧰）同<strong>暖手包</strong>（見 🔥）。如果你講嘅「飛機帶」其實係<strong>飛機枕</strong>，見 ✈️ 上機隨身。</p>
+</blockquote>
+<hr /></div>
+
+  <div class="bar">
+    <div class="bar-row">
+      <div class="who" role="group" aria-label="邊個執緊行李">
+        <button type="button" id="who-alex" data-who="alex" aria-pressed="true">Alex</button>
+        <button type="button" id="who-hugo" data-who="hugo" aria-pressed="false">Hugo</button>
+      </div>
+      <div class="prog"><div class="meter" aria-hidden="true"><i id="meter"></i></div><span class="pct" id="pct">0/0</span></div>
+      <button type="button" class="toggle" id="hide-done" aria-pressed="false">隱藏已剔</button>
+      <div class="sync" id="sync">剔咗嘅嘢會儲存喺呢部機。</div>
+    </div>
+    <nav class="chips" aria-label="分類"><a class="chip" href="#s1" data-sec="s1"><span class="chip-t">出發前必做（今晚／明日）</span><span class="chip-n" data-count="s1">0/21</span></a>
+<a class="chip" href="#s2" data-sec="s2"><span class="chip-t">分袋系統</span><span class="chip-n" data-count="s2">0/1</span></a>
+<a class="chip" href="#s3" data-sec="s3"><span class="chip-t">證件同文件</span><span class="chip-n" data-count="s3">0/16</span></a>
+<a class="chip" href="#s4" data-sec="s4"><span class="chip-t">錢同卡</span><span class="chip-n" data-count="s4">0/7</span></a>
+<a class="chip" href="#s5" data-sec="s5"><span class="chip-t">騎行裝備（已有 vs 要補）</span><span class="chip-n" data-count="s5">0/19</span></a>
+<a class="chip" href="#s6" data-sec="s6"><span class="chip-t">衫褲（騎行／落車／城市）</span><span class="chip-n" data-count="s6">0/19</span></a>
+<a class="chip" href="#s7" data-sec="s7"><span class="chip-t">暖手包</span><span class="chip-n" data-count="s7">0/3</span></a>
+<a class="chip" href="#s8" data-sec="s8"><span class="chip-t">相機同無人機</span><span class="chip-n" data-count="s8">0/23</span></a>
+<a class="chip" href="#s9" data-sec="s9"><span class="chip-t">電子同充電</span><span class="chip-n" data-count="s9">0/18</span></a>
+<a class="chip" href="#s10" data-sec="s10"><span class="chip-t">藥物同急救</span><span class="chip-n" data-count="s10">0/22</span></a>
+<a class="chip" href="#s11" data-sec="s11"><span class="chip-t">洗漱同個人</span><span class="chip-n" data-count="s11">0/12</span></a>
+<a class="chip" href="#s12" data-sec="s12"><span class="chip-t">車上工具同雜項</span><span class="chip-n" data-count="s12">0/12</span></a>
+<a class="chip" href="#s13" data-sec="s13"><span class="chip-t">上機隨身（手提）</span><span class="chip-n" data-count="s13">0/13</span></a>
+<a class="chip" href="#s14" data-sec="s14"><span class="chip-t">特定活動</span><span class="chip-n" data-count="s14">0/14</span></a>
+<a class="chip" href="#s15" data-sec="s15"><span class="chip-t">逐日天氣 × 著咩</span></a>
+<a class="chip" href="#s16" data-sec="s16"><span class="chip-t">鋰電池／無人機規則</span></a>
+<a class="chip" href="#s17" data-sec="s17"><span class="chip-t">每朝上車前 checklist</span></a>
+<a class="chip" href="#s18" data-sec="s18"><span class="chip-t">每晚充電＋備份流程</span></a>
+<a class="chip" href="#s19" data-sec="s19"><span class="chip-t">當地補買</span></a>
+<a class="chip" href="#s20" data-sec="s20"><span class="chip-t">唔好帶／唔使帶</span></a>
+<a class="chip" href="#s21" data-sec="s21"><span class="chip-t">資料來源</span></a></nav>
+  </div>
+
+  <section class="sec" id="s1" data-sec="s1"><header class="sec-h"><h2>⏰ 出發前必做（今晚／明日）</h2><span class="sec-n" data-count="s1">0/21</span></header><div class="sec-b"><blockquote>
+<p>今晚 24/9（四）、聽日 25/9（五）日間，<strong>21:30 CX733</strong>。旺角電單車舖開到 <strong>20:30</strong>。分四段，<strong>每段由上至下做</strong>：做唔切會搞亂成個行程嘅（Hugo 裝備、保險、IDP）排最先。</p>
+</blockquote>
+<p><strong>今晚・網上或者電話（唔使出門）</strong></p>
+<ul class="checks"><li class="item" data-id="845edd4a7f"><label><input type="checkbox" id="c-845edd4a7f" data-id="845edd4a7f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>0 · 🧑 即刻問 Hugo 有冇：頭盔、騎行褸（有 CE 甲）、越野或騎行褲、靴、手套、馬鞍袋或尾包</strong>。冇頭盔、褸或者靴，就同 Slava 一齊租（各 €5/日，8 日約 €40，WhatsApp 報埋尺碼，見 #4）；<strong>冇褲就一定要今晚喺 Helmetking 或利力買</strong>（SLAVATOUR 冇褲租），順手買埋護膝脛。冇袋見 🧳 B 袋</span></label></li><li class="item" data-id="27922e1f22"><label><input type="checkbox" id="c-27922e1f22" data-id="27922e1f22"><span class="box" aria-hidden="true"></span><span class="txt"><strong>1 · 🛡 核對保險</strong>：格魯吉亞 <strong>2026-01-01 起強制旅客買保險</strong>，醫療＋意外 <strong>≥30,000 GEL</strong>，要<strong>覆蓋全程</strong>，包括 <strong>28/9–7/10 同 9–10/10 兩次入境</strong>，保單要用<strong>英文（或格魯吉亞文）</strong>。今晚要核對以下幾點（未核對前全部當未確認）：</span></label></li></ul>
+<ul>
+<li>承保 <strong>&gt;125cc 電單車而你係騎士</strong></li>
+<li><strong>非鋪裝路</strong>冇除外條款（Truso、Zagari）</li>
+<li>包 KUL 自行轉機 <strong>missed connection</strong>（分開票，只得 2h30）</li>
+<li>電子產品同無人機嘅賠償上限</li>
+<li>⚠️ 要咁緊張，係因為 SLAVATOUR 條款寫明 <strong>off-road 保險「喺格魯吉亞法律上除外」</strong>，第三者責任都只係 <strong>€3,000</strong></li>
+</ul>
+<ul class="checks"><li class="item" data-id="57a410dc22"><label><input type="checkbox" id="c-57a410dc22" data-id="57a410dc22"><span class="box" aria-hidden="true"></span><span class="txt"><strong>2 · 🇲🇾 填 MDAC</strong>：香港護照要填，<strong>抵達前 3 日內</strong>先填得。<strong>第 1 張今晚填</strong>（26/9 入境）；<strong>第 2 張 8–10/10 填</strong>（11/10 自行轉機要過關）。只用官方免費網站 imigresen-online.imi.gov.my/mdac/main，因為有收費嘅山寨網</span></label></li><li class="item" data-id="4d41939841"><label><input type="checkbox" id="c-4d41939841" data-id="4d41939841"><span class="box" aria-hidden="true"></span><span class="txt"><strong>3 · 💳 開通所有卡嘅海外提款</strong>，時段設 25/9–12/10，每張扣賬卡同信用卡都要。原因：HKMA 規定預設係關閉</span></label></li><li class="item" data-id="dd38b1f06c"><label><input type="checkbox" id="c-dd38b1f06c" data-id="dd38b1f06c"><span class="box" aria-hidden="true"></span><span class="txt"><strong>4 · 💬 WhatsApp Slava（+49 178 849 65 12），一次過問晒</strong>：先<strong>預留 ADV 靴 ×2，€5/日</strong>（EU 碼：Alex <strong>、Hugo </strong>；今晚冇覆就聽日喺香港買，見 🏍），再問埋以下幾樣（全部都影響你帶咩）：</span></label></li></ul>
+<ol>
+<li>架車係邊年？油缸 12 L 定 13.5 L？</li>
+<li>租嘅頭盔係咩款，有冇鏡片？</li>
+<li>bag set 係咩款、有幾多公升？</li>
+<li>手機架同 USB 包唔包？（官網兩頁寫法唔同）</li>
+<li><strong>要書面確認軟袋可以入 Truso 同 Zagari</strong>（條款 3.3，見 🧳）</li>
+<li>每日 km 上限係 250 定 300？2/10 大約 380 km</li>
+<li><strong>29/9–6/10 可唔可以寄存兩個大袋</strong></li>
+<li>有冇 chain spray 同後備保險絲？車上有咩補胎工具？</li>
+<li>€850 押金係 hold 定 charge？3% 附加費計唔計押金？</li>
+<li><strong>租期改做 29/9–6/10 確認咗未？</strong>（21 號文件仲寫未確認）</li>
+<li>690 有冇 <strong>side rack 或者右邊死氣喉隔熱板</strong>，俾掛式軟馬鞍袋擱住？冇嘅話，我哋嘅馬鞍袋可唔可以用 bag set 嘅支架？</li>
+<li>Hugo 要唔要租頭盔、ADV 褸、ADV 靴（尺碼 __）</li>
+</ol>
+<ul class="checks"><li class="item" data-id="e23e51b2a8"><label><input type="checkbox" id="c-e23e51b2a8" data-id="e23e51b2a8"><span class="box" aria-hidden="true"></span><span class="txt"><strong>5 · 🧳 查機票行李額</strong>：</span></label></li></ul>
+<ul>
+<li><strong>國泰</strong> e-ticket 寫「1PC」即係 Light（1 件 23 kg），「2PC」即係 Essential 或 Flex</li>
+<li><strong>FlyOne</strong> 要睇 fare type：LIGHT 同 STANDARD 冇寄艙（check-in 時間見 🌡 9/10）</li>
+</ul>
+<ul class="checks"><li class="item" data-id="7d6f734a32"><label><input type="checkbox" id="c-7d6f734a32" data-id="7d6f734a32"><span class="box" aria-hidden="true"></span><span class="txt"><strong>6 · 📶 開數據</strong>：香港電話卡開漫遊數據日費（馬來西亞、卡塔爾、亞美尼亞），或者買呢三國嘅 eSIM。26/9 02:15 叫 Grab、03:00 WhatsApp 攞 Eaton 入門密碼都要網。28/9 Magti SIM 放第二卡槽，<strong>香港 SIM 唔好拎出嚟</strong>（要收銀行 OTP 短訊）。Magti 喺亞美尼亞只有貴漫遊，可以喺 Yerevan 買當地 SIM</span></label></li><li class="item" data-id="dcd123c09d"><label><input type="checkbox" id="c-dcd123c09d" data-id="dcd123c09d"><span class="box" aria-hidden="true"></span><span class="txt"><strong>7 · 🇬🇪 試喺 uas.gov.ge 登記無人機</strong>：規則唔清楚。有來源話 &lt;250 g 但有鏡頭都要登記，外國人可能要親身去 GCAA，但行程冇時間去</span></label></li><li class="item" data-id="9a515336b0"><label><input type="checkbox" id="c-9a515336b0" data-id="9a515336b0"><span class="box" aria-hidden="true"></span><span class="txt"><strong>8 · 🔄 用屋企 Wi-Fi 更新 firmware</strong>：Mini 4 Pro 同遙控，<strong>每粒電池都要逐粒插入機更新</strong>；X4、DJI Fly 同 Insta360 app 都要更新，app 今晚登入一次。山區冇穩定數據，路上好難更新</span></label></li><li class="item" data-id="a46e86f14b"><label><input type="checkbox" id="c-a46e86f14b" data-id="a46e86f14b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>9 · 📱 下載</strong>：Organic Maps 或 OsmAnd 嘅格魯吉亞＋亞美尼亞離線地圖、Google 翻譯離線包（格魯吉亞文＋俄文）。<strong>另外下載 Ushguli→Zagari→Lentekhi 嘅 GPX track</strong>（例如 Wikiloc），匯入 OsmAnd 或 Organic Maps 當 track 跟住行，兩部手機都要有：5/10 嗰段 Google Maps 同 OSM 自動導航都唔啱，唔好靠。登記國泰會員（免費），CX724 網上 check-in 可以提早到 48 小時前</span></label></li><li class="item" data-id="83c15af35b"><label><input type="checkbox" id="c-83c15af35b" data-id="83c15af35b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>10 · 🚁 決定無人機點帶</strong>：建議<strong>只帶 Mini 4 Pro（標準電池），Neo 2 留香港</strong>。26/9 23:55 落 DOH 之後<strong>行紅色通道申報</strong>、攞收據；28/9 <strong>11:30–12:00 前到 DOH</strong> 取返（要 11:00 離開酒店，趕唔切 Msheireb）。唔想冒險就<strong>全部無人機留香港</strong>。卡塔爾法例見 ✈️ 鋰電池／無人機規則，Neo 2 海拔原因見 📸</span></label></li></ul>
+<p><strong>今晚 20:30 前・旺角／深水埗（買嘢）</strong></p>
+<blockquote>
+<p>冇標 ✅已有 嘅嘢，先自己核對有冇，冇先買。
+- <strong>必買</strong>（安全、保暖）：Hugo 缺嘅頭盔、褸、褲、靴；ADV 靴（Slava 冇覆先買）；風鏡；手套；雨衣褲；護膝脛；暖手包；飛機帶；防水內袋；G→Schuko 轉插
+- <strong>買得切先買</strong>：美利奴底衫、fleece、頭套、頸巾、胎壓計、頭燈、記憶卡、SSD、充電器
+- <strong>唔買都得</strong>：ND 濾鏡、三腳架、降落墊、對講機、咪、隱形自拍棍、碟煞鎖、USB-C hub</p>
+</blockquote>
+<ul class="checks"><li class="item" data-id="3ea795b586"><label><input type="checkbox" id="c-3ea795b586" data-id="3ea795b586"><span class="box" aria-hidden="true"></span><span class="txt"><strong>11 · 🛒 旺角補騎行裝備（每人）</strong>：風鏡（透明＋茶色鏡片）、<strong>手套 2 對</strong>（夏季越野＋防水保暖）、<strong>分體雨衣雨褲（螢光）</strong>、耳塞、薄頭套，連埋 Hugo 缺嘅嘢（見 #0）。越野褲冇護膝就加護膝脛。去 <strong>Helmetking 頭盔王</strong>（登打士街 2–8 號，11:00–20:30，WhatsApp 6385 8830）或 <strong>利力 Leelik</strong>（廣華街 22 號，11:30–20:30，2782 7766）。<strong>店舖存貨未確認，去之前 WhatsApp 問</strong></span></label></li><li class="item" data-id="67711390b0"><label><input type="checkbox" id="c-67711390b0" data-id="67711390b0"><span class="box" aria-hidden="true"></span><span class="txt"><strong>12 · 🪢 買飛機帶＋馬鞍袋防水內袋</strong>：五金舖或電單車舖（見 🧰）</span></label></li><li class="item" data-id="bc8b8ecb6e"><label><input type="checkbox" id="c-bc8b8ecb6e" data-id="bc8b8ecb6e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>13 · 🔥 買暖手包 20 片＋暖身貼 4–6 片</strong>：先打電話問屈臣氏、萬寧或 AEON 門市（網店有列，門市有冇貨未確認）。冇貨就去 <strong>驚安之殿堂 Donki</strong>（旺角 MPM，網上資料寫 10:00–01:00；尖沙咀美麗華，24 小時）搵日本暖包，有冇貨都未確認（見 🔥）</span></label></li><li class="item" data-id="db7da8d80e"><label><input type="checkbox" id="c-db7da8d80e" data-id="db7da8d80e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>14 · 🔌 買電子配件</strong>：先核對邊啲已經有。可能要補：X4 後備電池 ×3＋Fast Charge Hub、Helmet Chin Mount 2.0＋Vertical-Horizontal Mount、Heavy Duty Clamp、Premium 鏡頭保護罩、microSD、4 TB SSD ×2、讀卡器 ×2、100 W GaN ×2、G→Schuko 轉插 ×3、線（數量見 📸 同 🔌）。記憶卡、SSD、充電器、線同轉插去深水埗高登電腦中心或黃金電腦商場；Insta360 同 DJI 配件去授權經銷或門市。<strong>存貨同營業時間未確認，去之前打電話問</strong></span></label></li></ul>
+<p><strong>聽日日間</strong></p>
+<ul class="checks"><li class="item" data-id="587ec2eb0c"><label><input type="checkbox" id="c-587ec2eb0c" data-id="587ec2eb0c"><span class="box" aria-hidden="true"></span><span class="txt"><strong>15 · 🪪 IDP（如果未有）</strong>：聽日喺運輸署牌照事務處<strong>即日</strong>辦，<strong>HK$80</strong>。帶 TD51 表格、身份證、2 張相、住址證明。<strong>攞到要睇清楚有冇 A 類電單車</strong>（蓋印格式未確認）</span></label></li><li class="item" data-id="083af6d294"><label><input type="checkbox" id="c-083af6d294" data-id="083af6d294"><span class="box" aria-hidden="true"></span><span class="txt"><strong>16 · 💉（可選）去私家診所</strong>：破傷風上次打咗超過 10 年就補一針。甲肝打第一針：CDC 話 2 星期內出發都照打。超過 40 歲、2 星期內出發（Alex），醫生評估風險之後可以喺另一隻手加打免疫球蛋白（IG）；私家診所未必有貨，打電話先問</span></label></li></ul>
+<p><strong>出門前（執嘢）</strong></p>
+<ul class="checks"><li class="item" data-id="a8713af185"><label><input type="checkbox" id="c-a8713af185" data-id="a8713af185"><span class="box" aria-hidden="true"></span><span class="txt"><strong>17 · 🔋 執電池</strong>：每人<strong>最多 2 個尿袋</strong>，全部放手提，<strong>Mini 4 Pro 唔好帶 Plus 電池</strong>，充電式電暖手機留低。睇下尿袋底嘅型號係咪卡塔爾禁嗰幾款 Anker（見 ✈️ 鋰電池）</span></label></li><li class="item" data-id="46ad0de514"><label><input type="checkbox" id="c-46ad0de514" data-id="46ad0de514"><span class="box" aria-hidden="true"></span><span class="txt"><strong>18 · 💊 執藥</strong>：<strong>唔好帶</strong>以下呢啲：含可待因嘅咳藥水（好多香港咳藥都有）、tramadol、安眠藥（zolpidem、benzo 類）、pregabalin。pseudoephedrine 喺卡塔爾嘅地位未確認，保險起見都唔好帶。原因：卡塔爾建議最少 5 個工作天前申請管制藥 e-permit，審批要 3 個工作天，已經嚟唔切。處方藥要帶<strong>英文醫生信</strong></span></label></li><li class="item" data-id="7824e4179a"><label><input type="checkbox" id="c-7824e4179a" data-id="7824e4179a"><span class="box" aria-hidden="true"></span><span class="txt"><strong>19 · 🔌 充電</strong>：手機、尿袋、X4、notebook 聽日出門前充滿。<strong>無人機電池 30–60% 就得</strong>（航空公司冇規定電量；30% 係貨運規則）</span></label></li><li class="item" data-id="340a67effc"><label><input type="checkbox" id="c-340a67effc" data-id="340a67effc"><span class="box" aria-hidden="true"></span><span class="txt"><strong>20 · 🖨 打印以下文件</strong>：保單 ×2、<strong>Souq Al Wakra 酒店確認</strong>（卡塔爾免簽要有酒店確認）、全部機票、SLAVATOUR 預約、MDAC</span></label></li></ul>
+<hr /></div></section>
+<section class="sec" id="s2" data-sec="s2"><header class="sec-h"><h2>🧳 分袋系統</h2><span class="sec-n" data-count="s2">0/1</span></header><div class="sec-b"><p><strong>每人 3 件袋，外加著喺身嗰啲：</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>袋</th>
+<th>係咩</th>
+<th>用喺邊</th>
+<th>上限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A 寄艙大袋</strong></td>
+<td>軟身 duffel 70–90 L（約 1.4 kg）</td>
+<td>所有航班（<strong>FlyOne 除外</strong>）</td>
+<td>國泰 Light 1 件 23 kg；卡塔爾總重 25 kg</td>
+</tr>
+<tr>
+<td><strong>B 車上袋</strong></td>
+<td><strong>Alex 架車</strong>：馬鞍袋 ✅已有＋車尾捲口防水袋。<strong>Hugo 架車</strong>（Hugo 冇自己嘅袋先要）：租 SLAVATOUR <strong>bag set</strong>（€6.5/日，8 日約 €52），或者今晚買第二套軟馬鞍袋或 30–40 L 尾包。兩架車都用<strong>飛機帶</strong>綁</td>
+<td>只喺 29/9–6/10 用</td>
+<td>每架車 <strong>≤45 L、≤12 kg（連袋）</strong></td>
+</tr>
+<tr>
+<td><strong>C 手提</strong></td>
+<td>背囊，<strong>40×30×20 cm</strong>（20–24 L）</td>
+<td>全程</td>
+<td>國泰／卡塔爾 7 kg；<strong>FlyOne 40×30×20 cm、最重 8 kg</strong></td>
+</tr>
+<tr>
+<td><strong>著喺身</strong></td>
+<td><strong>回程</strong>（QR256、QR852、CX724）：行山靴＋騎行褸＋fleece。<strong>去程 CX733</strong>：輕便波鞋＋fleece（見下面）</td>
+<td>每一程機</td>
+<td>慳大約 3.5 kg 同 15 L；卡塔爾明文准多帶 1 件外套</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>越野頭盔放喺 A 袋正中</strong>：先入頭盔袋，頭盔入面塞手套、風鏡、頸巾同襪，四周用軟衫包住。三間航空公司都冇寫頭盔可以當免費額外件；國泰 Light 單獨寄頭盔會用晒你 1 件寄艙額</li>
+<li><strong>馬鞍袋攤平，貼住 A 袋背面</strong>，當撐板用</li>
+<li>尿袋同後備鋰電<strong>永遠唔寄艙</strong></li>
+<li>⚠️ <strong>26/9 KL 30 °C，A 又攞唔到</strong>：去程著輕便波鞋上機，行山靴放 A；騎行褸 A 塞得落（≤23 kg）就放 A，唔係就著住。落 KUL 寄存 A 嗰陣，將褸同 fleece 塞返入 A（QR855 係卡塔爾，限 25 kg）。A 直掛咗去 DOH，就 12:30 將褸同 fleece 放 Dr. Locker。C 帶 KL 日間套裝（每人短褲、速乾 tee、cap）</li>
+</ul>
+<h3>逐段邊個袋去邊</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>航班／地點</th>
+<th>A 寄艙大袋</th>
+<th>B 車上袋</th>
+<th>C 手提</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25/9</td>
+<td>CX733 HKG→KUL</td>
+<td>寄艙。<strong>問櫃位可唔可以直掛去 DOH（QR855）</strong>：國泰 FAQ 話分開票嘅 oneworld 航班可以直掛，「除非當地海關要求」。20h20 轉機算唔算數未確認</td>
+<td>攤平喺 A 入面</td>
+<td>隨身，裝埋 KL 過夜包＋KL 日間套裝</td>
+</tr>
+<tr>
+<td>26/9</td>
+<td>吉隆坡</td>
+<td>冇直掛嘅話，落機即刻寄存 <strong>KLIA T1 Smart Storage</strong>（Level 3 入境大堂 Lot MTB-3-L15，☎ +603-8776 5035，<strong>02:00 開唔開要先打電話問</strong>；非官方網頁寫 RM19–51/日）。<strong>呢個安排取代行程嘅 12:30 Dr. Locker</strong>；Smart Storage 02:00 冇開，就照行程帶去 Eaton，12:30 放 <strong>KL Sentral Dr. Locker</strong>（大格約 RM40–50/24h，道門<strong>只開兩次</strong>）</td>
+<td>—</td>
+<td>隨身（無人機同電池唔好放儲物櫃）</td>
+</tr>
+<tr>
+<td>26–28/9</td>
+<td>多哈</td>
+<td>放酒店房</td>
+<td>—</td>
+<td>隨身（無人機申報咗）</td>
+</tr>
+<tr>
+<td>28/9</td>
+<td>QR253 → TBS</td>
+<td>寄艙；到 Pura Vida 即晚執 B（見下面）</td>
+<td>—</td>
+<td>隨身</td>
+</tr>
+<tr>
+<td>29/9–6/10</td>
+<td>騎車 8 日</td>
+<td><strong>寄存 Pura Vida／SLAVATOUR</strong>：要書面確認，鎖好，貼名同「6/10」。後備係 TBS 機場行李寄存（24 小時，約 10–20 GEL/件/日，2024 年價，未確認）</td>
+<td>上車</td>
+<td>塞入 A 寄存，騎車用 🧰 細背囊；或者當騎車 daypack（<strong>唔好放 notebook</strong>）</td>
+</tr>
+<tr>
+<td>6/10</td>
+<td>還車 → Fabrika</td>
+<td>取返</td>
+<td>收返入 A</td>
+<td>隨身</td>
+</tr>
+<tr>
+<td>7–9/10</td>
+<td>亞美尼亞</td>
+<td><strong>寄存 Fabrika 行李房</strong>，連<strong>頭盔、褸、越野褲、馬鞍袋、無人機</strong>一齊寄</td>
+<td>喺 A 入面</td>
+<td><strong>淨係帶 C</strong>（見下面）</td>
+</tr>
+<tr>
+<td>9/10</td>
+<td>FlyOne EVN→TBS</td>
+<td>仲喺 Fabrika；返到攞返 A 就即刻將無人機同電池搬入 C</td>
+<td>—</td>
+<td><strong>只准 40×30×20 cm、8 kg</strong>；超尺寸去到閘口收 €105–316</td>
+</tr>
+<tr>
+<td>10/10</td>
+<td>QR256 → DOH</td>
+<td>寄艙，<strong>問 TBS 櫃位直掛去 HKG（CX724）</strong>。酒放 A 中間（見 🍷）。⚠️ 寄艙前確認 Mini 4 Pro、所有電池、hub、遙控同尿袋已經喺 C（卡塔爾：寄艙無人機要除晒電池，後備電池只准手提）</td>
+<td>喺 A 入面</td>
+<td>隨身</td>
+</tr>
+<tr>
+<td>11/10</td>
+<td>QR852 → KUL → CX724</td>
+<td>冇直掛嘅話要取行李、過關（用 MDAC #2），<strong>16:40 前</strong>去國泰櫃位；A 有酒就要過海關（見 🍷）</td>
+<td>—</td>
+<td>隨身</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Fabrika 行李房</strong>：check-out 日同 check-in 日免費，其餘日子 <strong>5 GEL/件/日</strong>。7–9/10 大約收 1 日 × 4–6 件，即係 <strong>20–30 GEL</strong>。前台 24 小時開，但<strong>唔准喺行李房執嘢</strong>，所以亞美尼亞個 C 袋要 6/10 晚預先執好（見下面）</li>
+<li><strong>R&amp;R Hotel（Yerevan）有行李寄存</strong>（見 21）</li>
+<li>C 袋塞唔落兩晚嘅嘢，就網上買 <strong>1 件 FlyOne 大手提</strong>（10 kg，50×40×25 cm，網上 €20–60），兩個人共用，好過去到閘口先俾錢</li>
+</ul>
+<h3>28/9 晚喺 Pura Vida 執 B（A→B）</h3>
+<p>A 29/9–6/10 鎖喺 Tbilisi，<strong>漏低咗就 8 日都攞唔返</strong>。</p>
+<ul>
+<li><strong>入 B（每人）</strong>：暖手包 10 片＋暖身貼 2–3 片（放防水袋最頂或者褸袋）、雨衣褲（放最頂）、美利奴底衫褲、fleece、羽絨、冷帽、速乾 tee ×2、底褲同襪、<strong>1 對後備鞋</strong>（見 🏍 行山靴）＋人字拖、泳褲、長袖有領恤衫＋chino 1 條、速乾毛巾、細支洗漱、頭燈、急救包＋藥、GaN 充電器＋線、SSD＋讀卡器、無人機／X4 全套</li>
+<li><strong>共用（兩架車分開帶）</strong>：拖板＋Schuko 轉插、胎壓計、鋼索鎖、洗衫片＋晾衫繩、索帶、膠布、工具</li>
+<li><strong>留 A（寄存 Pura Vida）</strong>：短褲、cap、多哈麻長褲、KL 同多哈嘅衫、頭盔袋、飛機枕、摺傘、大支後備防曬、酒樽保護套、&gt;1.5 kg 嘅 notebook</li>
+<li>重嘢（工具、notebook）擺低、貼近車身中間（KTM 說明書）</li>
+</ul>
+<h3>6/10 晚執亞美尼亞 C 袋（7–9/10）</h3>
+<p>護照＋影印本 1 份、<strong>英文保單印本</strong>（9/10 再入境格魯吉亞要）、FlyOne 登機證（手機＋A4）、卡＋USD＋AMD、GaN 充電器＋線＋Schuko 轉插、尿袋、X4 同電池、SSD、兩晚衫（長褲 1 條畀 Geghard、fleece 畀夜晚 12–15 °C）、藥＋暈車藥、≤100 ml 液體袋、即棄或卡式剃鬚刨。<strong>留 Fabrika</strong>：無人機、剪刀、多用途工具、大支防曬、塞唔落嘅 notebook。</p>
+<h3>🍷 買酒同帶酒</h3>
+<ul class="checks"><li class="item" data-id="c20f30ec59"><label><input type="checkbox" id="c-c20f30ec59" data-id="c20f30ec59"><span class="box" aria-hidden="true"></span><span class="txt"><strong>酒樽保護套</strong>（充氣款）×3（共用，去程放 A）：冇就用氣泡膠＋zip-lock</span></label></li></ul>
+<ul>
+<li><strong>騎車期間唔好買酒上車</strong>（包括 1/10 Schuchmann）：玻璃重又易爆，B 會超重。留到 9–10/10 喺 Tbilisi 買，放 A 中間、用衫包住</li>
+<li><strong>國泰係 1PC（23 kg）就最多帶 2 支</strong>，或者將 ADV 靴、褸著上機</li>
+<li>⚠️ <strong>TBS 唔肯直掛 A 去 HKG</strong>：11/10 A 要喺 KLIA 過馬來西亞海關，轉機停留冇免稅酒額（非居民要留 ≥72 小時先有 1 L），要行紅色通道申報交稅，2h30 轉機好蝕時間。<strong>買酒前先問卡塔爾或國泰直唔直掛得</strong>；問唔實就每人最多帶 1 支</li>
+<li>香港：葡萄酒冇限；chacha 等 &gt;30% 烈酒每人只免稅 1 L</li>
+</ul>
+<h3>重量估算（每人）</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>袋</th>
+<th>估計</th>
+<th>上限</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A 去程</td>
+<td><strong>約 18–21 kg</strong>（買咗 ADV 靴再加 2 kg）</td>
+<td>23 kg（國泰 Light）</td>
+<td>褸塞入 A 就再加約 2 kg，超過 23 kg 就著住褸</td>
+</tr>
+<tr>
+<td>A 回程（加 3 支酒，每支連保護套約 1.3 kg）</td>
+<td><strong>約 22–25 kg</strong></td>
+<td>23 kg（國泰 Light）／25 kg（卡塔爾）</td>
+<td><strong>國泰係 1PC 就最多 2 支酒</strong>；或者 ADV 靴著上機；或者 CX724 預先網上加行李。國泰超重（23–32 kg）收 USD 60；加件收 USD 100</td>
+</tr>
+<tr>
+<td>C（Alex：notebook、X4 連後備電池同 hub、尿袋、SSD、GaN、替換衫）</td>
+<td>約 5.2–5.8 kg</td>
+<td>7 kg（FlyOne 8 kg）</td>
+<td>國泰 7 kg 當總重計；液體袋、摺傘、飛機枕、藥交畀 Hugo</td>
+</tr>
+<tr>
+<td>C（Hugo：Mini 4 Pro 套裝、尿袋、SSD、GaN、替換衫、液體袋、藥、摺傘）</td>
+<td>約 5.0–6.0 kg</td>
+<td>7 kg（FlyOne 8 kg）</td>
+<td>飛機枕扣喺背囊外面</td>
+</tr>
+<tr>
+<td>B（每架車）</td>
+<td><strong>≤12 kg（連袋）、≤45 L</strong></td>
+<td>SLAVATOUR 禁止超載（條款 3.3）</td>
+<td>軟袋可以擱喺後座位，帶扣車尾架或扶手同後座腳踏架</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>A 袋去程內容</strong>：duffel 1.4 kg、頭盔＋頭盔袋 1.8、越野褲 1.0、馬鞍袋 2.0–3.0（<strong>只計 Alex</strong>）、雨衣褲 0.8、騎行衫 2.5、城市衫 2.0、行山靴 1.3、護膝脛 1.0、手套 ×2 0.6、風鏡 0.25、暖包 0.5、防水袋 0.4、鋼索鎖 0.5、三腳架 0.4、X4 mount 0.3、洗漱＋急救 1.0、綁帶工具頭燈毛巾人字拖 1.2、充電器轉插 0.5（<strong>唔包尿袋</strong>）。</p>
+<p><strong>C 袋內容</strong>（兩個人分擔）：notebook＋火牛 1.8–2.2 kg、Mini 4 Pro 連遙控、3 粒電池同 hub 1.1、X4 連電池同自拍棍 0.6、尿袋 0.5、證件現金藥太陽眼鏡過夜包 0.6、GaN 充電器 ×2 0.5、替換衫 ×2 0.8、液體袋 0.4、摺傘 0.25、飛機枕 ×2 0.6、背囊本身 0.6–0.9。<strong>建議 Alex 揹 notebook＋X4，Hugo 揹 Mini 4 Pro</strong>，每人各揹 1 個尿袋同 1 隻 SSD。</p>
+<h3>馬鞍袋上 KTM 690 Enduro R</h3>
+<ul>
+<li><strong>死氣喉喺右邊</strong>：馬鞍袋要有隔熱墊或側撐，<strong>袋腳要完全擱喺側板上面</strong>，唔好掂到死氣喉同後轆（今晚問 Slava，⏰ #4 第 11 問）</li>
+<li><strong>入油口喺車尾</strong>（車尾油缸，兼做副車架），袋底可能遮住入油口，<strong>每次入油都要掀起</strong>。取車嗰陣試一次</li>
+<li>綁落 <strong>KTM 車尾架</strong>（租車已包），<strong>唔好淨係靠腳踏</strong></li>
+<li>袋入面全部用<strong>防水內袋</strong>（見 🧰）：羽絨、底衫、瞓覺衫一定要入內袋；雨罩有就用</li>
+<li>防盜：<strong>每晚拎入房</strong>，或者用鋼索鎖</li>
+<li><strong>條款 3.3：有行李系統就只准行柏油路同輕碎石路</strong>。德文版寫「Koffersystem」（箱），英文版寫「luggage system」（包括袋），兩個版本寫法唔同。軟袋入 Truso、Zagari 得唔得，一定要 Slava 書面確認（⏰ #4 第 5 問），未確認之前唔好當係准。suitcase set 唔好租；bag set 可以租</li>
+<li><strong>3/10 Mestia 斜巷</strong>：捲口防水袋當過夜袋（當晚衫、洗漱、充電器、電子產品）。唔敢載住行李上斜，就喺 Seti 廣場卸低過夜袋孭上去，空車再騎上。馬鞍袋冇手挽就帶 1 條可拆孭帶</li>
+<li>前面「油缸」位置係膠，<strong>磁石油缸袋黐唔到</strong></li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s3" data-sec="s3"><header class="sec-h"><h2>📄 證件同文件</h2><span class="sec-n" data-count="s3">0/16</span></header><div class="sec-b"><ul class="checks"><li class="item" data-id="e051447db5"><label><input type="checkbox" id="c-e051447db5" data-id="e051447db5"><span class="box" aria-hidden="true"></span><span class="txt"><strong>香港特區護照</strong>（每人）：有效期<strong>最少要去到 2027-04-11</strong>，因為馬來西亞 11/10 入境要 6 個月有效期；卡塔爾要 3 個月以上</span></label></li><li class="item" data-id="fe3aabd1dc"><label><input type="checkbox" id="c-fe3aabd1dc" data-id="fe3aabd1dc"><span class="box" aria-hidden="true"></span><span class="txt">護照影印本 ×2 份，再手機掃描同雲端各存一份（每人）：1 份放 C 背囊夾層（全程跟身，包括 7–9/10 亞美尼亞），1 份交另一個人保管（騎車日放佢 B 袋）</span></label></li><li class="item" data-id="59491a5f28"><label><input type="checkbox" id="c-59491a5f28" data-id="59491a5f28"><span class="box" aria-hidden="true"></span><span class="txt">香港身份證（每人）：辦 IDP 要用，亦係後備身份證明</span></label></li><li class="item" data-id="c8dc7a902d"><label><input type="checkbox" id="c-c8dc7a902d" data-id="c8dc7a902d"><span class="box" aria-hidden="true"></span><span class="txt"><strong>香港正式駕駛執照，有電單車類別</strong>（每人）：SLAVATOUR 要求 A 牌、持牌滿 1 年（&gt;500cc）。呢個寫喺 21 號文件；官網冇寫，未確認</span></label></li><li class="item" data-id="3c3d34cca9"><label><input type="checkbox" id="c-3c3d34cca9" data-id="3c3d34cca9"><span class="box" aria-hidden="true"></span><span class="txt"><strong>IDP（1949 日內瓦公約）</strong>（每人）：格魯吉亞係 1949 年公約締約國（1993 年加入），香港 IDP 有效。亞美尼亞同卡塔爾唔係締約國，不過喺嗰兩度你哋係乘客，冇影響。運輸署冇自己嘅認可名單，只係叫人睇聯合國締約國名單同問當地領事館</span></label></li><li class="item" data-id="696611292e"><label><input type="checkbox" id="c-696611292e" data-id="696611292e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>保險單，英文（或格魯吉亞文），打印 ×2</strong>（每人）：格魯吉亞邊境可能會查，28/9 同 9/10 兩次入境都要帶。保單要寫明雙方、承保地區、承保內容、起止日期、承保風險、承保上限（≥30,000 GEL）同保費</span></label></li><li class="item" data-id="90a28ea63d"><label><input type="checkbox" id="c-90a28ea63d" data-id="90a28ea63d"><span class="box" aria-hidden="true"></span><span class="txt">保險公司 24 小時緊急電話＋保單號碼卡（每人），銀包同手機各一份</span></label></li><li class="item" data-id="d6f93f2033"><label><input type="checkbox" id="c-d6f93f2033" data-id="d6f93f2033"><span class="box" aria-hidden="true"></span><span class="txt"><strong>英文緊急資料卡</strong>（每人）：姓名、血型、藥物敏感、長期病同藥、香港緊急聯絡人、保單號碼。放褸內袋，出事第一個搵到。緊急電話：<strong>格魯吉亞 112</strong>，亞美尼亞 112 或 911</span></label></li><li class="item" data-id="8915304470"><label><input type="checkbox" id="c-8915304470" data-id="8915304470"><span class="box" aria-hidden="true"></span><span class="txt"><strong>MDAC 確認 ×2</strong>（26/9、11/10）：截圖＋PDF</span></label></li><li class="item" data-id="0a3b090929"><label><input type="checkbox" id="c-0a3b090929" data-id="0a3b090929"><span class="box" aria-hidden="true"></span><span class="txt">機票：<strong>CX733／CX724</strong>（另一張票）、<strong>Qatar 套票 Q878Z4FG／PNR 8AWON6</strong>、<strong>FlyOne 3F583</strong>。印出嚟，手機都存離線版。FlyOne 登機證要喺手機或者 A4 紙上，重印收 €5</span></label></li><li class="item" data-id="ebd2a6a946"><label><input type="checkbox" id="c-ebd2a6a946" data-id="ebd2a6a946"><span class="box" aria-hidden="true"></span><span class="txt">酒店確認，<strong>特別係 Souq Al Wakra</strong>：卡塔爾免簽入境要有酒店確認</span></label></li><li class="item" data-id="bafbccd8b3"><label><input type="checkbox" id="c-bafbccd8b3" data-id="bafbccd8b3"><span class="box" aria-hidden="true"></span><span class="txt"><strong>SLAVATOUR 預約／合約</strong>、Slava 電話、押金收據：取車同還車都要逐格影相影片。出事要<strong>先通知租車行（連相或片），之後先報警</strong></span></label></li><li class="item" data-id="fe19880809"><label><input type="checkbox" id="c-fe19880809" data-id="fe19880809"><span class="box" aria-hidden="true"></span><span class="txt">護照相 ×2（每人）：萬一失護照或者要補 IDP</span></label></li><li class="item" data-id="e46efc9fce"><label><input type="checkbox" id="c-e46efc9fce" data-id="e46efc9fce"><span class="box" aria-hidden="true"></span><span class="txt">筆 ×1（每人）：填表、過海關用</span></label></li><li class="item" data-id="122905ae77"><label><input type="checkbox" id="c-122905ae77" data-id="122905ae77"><span class="box" aria-hidden="true"></span><span class="txt">處方藥英文醫生信（每人，如有處方藥）：要寫姓名、藥名、劑量、用藥期，<strong>6 個月內</strong>簽發</span></label></li><li class="item" data-id="fb6e9e19d1"><label><input type="checkbox" id="c-fb6e9e19d1" data-id="fb6e9e19d1"><span class="box" aria-hidden="true"></span><span class="txt">手機存好<strong>入境處 24 小時求助熱線 (852) 1868</strong>，WhatsApp、WeChat 同入境處 app 都搵到</span></label></li></ul>
+<hr /></div></section>
+<section class="sec" id="s4" data-sec="s4"><header class="sec-h"><h2>💰 錢同卡</h2><span class="sec-n" data-count="s4">0/7</span></header><div class="sec-b"><ul class="checks"><li class="item" data-id="7fe3fe0ca4"><label><input type="checkbox" id="c-7fe3fe0ca4" data-id="7fe3fe0ca4"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Visa 信用卡（高額度）</strong> ×1（每人）：KTM 條款寫「EU cards/VISA」，收唔收 Mastercard 未確認。押金 <strong>€1,700（約 5,170 GEL）最好用 Visa 預授權 hold</strong>，額度要預留押金再加租金</span></label></li><li class="item" data-id="0a5508d5d2"><label><input type="checkbox" id="c-0a5508d5d2" data-id="0a5508d5d2"><span class="box" aria-hidden="true"></span><span class="txt">Mastercard 後備 ×1（每人）：<strong>同主卡分開放</strong>。騎車日放腰包或者褸內袋；7–9/10 放 C 夾層。🚫 <strong>唔好放 A</strong>（29/9–6/10 同 7–9/10 A 都寄存喺 Tbilisi）</span></label></li><li class="item" data-id="c963ddda08"><label><input type="checkbox" id="c-c963ddda08" data-id="c963ddda08"><span class="box" aria-hidden="true"></span><span class="txt">提款卡 ×1（每人），<strong>已經開咗海外提款</strong></span></label></li><li class="item" data-id="d081792805"><label><input type="checkbox" id="c-d081792805" data-id="d081792805"><span class="box" aria-hidden="true"></span><span class="txt">腰包或頸袋 ×1（每人）：放後備卡同第一份現金</span></label></li><li class="item" data-id="caf4036144"><label><input type="checkbox" id="c-caf4036144" data-id="caf4036144"><span class="box" aria-hidden="true"></span><span class="txt">第二份現金（約 €100）：騎車日放 B 內袋或者褸內袋，7–9/10 放 C 夾層。<strong>後備卡永遠唔好放寄艙或者寄存嘅袋</strong></span></label></li><li class="item" data-id="add0b25f74"><label><input type="checkbox" id="c-add0b25f74" data-id="add0b25f74"><span class="box" aria-hidden="true"></span><span class="txt"><strong>€200–300 應急現金</strong>（每人）：歐羅同美金喺格魯吉亞找換價好；其他貨幣匯率差</span></label></li><li class="item" data-id="a2ce9b5502"><label><input type="checkbox" id="c-a2ce9b5502" data-id="a2ce9b5502"><span class="box" aria-hidden="true"></span><span class="txt">如果押金用現金俾：<strong>每人 €850 放腰包</strong>。呢個數遠低過四個國家嘅申報門檻</span></label></li></ul>
+<p><strong>現金分配（每人，數目係估算）</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>貨幣</th>
+<th>幾多</th>
+<th>主要用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MYR</td>
+<td>RM100–150</td>
+<td>小販、的士後備（Grab 同大部分地方收卡）</td>
+</tr>
+<tr>
+<td>QAR</td>
+<td>100–200；<strong>沙漠團用現金俾就再加 QAR 275</strong></td>
+<td>Souq Waqif 細檔、貼士</td>
+</tr>
+<tr>
+<td>GEL</td>
+<td>TBS 落機撳 <strong>300–500</strong>；<strong>3/10 一到 Mestia 再撳 400–600</strong>（Ushguli 冇 ATM）；留約 100 畀 9–10/10</td>
+<td>Ushguli 民宿同餐、<strong>Dry Bridge 只收現金</strong>、Chreli-Abano 擦身（約 30 GEL，直接俾現金師傅）、細油站</td>
+</tr>
+<tr>
+<td>AMD</td>
+<td>≥20,000</td>
+<td>鄉郊地方用現金；Ameriabank ATM 每次收 1,500 AMD</td>
+</tr>
+<tr>
+<td>USD</td>
+<td>US$100–200</td>
+<td>後備，任何找換店都收</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>7/10 GoTrip 包車</strong>（約 US$180–260／架，見 23）：落單時揀網上碌卡預付。揀現金就要 6/10 還車後喺 Tbilisi 撳定約 500–700 GEL（成架車，兩人夾），因為落車嗰陣已經喺 Yerevan，冇 GEL ATM</li>
+<li><strong>AMD</strong>：7/10 出發前喺 Tbilisi 找換店換約 10,000 AMD，夠 Akhtala 捐獻（500–1,000 AMD）同 Haghpat 午餐，之後喺 Yerevan ATM 補</li>
+<li><strong>9/10 11:40 落 TBS 撳多 200–300 GEL</strong>：kisi 同 Dry Bridge 只收現金</li>
+<li>刷卡<strong>一律拒絕 DCC</strong>，揀當地貨幣俾，因為 DCC 匯率差幾個百分點</li>
+<li>格魯吉亞 ATM：<strong>Basisbank 同 Cartu 免手續費</strong>（上限約 2,000 GEL）；Bank of Georgia 約 3 GEL；Liberty 最貴。2026 年 9 月匯率：1 USD = 2.63 GEL，1 EUR = 3.04 GEL</li>
+<li>大油站網絡收卡，<strong>油站唔收美金或歐羅現金</strong></li>
+<li>SLAVATOUR 喺現場用卡或現金俾，要<strong>加 3%</strong>，佢哋比較想你銀行過數</li>
+<li>格魯吉亞貼士：單上冇印 service charge 先俾 10%，用拉里俾</li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s5" data-sec="s5"><header class="sec-h"><h2>🏍 騎行裝備（已有 vs 要補）</h2><span class="sec-n" data-count="s5">0/19</span></header><div class="sec-b"><h3>Alex 已經有（Hugo 要逐樣核對，見 ⏰ #0）</h3>
+<ul class="checks"><li class="item owned" data-id="995a44cc1e"><label><input type="checkbox" id="c-995a44cc1e" data-id="995a44cc1e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>騎行褸</strong> ✅已有：檢查有冇 <strong>CE 背甲、膊甲、手踭甲</strong>。冇嘅話，加背甲或 roost guard 同護踭；或者租 SLAVATOUR 嘅 ADV 褸（€5/日，護甲級別未確認）</span></label></li><li class="item owned" data-id="133efc4015"><label><input type="checkbox" id="c-133efc4015" data-id="133efc4015"><span class="box" aria-hidden="true"></span><span class="txt"><strong>越野（MX）頭盔</strong> ✅已有：<strong>冇鏡片</strong>，一定要配風鏡。E60 公路 90–110 km/h 嘅時候，帽簷會扯住條頸。後備：租 SLAVATOUR 頭盔 €5/日（款式未確認）</span></label></li><li class="item owned" data-id="039bb1354f"><label><input type="checkbox" id="c-039bb1354f" data-id="039bb1354f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>越野褲</strong> ✅已有：通常<strong>冇護膝，亦唔防風唔防水</strong>，所以要加護膝脛同雨褲</span></label></li><li class="item owned" data-id="84db694e3f"><label><input type="checkbox" id="c-84db694e3f" data-id="84db694e3f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>行山靴</strong> ✅已有：<strong>只係用嚟行山</strong>（Gergeti、Truso、Shkhara）同回程上機著；騎車 8 日點帶見下面</span></label></li><li class="item owned" data-id="3ee79a8f01"><label><input type="checkbox" id="c-3ee79a8f01" data-id="3ee79a8f01"><span class="box" aria-hidden="true"></span><span class="txt"><strong>馬鞍袋</strong> ✅已有：攤平放 A 袋；上車方法見 🧳</span></label></li></ul>
+<blockquote>
+<p>⚠️ <strong>行山靴騎 KTM 690 唔夠安全，係成套裝備最大嘅缺口</strong>：冇 EN 13634 認證，冇腳踝同脛骨保護；690 座高 935 mm，喺 Truso 或 Zagari 跌車俾約 160 kg 架車壓住隻腳係典型傷患，<strong>而且 off-road 冇保險</strong>。
+- <strong>首選</strong>：租 SLAVATOUR <strong>ADV 靴 €5/日</strong>（8 日約 €40），今晚報碼預留
+- <strong>次選</strong>：今晚喺香港買，例如 Helmetking 嘅 Gaerne G_Xenon GTX HK$1,480（41–45 碼）或者 Eleveit X-Legend HK$2,480。買咗就放 A 袋，大約重 2 kg
+- <strong>最後辦法</strong>：褲管套喺靴外面，鞋帶收埋或者用膠布貼實，加護膝脛，碎石路慢慢行
+- <strong>著 ADV 靴騎車嘅話</strong>：行山靴入 B，落車、行 Gergeti 同 Shkhara 著佢，輕便波鞋留 A；冇 ADV 靴就 B 帶波鞋。<strong>B 最多 1 對後備鞋＋人字拖</strong></p>
+</blockquote>
+<h3>要補（每人）</h3>
+<ul class="checks"><li class="item" data-id="47a69e1b9e"><label><input type="checkbox" id="c-47a69e1b9e" data-id="47a69e1b9e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>ADV／越野靴</strong> ×1 對：<strong>最優先</strong>。SLAVATOUR 租 €5/日，或者喺香港買（見上面）</span></label></li><li class="item" data-id="ab8b547ad9"><label><input type="checkbox" id="c-ab8b547ad9" data-id="ab8b547ad9"><span class="box" aria-hidden="true"></span><span class="txt"><strong>風鏡</strong> ×1，連<strong>透明鏡片＋茶色鏡片</strong>：落雨、大霧、天光前後同<strong>無燈雪崩廊道</strong>要用透明片。Helmetking 價錢 HK$158–830（FMF PowerCore $298、Fly Zone $380、Scorpion E24 $380）。記得做防霧處理。<strong>有戴眼鏡就要買 OTG 款</strong>（套得落眼鏡），再帶 1 副後備眼鏡或隱形眼鏡</span></label></li><li class="item" data-id="88b4482868"><label><input type="checkbox" id="c-88b4482868" data-id="88b4482868"><span class="box" aria-hidden="true"></span><span class="txt"><strong>夏季越野手套（有指骨護甲）</strong> ×1 對：卡赫季同 Kutaisi 20 幾度用。<strong>SLAVATOUR 冇手套租</strong></span></label></li><li class="item" data-id="ebb091c072"><label><input type="checkbox" id="c-ebb091c072" data-id="ebb091c072"><span class="box" aria-hidden="true"></span><span class="txt"><strong>防水保暖手套</strong> ×1 對：Jvari 同 Zagari 0–5 °C 用。Helmetking 價錢 HK$298–780（Rough &amp; Road $298、REV'IT Slate H2O $396、Alpinestars Hyde XT Drystar XF $780）</span></label></li><li class="item" data-id="d08d5fe2ee"><label><input type="checkbox" id="c-d08d5fe2ee" data-id="d08d5fe2ee"><span class="box" aria-hidden="true"></span><span class="txt">美利奴或絲質薄內手套 ×1 對（建議）：凍嘅朝早襯防水手套</span></label></li><li class="item" data-id="b1cef56c9f"><label><input type="checkbox" id="c-b1cef56c9f" data-id="b1cef56c9f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>分體雨衣雨褲，最好螢光黃</strong> ×1 套：要<strong>大一碼</strong>，套得落褸、褲同護甲。29/9 全日要著，每個凍朝早都當擋風層用。雨衣係黃色就兼做反光衣，雪崩廊道無燈用得着。Helmetking 價錢 HK$331–838</span></label></li><li class="item" data-id="8b1b956911"><label><input type="checkbox" id="c-8b1b956911" data-id="8b1b956911"><span class="box" aria-hidden="true"></span><span class="txt"><strong>泡棉耳塞 1 盒（約 10 對）</strong>：騎車同瞓覺共用。100 km/h 嘅時候頭盔入面有 <strong>100–106 dB</strong>，MX 頭盔特別嘈</span></label></li><li class="item" data-id="54f41ce6da"><label><input type="checkbox" id="c-54f41ce6da" data-id="54f41ce6da"><span class="box" aria-hidden="true"></span><span class="txt">護膝脛 ×1 對：越野褲冇護甲就一定要</span></label></li><li class="item" data-id="1de6f5cb70"><label><input type="checkbox" id="c-1de6f5cb70" data-id="1de6f5cb70"><span class="box" aria-hidden="true"></span><span class="txt">背甲或 roost guard ×1：件褸冇 CE 背甲就要</span></label></li><li class="item" data-id="28a5e12604"><label><input type="checkbox" id="c-28a5e12604" data-id="28a5e12604"><span class="box" aria-hidden="true"></span><span class="txt"><strong>薄防風頭套（balaclava）</strong> ×1：要塞得入 MX 頭盔</span></label></li><li class="item" data-id="0119f57edd"><label><input type="checkbox" id="c-0119f57edd" data-id="0119f57edd"><span class="box" aria-hidden="true"></span><span class="txt"><strong>美利奴或 fleece 頸巾</strong> ×1：多哈沙漠同碎石路兼做防塵口罩</span></label></li><li class="item" data-id="a16420105e"><label><input type="checkbox" id="c-a16420105e" data-id="a16420105e"><span class="box" aria-hidden="true"></span><span class="txt">長筒騎行襪 ×2 對：防靴磨，保暖</span></label></li><li class="item" data-id="85fb0a7ab2"><label><input type="checkbox" id="c-85fb0a7ab2" data-id="85fb0a7ab2"><span class="box" aria-hidden="true"></span><span class="txt">防水襪 ×1 對（可選）：行山靴唔係 Gore-Tex，或者過河之後用</span></label></li><li class="item" data-id="451b543124"><label><input type="checkbox" id="c-451b543124" data-id="451b543124"><span class="box" aria-hidden="true"></span><span class="txt">降低套件 50 mm（有需要先要）：腳踩唔到地就租，€5/日</span></label></li></ul>
+<p><strong>SLAVATOUR 690 收費加購（每日）</strong>：bag set €6.5（容量未確認；Hugo 冇袋就租）· 12 V／USB 充電器 €1.5 · 手機架 €2 · 降低套件 €5 · 頭盔、ADV 褸、ADV 靴各 €5 · suitcase set €12.5（英文頁）或 €15（德文頁），<strong>唔好租</strong>。<strong>冇手套、冇褲租。</strong>
+租車已包：Mitas E-07 輪胎、KTM 車尾架（<strong>冇袋冇箱</strong>）、前後後備內胎、拆胎工具、打氣泵，車壞 24 小時內換車。</p>
+<hr /></div></section>
+<section class="sec" id="s6" data-sec="s6"><header class="sec-h"><h2>🧥 衫褲（騎行／落車／城市）</h2><span class="sec-n" data-count="s6">0/19</span></header><div class="sec-b"><blockquote>
+<p>⚠️ <strong>執衫要按「正常值」嘅最低溫度，唔好跟預報執</strong>。而家夜晚嘅預報比正常暖 4–6 °C，一轉返正常，夜晚就凍多 3–5 °C。Stepantsminda 10 月平均最低係 <strong>0.0 °C</strong>。</p>
+</blockquote>
+<h3>騎行（放 B，部分著喺身）</h3>
+<ul class="checks"><li class="item" data-id="103ba4e7af"><label><input type="checkbox" id="c-103ba4e7af" data-id="103ba4e7af"><span class="box" aria-hidden="true"></span><span class="txt"><strong>美利奴長袖底衫</strong> ×2（每人）：150–200 g/m²，例如 Decathlon Forclaz MT500（86% 美利奴，190 g/m²）。後備可以用 Uniqlo HEATTECH，不過係化纖，出汗之後冇咁好，香港有冇貨未確認</span></label></li><li class="item" data-id="25ce95dc95"><label><input type="checkbox" id="c-25ce95dc95" data-id="25ce95dc95"><span class="box" aria-hidden="true"></span><span class="txt"><strong>美利奴長底褲</strong> ×1（每人）</span></label></li><li class="item" data-id="bf1766721f"><label><input type="checkbox" id="c-bf1766721f" data-id="bf1766721f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>全拉鏈 fleece（100–200 weight）</strong> ×1（每人）：著喺褸入面好過羽絨，因為唔會壓扁，濕咗都頂得住。上機都著佢</span></label></li><li class="item" data-id="46a48c658c"><label><input type="checkbox" id="c-46a48c658c" data-id="46a48c658c"><span class="box" aria-hidden="true"></span><span class="txt"><strong>輕身羽絨或化纖 puffy（背心或褸）</strong> ×1（每人）：騎車只喺 Zagari 天光前後同 Jvari 落雨先著，其餘時間落車著，Ushguli 瞓覺都用得</span></label></li><li class="item" data-id="f2386b7bee"><label><input type="checkbox" id="c-f2386b7bee" data-id="f2386b7bee"><span class="box" aria-hidden="true"></span><span class="txt">短袖美利奴或速乾 tee ×1（每人）：18–28 °C 騎車時著喺褸入面，全部透氣口打開</span></label></li><li class="item" data-id="f10625a607"><label><input type="checkbox" id="c-f10625a607" data-id="f10625a607"><span class="box" aria-hidden="true"></span><span class="txt"><strong>美利奴行山襪</strong> ×4 對（每人）：喺洗手盆手洗</span></label></li></ul>
+<h3>落車</h3>
+<ul class="checks"><li class="item" data-id="5be0c0fb26"><label><input type="checkbox" id="c-5be0c0fb26" data-id="5be0c0fb26"><span class="box" aria-hidden="true"></span><span class="txt">速乾 tee ×2–3（每人）</span></label></li><li class="item" data-id="8ed5c70f9c"><label><input type="checkbox" id="c-8ed5c70f9c" data-id="8ed5c70f9c"><span class="box" aria-hidden="true"></span><span class="txt"><strong>冷帽（beanie）</strong> ×1（每人）：Gergeti 天光、Ushguli 夜晚、Kazbegi 晚上用</span></label></li><li class="item" data-id="4aa848a48a"><label><input type="checkbox" id="c-4aa848a48a" data-id="4aa848a48a"><span class="box" aria-hidden="true"></span><span class="txt">cap ×1（每人）：KL 同多哈太陽，UV 9</span></label></li><li class="item" data-id="797b16a460"><label><input type="checkbox" id="c-797b16a460" data-id="797b16a460"><span class="box" aria-hidden="true"></span><span class="txt">短褲 ×1（每人）：<strong>只喺 KL 著</strong>，教堂同多哈博物館唔得</span></label></li><li class="item" data-id="2a3f40b082"><label><input type="checkbox" id="c-2a3f40b082" data-id="2a3f40b082"><span class="box" aria-hidden="true"></span><span class="txt"><strong>泳褲</strong> ×1（每人）：Schuchmann 有 2 個泳池（1 個室內），多哈內海想落水都用得着</span></label></li><li class="item" data-id="3218ed728a"><label><input type="checkbox" id="c-3218ed728a" data-id="3218ed728a"><span class="box" aria-hidden="true"></span><span class="txt">底褲 ×4–5（每人），手洗</span></label></li><li class="item" data-id="5c2d15c647"><label><input type="checkbox" id="c-5c2d15c647" data-id="5c2d15c647"><span class="box" aria-hidden="true"></span><span class="txt"><strong>輕便波鞋或包頭鞋</strong> ×1 對（每人）：去程著住上機；用喺 KL、沙漠團滑沙、城市同餐廳。騎車 8 日帶唔帶見 🏍 行山靴</span></label></li><li class="item" data-id="e7d5bdd96e"><label><input type="checkbox" id="c-e7d5bdd96e" data-id="e7d5bdd96e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>人字拖</strong> ×1 對（每人）：沖涼、硫磺浴、SPA，沙漠清晨都著得</span></label></li></ul>
+<h3>城市、多哈、教堂、餐廳</h3>
+<ul class="checks"><li class="item" data-id="3815055c99"><label><input type="checkbox" id="c-3815055c99" data-id="3815055c99"><span class="box" aria-hidden="true"></span><span class="txt"><strong>輕薄長褲（麻或 chino）</strong> ×1（每人）：多哈兩日都著，沙漠團都著，因為要遮膝頭</span></label></li><li class="item" data-id="7cd7a5188a"><label><input type="checkbox" id="c-7cd7a5188a" data-id="7cd7a5188a"><span class="box" aria-hidden="true"></span><span class="txt"><strong>chino</strong> ×1（每人）：餐廳同教堂用；騎車期間帶其中 1 條入 B</span></label></li><li class="item" data-id="9e7f4e0a18"><label><input type="checkbox" id="c-9e7f4e0a18" data-id="9e7f4e0a18"><span class="box" aria-hidden="true"></span><span class="txt"><strong>有袖 tee 或 polo</strong> ×1–2（每人）：多哈要遮膊頭，<strong>唔好著背心</strong></span></label></li><li class="item" data-id="bc3c4e1a8b"><label><input type="checkbox" id="c-bc3c4e1a8b" data-id="bc3c4e1a8b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>長袖有領恤衫</strong> ×1（每人）：Palaty、Schuchmann、Barbarestan 同教堂用。配 chino 同乾淨波鞋，就係一套 smart-casual</span></label></li><li class="item" data-id="b9a840b6e2"><label><input type="checkbox" id="c-b9a840b6e2" data-id="b9a840b6e2"><span class="box" aria-hidden="true"></span><span class="txt"><strong>摺傘</strong> ×1–2（共用）：KL 26/9 15:00–18:00 雷暴機會 87–98%，放 C</span></label></li></ul>
+<hr /></div></section>
+<section class="sec" id="s7" data-sec="s7"><header class="sec-h"><h2>🔥 暖手包</h2><span class="sec-n" data-count="s7">0/3</span></header><div class="sec-b"><p><strong>買即棄鐵粉暖包，唔好帶充電式。</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>即棄鐵粉暖包（日本 kairo 類）✅</th>
+<th>充電式電暖手機 ❌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上機</td>
+<td>國泰、卡塔爾、FlyOne 官網<strong>都冇提</strong>；香港民航處危險品單張冇列。TSA 同 CATSA 准手提同寄艙。<strong>一般可以帶</strong>（航空公司明文規定未確認），<strong>保持密封</strong></td>
+<td>有 USB 輸出嘅當<strong>尿袋</strong>計：只可手提，<strong>佔每人 2 個尿袋名額</strong>。香港民航處第 1.3 項：發熱裝置要將<strong>電池同發熱元件分開</strong>，大部分暖手機拆唔開，<strong>可能喺 HKIA 被沒收</strong>。卡塔爾都有類似規定</td>
+</tr>
+<tr>
+<td>結論</td>
+<td><strong>帶呢種</strong></td>
+<td>留喺香港</td>
+</tr>
+</tbody>
+</table></div>
+<ul class="checks"><li class="item" data-id="e7a2466f23"><label><input type="checkbox" id="c-e7a2466f23" data-id="e7a2466f23"><span class="box" aria-hidden="true"></span><span class="txt"><strong>暖手包 ×20 片</strong>（共用，即係兩盒 10 片裝）：每人每個凍朝早用 1 對，大約 5 次</span></label></li><li class="item" data-id="50d5848c3b"><label><input type="checkbox" id="c-50d5848c3b" data-id="50d5848c3b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>暖身貼 ×4–6 片</strong>（共用）：Zagari 清晨同 Ushguli 夜晚貼喺底衫外面</span></label></li><li class="item" data-id="d422760278"><label><input type="checkbox" id="c-d422760278" data-id="d422760278"><span class="box" aria-hidden="true"></span><span class="txt">腳用暖貼（可選）：香港有冇貨<strong>未確認</strong></span></label></li></ul>
+<p><strong>邊度買</strong>：屈臣氏（網店有 KOWA NUKU NUKU 暖手包 10 片裝）、萬寧（網店有「暖包」分類，可以網上訂門市取）、AEON（網店有暖包）。另外小林製藥「小白兔」有暖手包同暖身貼。<strong>9 月尾門市有冇貨同價錢未查</strong>，出門前打電話或睇網店。<strong>後備</strong>：驚安之殿堂 Donki（旺角 MPM，網上資料寫 10:00–01:00；尖沙咀美麗華，24 小時）搵日本暖包；日本城以前都有賣暖包，不過係季節貨。兩間有冇貨都未確認。</p>
+<p><strong>幾時用</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>地點</th>
+<th>溫度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29/9</td>
+<td>Jvari 2,379 m，落雨</td>
+<td>6–8 °C，體感約 −3 至 +2 °C</td>
+</tr>
+<tr>
+<td>30/9</td>
+<td>Gergeti 天光</td>
+<td>5.8 °C，體感 3.5 °C</td>
+</tr>
+<tr>
+<td>1/10</td>
+<td>Jvari 07:00</td>
+<td>4.7 °C，體感 2.4 °C</td>
+</tr>
+<tr>
+<td>4/10</td>
+<td>Ushguli 夜晚</td>
+<td>03:00 2.5 °C，體感 0 °C</td>
+</tr>
+<tr>
+<td>5/10</td>
+<td><strong>Zagari 2,623 m 清晨</strong></td>
+<td>06:00 −0.6 °C，騎車時體感約 <strong>−5 至 −6 °C</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>點用</strong>
+- 騎車：暖手包放<strong>手套手背</strong>（唔阻揸車把），或者褸胸前袋。暖身貼貼喺<strong>底衫外面</strong>（腰或背）
+- 🚫 <strong>唔好直接貼皮膚，瞓覺唔好貼住</strong>，因為會低溫燙傷。包裝都有呢條警告
+- 暖包要<strong>有空氣先會熱</strong>，密封防水手套入面可能冇咁熱。<strong>出發前 10–15 分鐘拆開</strong>
+- 🚫 <strong>唔好同鋰電池貼埋一齊</strong>：暖包可以去到 <strong>40 °C 以上</strong>，DJI 電池操作上限係 40 °C。電池放褸內袋，靠體溫就夠</p>
+<hr /></div></section>
+<section class="sec" id="s8" data-sec="s8"><header class="sec-h"><h2>📸 相機同無人機</h2><span class="sec-n" data-count="s8">0/23</span></header><div class="sec-b"><blockquote>
+<p><strong>建議</strong>：<strong>Mini 4 Pro 做主力</strong>，用 3 粒標準電池。<strong>Neo 2 留喺香港</strong>，因為佢最高起飛海拔只得 2,000 m，而且帶多部就要喺卡塔爾多申報一部。
+兩部 DJI <strong>都唔正式支援跟車</strong>，說明書寫嘅「vehicles」係指汽車，跟你只可以當「人」咁跟，速度 ≤12 m/s（43 km/h）。做法係一個人企定飛，另一個人騎過，之後交換。</p>
+</blockquote>
+<h3>Insta360 X4</h3>
+<ul class="checks"><li class="item owned" data-id="5e5819b56b"><label><input type="checkbox" id="c-5e5819b56b" data-id="5e5819b56b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Insta360 X4</strong> ✅已有</span></label></li><li class="item" data-id="48364e4ae4"><label><input type="checkbox" id="c-48364e4ae4" data-id="48364e4ae4"><span class="box" aria-hidden="true"></span><span class="txt"><strong>X4 電池，總共 4 粒</strong>（機入面 1 粒＋後備 3 粒）：實驗室 5.7K60 每粒約 95 分鐘；騎單缸車 8K 實測約 1 小時 21 分鐘。凍嘅朝早耗電更快</span></label></li><li class="item" data-id="dc48734065"><label><input type="checkbox" id="c-dc48734065" data-id="dc48734065"><span class="box" aria-hidden="true"></span><span class="txt"><strong>X4 Fast Charge Hub</strong> ×1：3 粒同時充，26 分鐘到 80%。10 °C 以下充得慢</span></label></li><li class="item" data-id="6d9040e760"><label><input type="checkbox" id="c-6d9040e760" data-id="6d9040e760"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Premium 鏡頭保護罩</strong> ×1 套裝上機＋1 套後備：沙漠、滑沙同碎石路用。裝咗就喺機入面開 <strong>Lens Guards 模式</strong>，除咗就關。落雨照用得，入房要除低抹乾，防起霧。普通膠罩喺測試第一次跌落地就爆</span></label></li><li class="item" data-id="6ff25b0a6f"><label><input type="checkbox" id="c-6ff25b0a6f" data-id="6ff25b0a6f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>X4 鏡頭蓋</strong> ×1：裝住保護罩都蓋得落，喺沙漠每次影完就蓋返</span></label></li><li class="item" data-id="991932216a"><label><input type="checkbox" id="c-991932216a" data-id="991932216a"><span class="box" aria-hidden="true"></span><span class="txt"><strong>microSD 1 TB，V30、UHS-I</strong> ×2（或 512 GB ×4）：🚫 <strong>唔好用 UHS-II 或 UHS-III</strong>，X4 最大支援 1 TB。8K 一日約 180 GB，淨係 8 日騎車已經約 1.44 TB，加埋多哈同亞美尼亞會超過 1.5 TB，512 GB ×3 唔夠。卡夠大就唔使 format，原卡就係第一份備份</span></label></li><li class="item" data-id="cb55cfdf9f"><label><input type="checkbox" id="c-cb55cfdf9f" data-id="cb55cfdf9f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Helmet Chin Mount 2.0＋Vertical-Horizontal Mount</strong> ×1–2：主力第一身視角，MX 頭盔用得。<strong>唔好裝頭盔頂</strong>：有帽簷，槓桿大、風大，跌車容易勾住</span></label></li><li class="item" data-id="4cb0e03822"><label><input type="checkbox" id="c-4cb0e03822" data-id="4cb0e03822"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Heavy Duty Clamp</strong> ×1：夾車把，管徑 17–37 mm。690 係單缸，車把高頻震：夾喺車頭碼附近，唔好加延長桿，每朝收緊螺絲、扣防跌繩。第一身片用下巴 mount 做主力</span></label></li><li class="item" data-id="9c46517551"><label><input type="checkbox" id="c-9c46517551" data-id="9c46517551"><span class="box" aria-hidden="true"></span><span class="txt">隱形自拍棍＋U-bolt＋支撐夾（可選）：<strong>只喺柏油路用，棍要短</strong>。🚫 卡塔爾博物館展廳禁自拍棍同三腳架</span></label></li><li class="item" data-id="3df7d17d3e"><label><input type="checkbox" id="c-3df7d17d3e" data-id="3df7d17d3e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>鋼索防跌繩</strong> ×2–3：每個 mount 都要扣，每朝檢查螺絲</span></label></li><li class="item" data-id="59d4d15d31"><label><input type="checkbox" id="c-59d4d15d31" data-id="59d4d15d31"><span class="box" aria-hidden="true"></span><span class="txt">咪（可選）：X4 用 Mic Adapter，支援 DJI Mic、Mic 2、Mic Mini、RØDE Wireless GO II</span></label></li></ul>
+<h3>DJI Mini 4 Pro（主力）</h3>
+<ul class="checks"><li class="item owned" data-id="44a9d780a0"><label><input type="checkbox" id="c-44a9d780a0" data-id="44a9d780a0"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Mini 4 Pro</strong> ✅已有（部機）。<strong>今晚核對</strong>：遙控係 <strong>RC 2</strong>（有 mon）定 <strong>RC-N2</strong>（要夾手機）；有幾多粒標準電池、有冇充電 hub（Fly More 套裝先有 3 粒＋hub），唔夠 3 粒就今晚去 DJI 門市或經銷補（存貨未確認）。每粒電池 18.96 Wh；全機 <strong>&lt;249 g</strong>；<strong>最高起飛海拔 4,000 m</strong>；抗風 10.7 m/s。用 RC-N2 就要一部手機專做 mon，唔好用導航手機</span></label></li><li class="item" data-id="7f745a7d4d"><label><input type="checkbox" id="c-7f745a7d4d" data-id="7f745a7d4d"><span class="box" aria-hidden="true"></span><span class="txt">microSD 256 GB＋128 GB 後備（UHS-I U3）</span></label></li><li class="item" data-id="e11881480d"><label><input type="checkbox" id="c-e11881480d" data-id="e11881480d"><span class="box" aria-hidden="true"></span><span class="txt">ND16/64/256 濾鏡（可選）：山上太陽好猛</span></label></li><li class="item" data-id="47dabb6bba"><label><input type="checkbox" id="c-47dabb6bba" data-id="47dabb6bba"><span class="box" aria-hidden="true"></span><span class="txt">後備槳 ×2 套＋螺絲批</span></label></li><li class="item" data-id="3668314bd6"><label><input type="checkbox" id="c-3668314bd6" data-id="3668314bd6"><span class="box" aria-hidden="true"></span><span class="txt"><strong>摺疊降落墊</strong> ×1：碎石、塵、草地用</span></label></li><li class="item" data-id="dadf46c344"><label><input type="checkbox" id="c-dadf46c344" data-id="dadf46c344"><span class="box" aria-hidden="true"></span><span class="txt"><strong>DJI 規格表印本</strong>：證明部機 &lt;250 g，格魯吉亞用得着</span></label></li></ul>
+<ul>
+<li>🚫 <strong>Plus 電池唔好帶</strong>：28.4 Wh，部機會<strong>超過 249 g</strong>，最高起飛海拔跌到 3,000 m，而且唔准裝防撞罩</li>
+<li>🚫 <strong>防撞罩唔好帶上山</strong>：標準電池裝防撞罩，最高起飛海拔只得 1,500 m，連 Kazbegi 鎮（1,750 m）都超過</li>
+<li>如果你部其實係 <strong>Mini 4K</strong>：<strong>冇 ActiveTrack</strong>（只有 QuickShots），飛 31 分鐘，最高 4,000 m；電池係 2250 mAh／17.32 Wh，遙控係 RC-N1C（要夾手機），Wh 表同充電流程要跟住改</li>
+</ul>
+<h3>DJI Neo 2（建議留香港）</h3>
+<ul class="checks"><li class="item owned" data-id="879723bd88"><label><input type="checkbox" id="c-879723bd88" data-id="879723bd88"><span class="box" aria-hidden="true"></span><span class="txt"><strong>Neo 2</strong> ✅已有，建議<strong>留喺香港</strong>：最高起飛海拔 <strong>2,000 m</strong>，佢自己說明書都寫「DO NOT fly above」。真係要帶，就只喺 2,000 m 以下、又唔喺禁飛清單嘅地方用，例如 Ananuri、Gombori、卡赫季葡萄園、Uplistsikhe，每次飛之前睇 airspace.gov.ge。🚫 Mestia 成個鎮都喺機場 5 km 範圍內；Mtskheta 同 Gelati 係 UNESCO，可能要許可。佢有 49 GB 內置儲存，<strong>冇 microSD 槽</strong>；hub 要 &gt;45 W 先可以 3 粒同時充；每粒電池 11.5 Wh</span></label></li></ul>
+<h3>保養同配件</h3>
+<ul class="checks"><li class="item" data-id="6d453895a3"><label><input type="checkbox" id="c-6d453895a3" data-id="6d453895a3"><span class="box" aria-hidden="true"></span><span class="txt">吹氣泵 ×1、超細纖維布 ×3–4、矽膠乾燥包約 10 包、酒精抹巾（共用）；zip-lock 見 🧴</span></label></li><li class="item" data-id="23fd0836c5"><label><input type="checkbox" id="c-23fd0836c5" data-id="23fd0836c5"><span class="box" aria-hidden="true"></span><span class="txt">後備黏貼 mount ×2（平面同弧面各 1）、細六角匙、電工膠布（共用）</span></label></li><li class="item" data-id="a82dca05b8"><label><input type="checkbox" id="c-a82dca05b8" data-id="a82dca05b8"><span class="box" aria-hidden="true"></span><span class="txt">迷你三腳架 ×1（共用）：Gergeti 日出 timelapse、Ushguli starlapse</span></label></li><li class="item" data-id="557bf28e3b"><label><input type="checkbox" id="c-557bf28e3b" data-id="557bf28e3b"><span class="box" aria-hidden="true"></span><span class="txt">相機或無人機防水袋 5–10 L ×2</span></label></li><li class="item" data-id="e01e7be074"><label><input type="checkbox" id="c-e01e7be074" data-id="e01e7be074"><span class="box" aria-hidden="true"></span><span class="txt"><strong>防水記憶卡包</strong> ×1：原卡放褸內袋</span></label></li></ul>
+<ul>
+<li>對講機：今晚冇時間試戴 MX 頭盔，<strong>唔買</strong></li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s9" data-sec="s9"><header class="sec-h"><h2>🔌 電子同充電</h2><span class="sec-n" data-count="s9">0/18</span></header><div class="sec-b"><ul class="checks"><li class="item owned" data-id="f64d74a53c"><label><input type="checkbox" id="c-f64d74a53c" data-id="f64d74a53c"><span class="box" aria-hidden="true"></span><span class="txt"><strong>notebook</strong> ✅已有：</span></label></li></ul>
+<ul>
+<li><strong>帶上車嘅條件</strong>：SSD 嘅 ultrabook，機身 <strong>≤1.5 kg</strong> 就帶上車；<strong>&gt;1.5 kg 或者用機械硬碟</strong>，就留喺 A 袋寄存 Pura Vida</li>
+<li><strong>冇帶上車</strong>：29/9–6/10 每晚唔抄片，原卡唔好 format，用過嘅卡 Alex 同 Hugo 各收一半（防水記憶卡包貼身帶），6/10 返到 Tbilisi 先一次過抄入 SSD-A 同 SSD-B</li>
+<li><strong>今晚核對係咪用 USB-C PD 充電、要幾多 W</strong>：係就淨係帶 GaN 充電器＋100 W 線，火牛留低；唔係（圓頭插、專用插頭或者要 &gt;100 W）就一定要帶<strong>原裝火牛</strong>，插 G 拖板</li>
+<li>點放：軟套＋捲口防水袋，放<strong>車尾袋正中</strong>，四周用衫包住</li>
+<li>🚫 唔好放右邊馬鞍袋（死氣喉，跌車先掂地）；🚫 唔好放背囊（跌車頂住條脊骨）</li>
+<li>騎車時<strong>完全關機</strong>，唔好 sleep；入暖房之前喺袋入面等佢回溫，防倒汗；<strong>唔好留喺泊住嘅車度</strong></li>
+</ul>
+<ul class="checks"><li class="item" data-id="9feaf3294d"><label><input type="checkbox" id="c-9feaf3294d" data-id="9feaf3294d"><span class="box" aria-hidden="true"></span><span class="txt">notebook 軟套 ×1＋捲口防水袋 ×1</span></label></li><li class="item" data-id="96c33bf4d8"><label><input type="checkbox" id="c-96c33bf4d8" data-id="96c33bf4d8"><span class="box" aria-hidden="true"></span><span class="txt"><strong>100 W 4 口 GaN 充電器（3C1A）</strong> ×2（每人 1 個）：例如 UGREEN Nexode 100W。標籤要寫 <strong>100–240 V</strong></span></label></li><li class="item" data-id="4ee1be5f41"><label><input type="checkbox" id="c-4ee1be5f41" data-id="4ee1be5f41"><span class="box" aria-hidden="true"></span><span class="txt"><strong>香港 G 插 3–4 位防雷拖板（短線）</strong> ×1–2（共用）：一個轉插就推到全部電器，Ushguli 同 Fabrika 插蘇少</span></label></li><li class="item" data-id="29efaeac4b"><label><input type="checkbox" id="c-29efaeac4b" data-id="29efaeac4b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>G→Schuko（E/F）轉插</strong> ×3（共用，1 個放手提）：格魯吉亞同亞美尼亞用。揀 <strong>Schuko 腳（16 A）</strong>，唔好淨係 Europlug（2.5 A）。揀<strong>薄身款</strong>，因為 Schuko 插座凹入去，大粒萬能插未必插得盡。KL 係 G 插；多哈大部分係 G 插，但都有 D 插（舊式三圓腳），唔使另外買，入到酒店先睇下</span></label></li><li class="item" data-id="dcca12d66d"><label><input type="checkbox" id="c-dcca12d66d" data-id="dcca12d66d"><span class="box" aria-hidden="true"></span><span class="txt">USB-C to C 100 W e-marked 線 1–1.5 m ×2：notebook 用</span></label></li><li class="item" data-id="d917a4117c"><label><input type="checkbox" id="c-d917a4117c" data-id="d917a4117c"><span class="box" aria-hidden="true"></span><span class="txt">USB-C to C 60 W 線 ×5：X4 hub、Mini 4 Pro hub、RC 2、2 部手機</span></label></li><li class="item" data-id="6ef1335c7b"><label><input type="checkbox" id="c-6ef1335c7b" data-id="6ef1335c7b"><span class="box" aria-hidden="true"></span><span class="txt">20–30 cm 短 USB-C 線 ×2：車上用尿袋充手機</span></label></li><li class="item" data-id="d8f2a714f1"><label><input type="checkbox" id="c-d8f2a714f1" data-id="d8f2a714f1"><span class="box" aria-hidden="true"></span><span class="txt">USB-A to C 線 1 m ×2：充電器 A 口用（RC 2、手機、頭燈）</span></label></li><li class="item" data-id="d6fa2f1848"><label><input type="checkbox" id="c-d6fa2f1848" data-id="d6fa2f1848"><span class="box" aria-hidden="true"></span><span class="txt">Lightning 線（如果用舊 iPhone）</span></label></li><li class="item" data-id="afbc902db0"><label><input type="checkbox" id="c-afbc902db0" data-id="afbc902db0"><span class="box" aria-hidden="true"></span><span class="txt">60 W USB-C 線多帶 1 條後備</span></label></li><li class="item" data-id="75f8908e38"><label><input type="checkbox" id="c-75f8908e38" data-id="75f8908e38"><span class="box" aria-hidden="true"></span><span class="txt"><strong>20,000 mAh 尿袋</strong>（約 72–74 Wh，以標籤 Wh 為準，要 &lt;100 Wh）×1（每人）：<strong>只可手提</strong>。國泰唔准機上用，亦唔准充，要放<strong>前座底</strong></span></label></li><li class="item" data-id="11fc6698cc"><label><input type="checkbox" id="c-11fc6698cc" data-id="11fc6698cc"><span class="box" aria-hidden="true"></span><span class="txt"><strong>4 TB 耐用 SSD</strong> ×2（Alex 1 隻、Hugo 1 隻）：例如 Samsung T7 Shield 4 TB（IP65、3 m 跌落、98 g）。全程估計約 2 TB，每隻都要裝晒一份，2 TB 會爆；買唔到 4 TB 就每人帶 2 TB ×2</span></label></li><li class="item" data-id="adc0f92652"><label><input type="checkbox" id="c-adc0f92652" data-id="adc0f92652"><span class="box" aria-hidden="true"></span><span class="txt">USB-C UHS-I microSD 讀卡器 ×2（其中 1 個後備）</span></label></li><li class="item" data-id="97a43e9b4f"><label><input type="checkbox" id="c-97a43e9b4f" data-id="97a43e9b4f"><span class="box" aria-hidden="true"></span><span class="txt">USB-C hub（有 PD 直通）×1：notebook 快速 USB 口唔夠 2 個先要</span></label></li><li class="item" data-id="5b809aae6b"><label><input type="checkbox" id="c-5b809aae6b" data-id="5b809aae6b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>手機架連減震器</strong>，或者租 SLAVATOUR 手機架（€2/日）。Apple 警告<strong>高功率電單車嘅震動會整壞 iPhone 相機嘅 OIS 同對焦</strong>；Quad Lock dampener 聲稱減 &gt;90% 高頻震動。<strong>最好用舊手機做導航</strong>，裝 Organic Maps 或 OsmAnd 離線地圖</span></label></li><li class="item" data-id="9a05f1a04f"><label><input type="checkbox" id="c-9a05f1a04f" data-id="9a05f1a04f"><span class="box" aria-hidden="true"></span><span class="txt">12 V／USB 車充：租 SLAVATOUR，€1.5/日。KTM 原廠 USB 只係 <strong>5 V/1 A</strong>，開導航都唔夠快。🚫 <strong>唔好自己駁線</strong>：條款寫明配件搞壞電系統要賠</span></label></li><li class="item" data-id="4d2a894fb0"><label><input type="checkbox" id="c-4d2a894fb0" data-id="4d2a894fb0"><span class="box" aria-hidden="true"></span><span class="txt"><strong>頭燈</strong> ×1（每人）：Ushguli 停電、行夜路、修車用</span></label></li></ul>
+<ul>
+<li>四個國家都係 220–240 V、50 Hz（格魯吉亞 220 V、亞美尼亞 230 V、卡塔爾同馬來西亞 240 V），火牛寫 100–240 V 就<strong>唔使變壓器</strong></li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s10" data-sec="s10"><header class="sec-h"><h2>💊 藥物同急救</h2><span class="sec-n" data-count="s10">0/22</span></header><div class="sec-b"><h3>每架車 1 個急救包（每人揹一個）</h3>
+<ul class="checks"><li class="item" data-id="ce3a383467"><label><input type="checkbox" id="c-ce3a383467" data-id="ce3a383467"><span class="box" aria-hidden="true"></span><span class="txt">不黏傷口敷料或人工皮 ×6：擦傷用</span></label></li><li class="item" data-id="fb6d50da63"><label><input type="checkbox" id="c-fb6d50da63" data-id="fb6d50da63"><span class="box" aria-hidden="true"></span><span class="txt">無菌紗布 ×6</span></label></li><li class="item" data-id="15b2c43746"><label><input type="checkbox" id="c-15b2c43746" data-id="15b2c43746"><span class="box" aria-hidden="true"></span><span class="txt">彈性繃帶 ×1、三角巾 ×1、醫用膠布 ×1</span></label></li><li class="item" data-id="49a29dde7e"><label><input type="checkbox" id="c-49a29dde7e" data-id="49a29dde7e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>水泡貼（Compeed 類）</strong> ×6：行山靴踩腳踏、行 Gergeti 都易起水泡</span></label></li><li class="item" data-id="3dd3be51fa"><label><input type="checkbox" id="c-3dd3be51fa" data-id="3dd3be51fa"><span class="box" aria-hidden="true"></span><span class="txt">膠布（唔同尺寸）×10</span></label></li><li class="item" data-id="3ed2d96c39"><label><input type="checkbox" id="c-3ed2d96c39" data-id="3ed2d96c39"><span class="box" aria-hidden="true"></span><span class="txt">消毒濕紙巾 ×10＋細支洗必泰或碘酒</span></label></li><li class="item" data-id="dbbeadb01d"><label><input type="checkbox" id="c-dbbeadb01d" data-id="dbbeadb01d"><span class="box" aria-hidden="true"></span><span class="txt">生理鹽水 ×5 支：洗傷口，沙入眼都用得</span></label></li><li class="item" data-id="df9ad68583"><label><input type="checkbox" id="c-df9ad68583" data-id="df9ad68583"><span class="box" aria-hidden="true"></span><span class="txt">抗生素藥膏 ×1</span></label></li><li class="item" data-id="0f554400f9"><label><input type="checkbox" id="c-0f554400f9" data-id="0f554400f9"><span class="box" aria-hidden="true"></span><span class="txt">丁腈手套 ×2 對</span></label></li><li class="item" data-id="2601e8c61e"><label><input type="checkbox" id="c-2601e8c61e" data-id="2601e8c61e"><span class="box" aria-hidden="true"></span><span class="txt">鉗仔 ×1</span></label></li><li class="item" data-id="fbe8132808"><label><input type="checkbox" id="c-fbe8132808" data-id="fbe8132808"><span class="box" aria-hidden="true"></span><span class="txt">細剪刀 ×1：<strong>只可以寄艙</strong></span></label></li><li class="item" data-id="444fddedbb"><label><input type="checkbox" id="c-444fddedbb" data-id="444fddedbb"><span class="box" aria-hidden="true"></span><span class="txt"><strong>錫紙急救毯</strong> ×1：Zagari 嗰日接近 0 °C</span></label></li></ul>
+<h3>每人嘅藥（原裝包裝）</h3>
+<ul class="checks"><li class="item" data-id="b734948bcb"><label><input type="checkbox" id="c-b734948bcb" data-id="b734948bcb"><span class="box" aria-hidden="true"></span><span class="txt">撲熱息痛 ×20</span></label></li><li class="item" data-id="72cd257c06"><label><input type="checkbox" id="c-72cd257c06" data-id="72cd257c06"><span class="box" aria-hidden="true"></span><span class="txt">布洛芬 ×20</span></label></li><li class="item" data-id="a1fee156ef"><label><input type="checkbox" id="c-a1fee156ef" data-id="a1fee156ef"><span class="box" aria-hidden="true"></span><span class="txt">止屙藥（loperamide）×12</span></label></li><li class="item" data-id="4be770506d"><label><input type="checkbox" id="c-4be770506d" data-id="4be770506d"><span class="box" aria-hidden="true"></span><span class="txt">補充電解質（ORS）×6 包</span></label></li><li class="item" data-id="3e95dc9a01"><label><input type="checkbox" id="c-3e95dc9a01" data-id="3e95dc9a01"><span class="box" aria-hidden="true"></span><span class="txt"><strong>唔會眼瞓</strong>嘅抗組織胺（cetirizine 或 loratadine）×10</span></label></li><li class="item" data-id="666678febc"><label><input type="checkbox" id="c-666678febc" data-id="666678febc"><span class="box" aria-hidden="true"></span><span class="txt">胃藥 ×12：格魯吉亞菜同酒都重口味</span></label></li><li class="item" data-id="97c5318503"><label><input type="checkbox" id="c-97c5318503" data-id="97c5318503"><span class="box" aria-hidden="true"></span><span class="txt">暈車藥 ×4：27/9 沙漠 dune bashing（03:45 上車前 30–60 分鐘食，放 C 帶出門）同 7/10 坐車用。🚫 <strong>騎車嘅日子唔好食暈車藥或任何會眼瞓嘅藥</strong></span></label></li><li class="item" data-id="831de2a8fd"><label><input type="checkbox" id="c-831de2a8fd" data-id="831de2a8fd"><span class="box" aria-hidden="true"></span><span class="txt">喉糖</span></label></li><li class="item" data-id="d0646c27a1"><label><input type="checkbox" id="c-d0646c27a1" data-id="d0646c27a1"><span class="box" aria-hidden="true"></span><span class="txt"><strong>人工淚水</strong> ×1：MX 頭盔入風同入塵</span></label></li><li class="item" data-id="425cbcf142"><label><input type="checkbox" id="c-425cbcf142" data-id="425cbcf142"><span class="box" aria-hidden="true"></span><span class="txt">自己嘅處方藥，<strong>全程份量再加 3 日</strong>，連醫生信。格魯吉亞嘅管制藥最多帶 <strong>31 日</strong>份量；馬來西亞精神科藥最多 <strong>1 個月</strong></span></label></li></ul>
+<h3>健康提示</h3>
+<ul>
+<li><strong>狂犬病</strong>：CDC 話格魯吉亞同亞美尼亞<strong>好多染病嘅狗</strong>。唔好摸狗，唔好餵狗。俾狗咬或者抓傷：用番梘同水<strong>洗 15 分鐘</strong>，<strong>即日</strong>去 Tbilisi、Kutaisi 或 Yerevan 醫院，再打俾保險公司。亞美尼亞可能只有大城市有疫苗</li>
+<li><strong>高山症</strong>：最高瞓覺嘅地方係 2,100 m（Ushguli），Jvari 同 Zagari 只係經過。CDC 話風險可以忽略，<strong>唔使帶 acetazolamide</strong></li>
+<li><strong>UV</strong>：每上升 1,000 m 高大約 10%。2,000–2,600 m 晴天 UV 5–6</li>
+<li><strong>骨痛熱症</strong>：KL 係 CDC Level 1，要用 <strong>≥20% DEET</strong> 驅蚊</li>
+<li><strong>飲水</strong>：Tbilisi 自來水符合 WHO 標準；山區就飲樽裝水或者用濾水樽</li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s11" data-sec="s11"><header class="sec-h"><h2>🧴 洗漱同個人</h2><span class="sec-n" data-count="s11">0/12</span></header><div class="sec-b"><ul class="checks"><li class="item" data-id="6f03e7536b"><label><input type="checkbox" id="c-6f03e7536b" data-id="6f03e7536b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>速乾毛巾（M 碼）</strong> ×1（每人）：Ushguli 民宿唔一定有毛巾，<strong>Chreli-Abano 私人房唔包毛巾</strong>，沙漠內海都用得</span></label></li><li class="item" data-id="618d8d152b"><label><input type="checkbox" id="c-618d8d152b" data-id="618d8d152b"><span class="box" aria-hidden="true"></span><span class="txt"><strong>SPF50 防曬</strong>：≤100 ml ×1 放手提，大支 ×1 放寄艙（每人）</span></label></li><li class="item" data-id="42ac9fa386"><label><input type="checkbox" id="c-42ac9fa386" data-id="42ac9fa386"><span class="box" aria-hidden="true"></span><span class="txt">SPF 潤唇膏 ×1（每人）</span></label></li><li class="item" data-id="0a8592fb3d"><label><input type="checkbox" id="c-0a8592fb3d" data-id="0a8592fb3d"><span class="box" aria-hidden="true"></span><span class="txt">保濕霜（共用）：山區空氣乾</span></label></li><li class="item" data-id="38c8ff0144"><label><input type="checkbox" id="c-38c8ff0144" data-id="38c8ff0144"><span class="box" aria-hidden="true"></span><span class="txt">搓手液 ×1（每人）</span></label></li><li class="item" data-id="5c30402f26"><label><input type="checkbox" id="c-5c30402f26" data-id="5c30402f26"><span class="box" aria-hidden="true"></span><span class="txt"><strong>DEET ≥20% 驅蚊</strong> ×1（共用）：KL 用</span></label></li><li class="item" data-id="c8b712aa01"><label><input type="checkbox" id="c-c8b712aa01" data-id="c8b712aa01"><span class="box" aria-hidden="true"></span><span class="txt">袋裝廁紙 ×1＋濕紙巾 ×1 包（每人）：鄉村廁所、Ushguli</span></label></li><li class="item" data-id="1b2a999eb9"><label><input type="checkbox" id="c-1b2a999eb9" data-id="1b2a999eb9"><span class="box" aria-hidden="true"></span><span class="txt">旅行洗衫片或洗衫液、伸縮晾衫繩、夾 ×4（共用）：2/10 Kutaisi、6/10 Tbilisi 各洗一次衫。<strong>6/10</strong>：一到 Fabrika 就晾雨衣褲、靴、馬鞍袋同內袋；手洗淨係洗薄美利奴同速乾衫（一晚乾得），厚衫用洗衣店或者留返 9/10。7/10 08:00 前未乾嘅衫唔好收入 A（要焗 3 日），用 zip-lock 分開帶走</span></label></li><li class="item" data-id="dafe3bdc72"><label><input type="checkbox" id="c-dafe3bdc72" data-id="dafe3bdc72"><span class="box" aria-hidden="true"></span><span class="txt"><strong>眼罩</strong> ×1（每人）：CX733 01:30 落地、QR852 02:35 起飛、hostel 都用得着。耳塞用返騎車嗰盒（見 🏍）</span></label></li><li class="item" data-id="9b3b83b347"><label><input type="checkbox" id="c-9b3b83b347" data-id="9b3b83b347"><span class="box" aria-hidden="true"></span><span class="txt">細 TSA 鎖 ×1–2（每人）：Fabrika 儲物櫃細，duffel 拉鏈都要鎖</span></label></li><li class="item" data-id="81d3c93bb2"><label><input type="checkbox" id="c-81d3c93bb2" data-id="81d3c93bb2"><span class="box" aria-hidden="true"></span><span class="txt">zip-lock ×10（每人）：液體袋、濕衫、沙漠包手機同相機、電子產品</span></label></li><li class="item" data-id="58d8234654"><label><input type="checkbox" id="c-58d8234654" data-id="58d8234654"><span class="box" aria-hidden="true"></span><span class="txt">牙刷牙膏、止汗劑、剃刀（即棄或卡式放 C；散裝刀片先要寄艙）、洗頭水小包、梳</span></label></li></ul>
+<hr /></div></section>
+<section class="sec" id="s12" data-sec="s12"><header class="sec-h"><h2>🧰 車上工具同雜項</h2><span class="sec-n" data-count="s12">0/12</span></header><div class="sec-b"><h3>🪢 飛機帶（你指定要）</h3>
+<ul class="checks"><li class="item" data-id="df98b8c11e"><label><input type="checkbox" id="c-df98b8c11e" data-id="df98b8c11e"><span class="box" aria-hidden="true"></span><span class="txt"><strong>飛機帶（飛機扣綁帶）</strong>：<strong>25 mm 闊，1.5–2.5 m 長</strong>，每架車 4 條（共 8 條），另加 2 條後備。用嚟將防水袋或馬鞍袋綁落車尾架</span></label></li><li class="item" data-id="874fbe0f51"><label><input type="checkbox" id="c-874fbe0f51" data-id="874fbe0f51"><span class="box" aria-hidden="true"></span><span class="txt"><strong>ROK 類彈性綁帶</strong> ×2 對（每人）：off-road 用 bungee 好易甩，呢種穩陣啲</span></label></li></ul>
+<ul>
+<li><strong>條帶尾一定要綁實收好</strong>，唔好甩落後轆或者捲入條鏈</li>
+<li>揀<strong>飛機扣（cam buckle）款</strong>。唔建議用棘輪（ratchet）款，因為太易拉得過緊，整爆膠件或者個袋</li>
+<li>每朝出發前同每次入油之後，都拉一拉條帶</li>
+<li>邊度買：五金舖（香港五金網有「飛機帶」分類）、電單車舖。長度同價錢按現場貨揀</li>
+</ul>
+<h3>其他</h3>
+<ul class="checks"><li class="item" data-id="b8e9b06d1a"><label><input type="checkbox" id="c-b8e9b06d1a" data-id="b8e9b06d1a"><span class="box" aria-hidden="true"></span><span class="txt"><strong>馬鞍袋防水內袋</strong> ×2（每架車，每邊一個）：按馬鞍袋容量揀 15–25 L 捲口袋，另加厚身大垃圾袋 ×4 做後備。羽絨、底衫、瞓覺衫一定要入內袋</span></label></li><li class="item" data-id="0e29456620"><label><input type="checkbox" id="c-0e29456620" data-id="0e29456620"><span class="box" aria-hidden="true"></span><span class="txt"><strong>捲口防水袋 20–40 L</strong> ×1（每架車）：綁喺車尾架，雨衣同入夜要著嘅衫放最頂</span></label></li><li class="item" data-id="f6079c42d4"><label><input type="checkbox" id="c-f6079c42d4" data-id="f6079c42d4"><span class="box" aria-hidden="true"></span><span class="txt">細防水袋 ×3–4（每人）：電子產品內層防水</span></label></li><li class="item" data-id="8afb944d26"><label><input type="checkbox" id="c-8afb944d26" data-id="8afb944d26"><span class="box" aria-hidden="true"></span><span class="txt"><strong>細背囊＋1.5–2 L 水袋</strong> ×1（每人）：騎車用，飲水同放證件（30/9 Truso 要帶護照）。<strong>唔好放 notebook</strong></span></label></li><li class="item" data-id="a3bb8af6e3"><label><input type="checkbox" id="c-a3bb8af6e3" data-id="a3bb8af6e3"><span class="box" aria-hidden="true"></span><span class="txt"><strong>筆型胎壓計＋氣門芯工具</strong> ×1（共用）：<strong>補胎要自己搞</strong>（條款 3.1、4.2）。後備內胎、拆胎工具同打氣泵<strong>租車已包</strong>，29/9 喺車行私家路練一次換內胎</span></label></li><li class="item" data-id="ce643fa03b"><label><input type="checkbox" id="c-ce643fa03b" data-id="ce643fa03b"><span class="box" aria-hidden="true"></span><span class="txt">索帶、電工膠布（捲喺枝筆度）、多用途工具 ×1 套（共用）：刀同剪要<strong>寄艙</strong></span></label></li><li class="item" data-id="eb9f49e9b1"><label><input type="checkbox" id="c-eb9f49e9b1" data-id="eb9f49e9b1"><span class="box" aria-hidden="true"></span><span class="txt"><strong>鋼索鎖</strong> ×1（共用）：行 Gergeti 同 Shkhara 嗰陣，將頭盔同褸鎖喺車度</span></label></li><li class="item" data-id="1dfeb2186f"><label><input type="checkbox" id="c-1dfeb2186f" data-id="1dfeb2186f"><span class="box" aria-hidden="true"></span><span class="txt">碟煞鎖 ×1（共用，可選）：Kutaisi 同 Mestia 過夜用</span></label></li><li class="item" data-id="dfb0788a04"><label><input type="checkbox" id="c-dfb0788a04" data-id="dfb0788a04"><span class="box" aria-hidden="true"></span><span class="txt">鏈條油：問 SLAVATOUR 攞，或者喺 Tbilisi 買。<strong>鏈條由租客負責</strong>，🚫 噴霧唔好帶上機</span></label></li><li class="item" data-id="1d751db1c3"><label><input type="checkbox" id="c-1d751db1c3" data-id="1d751db1c3"><span class="box" aria-hidden="true"></span><span class="txt">後備保險絲：問車行攞（換保險絲都係租客責任）</span></label></li></ul>
+<p><strong>油量計算</strong>：13.5 L，每 100 km 用 5–6 L，大約行到 <strong>225–270 km</strong>。如果係舊款 12 L 油缸，就大約 200–240 km。越野同上山會食多啲油。
+- <strong>3/10 喺 Zugdidi 入滿油</strong>：Zugdidi 去 Mestia 約 140 km，中間冇可靠嘅油站
+- Mestia 得一間 SOCAR，<strong>4/10 入滿油</strong>。Mestia→Ushguli→Shkhara→Lentekhi 大約 <strong>140 km</strong>
+- <strong>Ushguli 冇油站</strong>，Lentekhi 有</p>
+<hr /></div></section>
+<section class="sec" id="s13" data-sec="s13"><header class="sec-h"><h2>✈️ 上機隨身（手提）</h2><span class="sec-n" data-count="s13">0/13</span></header><div class="sec-b"><ul class="checks"><li class="item" data-id="0f23ff51c8"><label><input type="checkbox" id="c-0f23ff51c8" data-id="0f23ff51c8"><span class="box" aria-hidden="true"></span><span class="txt"><strong>飛機枕</strong> ×1（每人）：如果你講嘅「飛機帶」係指呢樣。CX733 01:30 落地、QR852 02:35 起飛，用得着</span></label></li><li class="item" data-id="5c8063a104"><label><input type="checkbox" id="c-5c8063a104" data-id="5c8063a104"><span class="box" aria-hidden="true"></span><span class="txt">眼罩（見 🧴）＋耳塞（見 🏍）</span></label></li><li class="item" data-id="630b128727"><label><input type="checkbox" id="c-630b128727" data-id="630b128727"><span class="box" aria-hidden="true"></span><span class="txt"><strong>fleece 著喺身</strong>：機艙凍</span></label></li><li class="item" data-id="6875d33c46"><label><input type="checkbox" id="c-6875d33c46" data-id="6875d33c46"><span class="box" aria-hidden="true"></span><span class="txt">護照、身份證、車牌、IDP</span></label></li><li class="item" data-id="94dfba2ab8"><label><input type="checkbox" id="c-94dfba2ab8" data-id="94dfba2ab8"><span class="box" aria-hidden="true"></span><span class="txt">打印好嘅保單、MDAC、機票、酒店確認、SLAVATOUR 合約</span></label></li><li class="item" data-id="1e5ae9ea98"><label><input type="checkbox" id="c-1e5ae9ea98" data-id="1e5ae9ea98"><span class="box" aria-hidden="true"></span><span class="txt">卡同現金<strong>分開放</strong>：主卡放銀包，後備卡放腰包</span></label></li><li class="item" data-id="a7f9170754"><label><input type="checkbox" id="c-a7f9170754" data-id="a7f9170754"><span class="box" aria-hidden="true"></span><span class="txt"><strong>全部處方藥＋醫生信＋基本藥</strong>（撲熱息痛、止屙、ORS、抗組織胺）：11/10 自行轉機可能會失行李</span></label></li><li class="item" data-id="4795bcf2bd"><label><input type="checkbox" id="c-4795bcf2bd" data-id="4795bcf2bd"><span class="box" aria-hidden="true"></span><span class="txt">notebook、X4、無人機、<strong>所有後備鋰電同尿袋</strong>、手機、GaN 充電器、<strong>1 個 G→Schuko 轉插</strong></span></label></li><li class="item" data-id="8f9b4d9dce"><label><input type="checkbox" id="c-8f9b4d9dce" data-id="8f9b4d9dce"><span class="box" aria-hidden="true"></span><span class="txt">1 L 透明液體袋（每支 ≤100 ml）：SPF50、搓手液、潤唇膏、人工淚水、DEET</span></label></li><li class="item" data-id="b9724c043d"><label><input type="checkbox" id="c-b9724c043d" data-id="b9724c043d"><span class="box" aria-hidden="true"></span><span class="txt"><strong>一套替換衫＋牙刷＋KL 日間套裝</strong>（短褲、速乾 tee、cap）：26/9 KL 嗰日大袋寄存咗，失行李都用得着</span></label></li><li class="item" data-id="6bebaf18b8"><label><input type="checkbox" id="c-6bebaf18b8" data-id="6bebaf18b8"><span class="box" aria-hidden="true"></span><span class="txt">多哈 27/9 用：太陽眼鏡、頸巾、zip-lock、長褲（NMoQ、MIA）</span></label></li><li class="item" data-id="d4ed761300"><label><input type="checkbox" id="c-d4ed761300" data-id="d4ed761300"><span class="box" aria-hidden="true"></span><span class="txt">摺傘：26/9 KL 用（15:00–18:00 雷暴）</span></label></li><li class="item" data-id="df412e0516"><label><input type="checkbox" id="c-df412e0516" data-id="df412e0516"><span class="box" aria-hidden="true"></span><span class="txt">筆</span></label></li></ul>
+<ul>
+<li>🚫 剪刀、鉗、散裝剃刀片要放<strong>寄艙</strong>；即棄或卡式剃鬚刨可以手提</li>
+<li>暖手包：手提或寄艙都得，保持密封就得（航空公司官網冇寫）</li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s14" data-sec="s14"><header class="sec-h"><h2>🎯 特定活動</h2><span class="sec-n" data-count="s14">0/14</span></header><div class="sec-b"><h3>🏜 多哈日出沙漠團＋滑沙（27/9，03:45 酒店上車）</h3>
+<ul class="checks"><li class="item" data-id="f974142c39"><label><input type="checkbox" id="c-f974142c39" data-id="f974142c39"><span class="box" aria-hidden="true"></span><span class="txt"><strong>包頭輕便鞋</strong>（每人）：滑沙要著。天光前沙仲涼，赤腳或者著人字拖都得；<strong>唔好著行山靴</strong>。07:30 之後沙好快熱</span></label></li><li class="item" data-id="8b9ff22fec"><label><input type="checkbox" id="c-8b9ff22fec" data-id="8b9ff22fec"><span class="box" aria-hidden="true"></span><span class="txt">太陽眼鏡＋<strong>頸巾遮口鼻擋沙</strong>＋cap（每人）</span></label></li><li class="item" data-id="090a8f0696"><label><input type="checkbox" id="c-090a8f0696" data-id="090a8f0696"><span class="box" aria-hidden="true"></span><span class="txt">鬆身長褲＋有袖 tee（每人）：04:30 約 27 °C，08:00 已經 33 °C，<strong>唔使帶保暖衫</strong></span></label></li><li class="item" data-id="14f31d5b20"><label><input type="checkbox" id="c-14f31d5b20" data-id="14f31d5b20"><span class="box" aria-hidden="true"></span><span class="txt">泳褲＋速乾毛巾（每人，想喺內海落水先要）</span></label></li><li class="item" data-id="7f483bf3a3"><label><input type="checkbox" id="c-7f483bf3a3" data-id="7f483bf3a3"><span class="box" aria-hidden="true"></span><span class="txt"><strong>成套替換衫＋濕紙巾</strong>（每人）：13:00 要去 Jiwan 食 lunch</span></label></li><li class="item" data-id="0b512c6060"><label><input type="checkbox" id="c-0b512c6060" data-id="0b512c6060"><span class="box" aria-hidden="true"></span><span class="txt">zip-lock（見 🧴）：包手機同相機，防幼沙</span></label></li><li class="item" data-id="f3a3129af0"><label><input type="checkbox" id="c-f3a3129af0" data-id="f3a3129af0"><span class="box" aria-hidden="true"></span><span class="txt">水每人 1.5 L：團會提供水，但自己帶多啲</span></label></li><li class="item" data-id="f459298b5f"><label><input type="checkbox" id="c-f459298b5f" data-id="f459298b5f"><span class="box" aria-hidden="true"></span><span class="txt">X4：用 5.7K 影短片、放陰涼位、裝 premium 保護罩同鏡頭蓋。影完<strong>先除保護罩、機入面關 Lens Guards 模式</strong>，部機用清水浸 5–10 分鐘再風乾，保護罩另外沖水抹乾。<strong>電池蓋同 USB 蓋一定要扣實</strong></span></label></li></ul>
+<ul>
+<li>易暈車就坐前座，03:45 上車前食暈車藥（見 💊）</li>
+<li>🚫 <strong>唔好飛無人機</strong></li>
+</ul>
+<h3>🕌 多哈博物館、Souq（27–28/9）</h3>
+<ul>
+<li>官方要求<strong>遮膊頭同膝頭</strong>，男女都一樣：著長褲同有袖衫。MIA、NMoQ、Jiwan 衣著唔啱可以拒絕入場</li>
+<li>大袋要放儲物櫃；<strong>展廳禁自拍棍同三腳架</strong>；歷史遺跡禁無人機</li>
+<li>正午體感 44–45 °C，要留喺室內；Souq 夜晚仍然有 32–34 °C</li>
+</ul>
+<h3>🍷 Schuchmann 酒浴 SPA（1/10 18:00）</h3>
+<ul class="checks"><li class="item" data-id="15549fc3d8"><label><input type="checkbox" id="c-15549fc3d8" data-id="15549fc3d8"><span class="box" aria-hidden="true"></span><span class="txt">泳褲（每人）：酒店有 2 個泳池（1 個室內）</span></label></li><li class="item" data-id="2479c92db1"><label><input type="checkbox" id="c-2479c92db1" data-id="2479c92db1"><span class="box" aria-hidden="true"></span><span class="txt">人字拖（每人）：有冇浴袍同拖鞋未確認，有評語話房間冇浴袍。可以問 wine.spa@schuchmann-wines.com</span></label></li><li class="item" data-id="b623adbcb2"><label><input type="checkbox" id="c-b623adbcb2" data-id="b623adbcb2"><span class="box" aria-hidden="true"></span><span class="txt">輕 fleece（每人）：晚餐約 15 °C</span></label></li></ul>
+<h3>♨️ Chreli-Abano 硫磺浴私人房（9/10）</h3>
+<ul class="checks"><li class="item" data-id="c3778aa54f"><label><input type="checkbox" id="c-c3778aa54f" data-id="c3778aa54f"><span class="box" aria-hidden="true"></span><span class="txt"><strong>毛巾</strong>（每人）：唔包，帶自己嘅速乾毛巾（見 🧴）</span></label></li><li class="item" data-id="b0ad2ec833"><label><input type="checkbox" id="c-b0ad2ec833" data-id="b0ad2ec833"><span class="box" aria-hidden="true"></span><span class="txt">人字拖（每人）＋飲用水</span></label></li><li class="item" data-id="83dfbeccc6"><label><input type="checkbox" id="c-83dfbeccc6" data-id="83dfbeccc6"><span class="box" aria-hidden="true"></span><span class="txt">現金約 30 GEL（每人）：擦身（kisi）直接俾師傅</span></label></li></ul>
+<ul>
+<li>私人房唔一定要著泳衣。<strong>除低銀器</strong>，因為硫磺會令佢變黑。熱池每次<strong>唔好浸超過 4–5 分鐘</strong></li>
+</ul>
+<h3>⛪ 教堂（Jvari、Svetitskhoveli、Gergeti、Gelati、Debed、Geghard）</h3>
+<ul>
+<li>男士要著<strong>長褲</strong>，長到腳眼，騎行褲都得。唔准短褲，唔准背心，要<strong>除帽</strong>（頭盔同 beanie 都要除），遮胸同膊頭</li>
+<li>Gergeti 會拒絕著短褲嘅男士入去，但門口有布借</li>
+<li>亞美尼亞教堂一樣：男士要除帽。其他規矩假設同格魯吉亞一樣（未確認）</li>
+</ul>
+<h3>🍽 餐廳</h3>
+<ul>
+<li><strong>Maisi（29/9 19:30）</strong>：約 10 °C，可能落雨。著羽絨、雨褸、長褲、<strong>乾鞋</strong>（波鞋或者抹乾嘅行山靴），坐的士去返</li>
+<li><strong>Palaty（2/10）同 Barbarestan（9/10）</strong>：冇官方 dress code，smart-casual 啱。著有領恤衫或 polo、chino、乾淨波鞋，或者抹乾淨嘅行山靴。Palaty 嘅 dress code 未確認</li>
+<li><strong>Dolmama（8/10 庭院）</strong>：帶件外套，12–15 °C</li>
+</ul>
+<h3>🏔 Truso、Ushguli、Zagari</h3>
+<ul>
+<li><strong>Truso（30/9）</strong>：一定要帶<strong>實體護照</strong>，路邊有邊防站。Truso 貼近南奧塞梯分界線，2018 年有 5 個格魯吉亞行山人士俾俄國邊防扣咗。🚫 <strong>唔好飛無人機</strong></li>
+<li><strong>Ushguli（4/10）</strong>：會停電，未必有暖氣。瞓覺著美利奴底衫、羽絨、冷帽同羊毛襪。<strong>頭燈</strong>唔好離身。電池帶入房，瞓覺放被竇入面或者褸內袋（冇帶睡袋）。去 Agra 食晚飯要行 15–20 分鐘夜路</li>
+<li><strong>Zagari（5/10）</strong>：<strong>09:00 之後先好出發</strong>，陰暗彎位可能有黑冰。4/10 夜晚問民宿路況。後備路線係經 Mestia 同 Zugdidi。<strong>兩架車全程唔好分開</strong>；出發前話俾民宿知幾點出發、預計幾點到 Lentekhi，山口一段電話訊號唔好靠</li>
+</ul>
+<hr /></div></section>
+<section class="sec" id="s15" data-sec="s15"><header class="sec-h"><h2>🌡 逐日天氣 × 著咩</h2></header><div class="sec-b"><blockquote>
+<p>預報來源：Open-Meteo（按海拔計）、yr.no、mountain-forecast，<strong>24/9 攞</strong>。<strong>1/10 之後嘅預報準確度低，只當趨勢睇；10–11/10 用正常值</strong>。兩個來源對 Kazbegi 29–30/9 嘅雨量唔一致（Open-Meteo 20 mm，yr 2.7 mm），但一致認為凍、多雲、有驟雨。</p>
+<p><strong>騎行設定</strong>
+- <strong>A（0–8 °C 或落雨）</strong>：美利奴底衫底褲 → fleece（Zagari 再加羽絨背心）→ 騎行褸褲 → <strong>雨衣雨褲罩晒成身</strong>。加頭套、頸巾、防水手套＋內手套、透明風鏡、（有就著）防水襪、暖手包
+- <strong>B（9–16 °C）</strong>：美利奴底衫 → fleece → 騎行褸褲，雨褸當擋風褸。著防水手套（唔使內手套）、頸巾
+- <strong>C（18–28 °C）</strong>：短袖 tee，褸嘅透氣口全開，唔著底褲。著夏季手套、茶色風鏡，後頸搽防曬，帶 1.5–2 L 水
+- <strong>原則</strong>：按最凍嗰個鐘嚟著，去到第一個油站先除。</p>
+</blockquote>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>地點</th>
+<th>氣溫</th>
+<th>騎行著</th>
+<th>落車著</th>
+<th>特別要帶</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25/9 五</td>
+<td>香港 → CX733 夜機</td>
+<td>香港未查；機艙凍</td>
+<td>—</td>
+<td>著輕便波鞋、fleece 上機（褸塞得落 A 就放 A）</td>
+<td>飛機枕、耳塞、眼罩；C 袋放 KL 過夜包＋KL 日間套裝</td>
+</tr>
+<tr>
+<td>26/9 六</td>
+<td>吉隆坡</td>
+<td>24–30.5 °C，濕度 69–96%；<strong>15:00–18:00 雷暴機會 87–98%</strong>；UV 9</td>
+<td>—</td>
+<td>速乾 tee、短褲或薄長褲、輕便波鞋（25/9 著住上機）、cap</td>
+<td>摺傘、SPF50、DEET；戶外景點 <strong>13:00 前</strong>做完</td>
+</tr>
+<tr>
+<td>27/9 日</td>
+<td>多哈沙漠 → 市區</td>
+<td>04:00 27 °C → 08:00 33 °C → 正午 <strong>40 °C（體感 44 °C）</strong>；Souq 夜晚 32–34 °C</td>
+<td>—</td>
+<td>薄長褲、有袖 tee、包頭輕便鞋</td>
+<td>頸巾、太陽眼鏡、cap、水 1.5 L；替換衫＋濕紙巾；zip-lock；暈車藥；<strong>入境時行紅色通道申報無人機</strong></td>
+</tr>
+<tr>
+<td>28/9 一</td>
+<td>多哈 → 第比利斯</td>
+<td>多哈 28–39 °C（13:00 體感 <strong>45 °C</strong>）；TBS 夜晚約 17–21 °C，可能落雨</td>
+<td>—</td>
+<td>多哈端莊衫褲；上機著 fleece</td>
+<td><strong>11:30–12:00 前到 DOH 取無人機</strong>；TBS 撳 GEL、買 SIM</td>
+</tr>
+<tr>
+<td>29/9 二</td>
+<td>Tbilisi → <strong>Jvari 2,379 m</strong> → Kazbegi</td>
+<td>Tbilisi 16–20 °C → <strong>Jvari 6–8 °C，落雨</strong>（體感 −3 至 +2 °C；雪線 3,100–3,500 m，係冷雨唔係雪）→ Stepantsminda 10–11 °C</td>
+<td><strong>A</strong>：一開車就著雨衣，用透明風鏡；雪崩廊道開大燈</td>
+<td>羽絨、雨褸、長褲、乾鞋（Maisi 19:30 約 10 °C）</td>
+<td>暖手包；取車時練換內胎</td>
+</tr>
+<tr>
+<td>30/9 三</td>
+<td>Gergeti 天光 → Truso → Dariali</td>
+<td>Gergeti 06–07:00 5.8 °C（體感 3.5 °C）；日間 8–11 °C，有驟雨（機會 90%）</td>
+<td>天光用 A → 日間用 B（雨衣放防水袋）</td>
+<td>Gergeti：羽絨、冷帽、手套；入教堂除帽</td>
+<td><strong>實體護照</strong>；暖手包；Truso 同 Dariali <strong>唔好飛無人機</strong></td>
+</tr>
+<tr>
+<td>1/10 四</td>
+<td>Kazbegi → Jvari → Gombori → Telavi</td>
+<td>Jvari 07:00 4.7 °C（體感 2.4 °C）→ Gombori 9–13 °C → Telavi 19 °C</td>
+<td>過 Ananuri 之前用 A → B → 卡赫季用 C</td>
+<td>輕 fleece（SPA 同晚餐約 15 °C）</td>
+<td>泳褲、人字拖（18:00 SPA）；暖手包</td>
+</tr>
+<tr>
+<td>2/10 五</td>
+<td>Telavi → Gori → Kutaisi（約 380 km）</td>
+<td>13–23 °C；Telavi 附近可能有驟雨；Kutaisi 陣風 35 km/h</td>
+<td>朝早用 B → C；雨褸放伸手拎得到嘅位</td>
+<td>tee＋薄褸（Palaty）</td>
+<td>耳塞（E60 高速公路）；水 1.5–2 L；洗衫</td>
+</tr>
+<tr>
+<td>3/10 六</td>
+<td>Kutaisi → Zugdidi → <strong>Mestia 1,500 m</strong></td>
+<td>Kutaisi 最高 25 °C，<strong>陣風可能去到 77 km/h（9 日後嘅預報，信心低）</strong>→ Mestia 17 °C，20:00 12 °C，23:00 9.5 °C</td>
+<td>C → 上 Enguri 山路之前轉 B；到 Mestia 前加擋風層</td>
+<td>fleece 或羽絨</td>
+<td><strong>Zugdidi 入滿油</strong>；Mestia <strong>撳 400–600 GEL</strong>；<strong>全部電器充到 100%</strong></td>
+</tr>
+<tr>
+<td>4/10 日</td>
+<td>Mestia → <strong>Ushguli 2,100 m</strong></td>
+<td>日間 7–9 °C，落雨機會約 50%；22:00 5.6 °C → <strong>03:00 2.5 °C（體感 0 °C）</strong>；2,623 m 中午可能有少少雪</td>
+<td>B＋雨衣</td>
+<td>全部保暖層；瞓覺著美利奴底衫、羽絨、冷帽、羊毛襪</td>
+<td><strong>頭燈</strong>；電池帶入房；<strong>Mestia 入滿油</strong>；暖身貼（瞓覺唔好貼）；乾糧</td>
+</tr>
+<tr>
+<td>5/10 一</td>
+<td>Ushguli → <strong>Zagari 2,623 m</strong> → Kutaisi</td>
+<td>山口 06:00 <strong>−0.6 °C</strong>，08–10:00 1–3 °C，騎車體感 <strong>−5 至 −6 °C</strong>；<strong>06:00 雪線跌到 1,730 m</strong>；Kutaisi 23 °C</td>
+<td><strong>A＋羽絨背心</strong>；<strong>09:00 之後先出發</strong>；到 Lentekhi（約 20 °C）除到剩 C</td>
+<td>Kutaisi：tee＋薄外套</td>
+<td>暖手包＋暖身貼；錫紙急救毯；後備路線經 Mestia–Zugdidi</td>
+</tr>
+<tr>
+<td>6/10 二</td>
+<td>Kutaisi → Tbilisi，還車</td>
+<td>Kutaisi 15–27 °C → Tbilisi 15–21 °C，天乾</td>
+<td>C，朝早加薄擋風層</td>
+<td>便服；夜晚 fleece</td>
+<td>還車前影相影片；取返 A 袋；洗衫</td>
+</tr>
+<tr>
+<td>7/10 三</td>
+<td>包車經 Debed 去 Yerevan</td>
+<td>Tbilisi 14.5–22 °C → Yerevan 14–24 °C（落雨機會 20%）</td>
+<td>—</td>
+<td>tee、fleece、長褲（修道院）</td>
+<td>只帶 C；<strong>Bagratashen 邊境同 Debed 近邊境一帶唔好影相，唔好飛</strong></td>
+</tr>
+<tr>
+<td>8/10 四</td>
+<td>Yerevan＋Garni／Geghard</td>
+<td>Garni 12–20 °C，21:00 14 °C（體感 11 °C）；Yerevan 11–23 °C</td>
+<td>—</td>
+<td>長褲（Geghard）；夜晚薄褸</td>
+<td>cap＋SPF（UV 4–5）；Dolmama 庭院帶外套</td>
+</tr>
+<tr>
+<td>9/10 五</td>
+<td>FlyOne EVN→TBS；硫磺浴；Barbarestan</td>
+<td>14–24 °C（16 日後嘅預報，信心好低）</td>
+<td>—</td>
+<td>smart-casual 一套；薄褸</td>
+<td>人字拖、毛巾、現金；<strong>FlyOne 07:00 前網上 check-in</strong>（2/10 11:00 開；去機場先 check-in 收 €36–120/人）</td>
+</tr>
+<tr>
+<td>10/10 六</td>
+<td>Tbilisi → 多哈（轉機）</td>
+<td>正常值：Tbilisi 11–20 °C；多哈 26.5–35.6 °C</td>
+<td>—</td>
+<td>分層著，方便喺機上加減</td>
+<td>Dry Bridge 帶現金；酒放 A（見 🍷）；無人機同電池放返 C；叫櫃位直掛去 HKG</td>
+</tr>
+<tr>
+<td>11/10 日</td>
+<td>多哈 → KUL（15:10–17:40）→ 香港</td>
+<td>KL 正常值約 24–31 °C，黃昏多雷暴</td>
+<td>—</td>
+<td>同上</td>
+<td>MDAC #2；國泰網上 check-in</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>同一日溫差好大</strong>：
+- 5/10：山口 0 °C → Kutaisi 23 °C
+- 1/10：Jvari 5 °C → Telavi 19 °C
+- 3/10：Kutaisi 25 °C → Mestia 夜晚 12 °C</p>
+<p><strong>車速風寒（外露皮膚）</strong>：
+- 5 °C × 80 km/h 體感 −2.7 °C
+- 0 °C × 60 km/h 體感 −8.8 °C
+- 衫濕咗會再凍好多</p>
+<hr /></div></section>
+<section class="sec" id="s16" data-sec="s16"><header class="sec-h"><h2>✈️ 鋰電池／無人機規則</h2></header><div class="sec-b"><h3>電池 Wh（全部 ≤100 Wh，唔使航空公司批准）</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>物品</th>
+<th>Wh</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mini 4 Pro 標準電池</td>
+<td><strong>18.96</strong></td>
+<td>2590 mAh × 7.32 V</td>
+</tr>
+<tr>
+<td>Mini 4 Pro <strong>Plus</strong> 電池</td>
+<td><strong>28.4</strong></td>
+<td>3850 mAh × 7.38 V；<strong>會令部機超過 249 g</strong>，唔好帶</td>
+</tr>
+<tr>
+<td>Neo 2 電池</td>
+<td><strong>11.5</strong></td>
+<td>佢個雙向充電 hub 可以當尿袋用，<strong>機上唔好用</strong></td>
+</tr>
+<tr>
+<td>DJI RC 2 遙控</td>
+<td>22.32（內置）</td>
+<td>當裝置電池計，唔算後備電池</td>
+</tr>
+<tr>
+<td>Insta360 X4 電池</td>
+<td><strong>約 8.82</strong></td>
+<td>2290 mAh × 3.85 V；以電池標籤為準</td>
+</tr>
+<tr>
+<td>20,000 mAh 尿袋</td>
+<td><strong>約 72–74</strong></td>
+<td>以標籤上嘅 Wh 為準</td>
+</tr>
+</tbody>
+</table></div>
+<h3>航空公司</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th>國泰 CX733／CX724（跟香港民航處）</th>
+<th>卡塔爾 QR855／253／256／852</th>
+<th>FlyOne 3F583</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>尿袋數量</td>
+<td><strong>每人最多 2 個</strong>，≤100 Wh；100–160 Wh 要航空公司批；&gt;160 Wh 禁止；多出嘅喺 HKIA 會被沒收</td>
+<td><strong>每人最多 2 個</strong>，每個 ≤100 Wh；<strong>&gt;100 Wh 一律唔准</strong></td>
+<td>每人最多 2 個，≤100 Wh</td>
+</tr>
+<tr>
+<td>尿袋放邊</td>
+<td>只可手提；<strong>唔准放頭頂櫃</strong>，要放前座底</td>
+<td>手提；要喺你直接睇管之下，唔好收埋喺袋或頭頂櫃</td>
+<td>手提</td>
+</tr>
+<tr>
+<td>機上用尿袋</td>
+<td>❌ <strong>唔准用，亦唔准充</strong>（香港法例）；座位電源可以直接充裝置</td>
+<td>❌ 唔准充尿袋；✅ 非關鍵階段可以用嚟充電</td>
+<td>❌ 唔准用嚟充電子產品</td>
+</tr>
+<tr>
+<td>後備電池</td>
+<td>≤100 Wh 每人 <strong>20 粒</strong>；100–160 Wh 2 粒；<strong>唔准寄艙</strong></td>
+<td>≤100 Wh 只可手提；<strong>連尿袋總共 20 粒</strong>；裝置最多 15 件</td>
+<td>只可手提，≤100 Wh；100–160 Wh 要批，最多 2 粒</td>
+</tr>
+<tr>
+<td>無人機</td>
+<td>冇專門規定（未確認），當裝置＋後備電池處理</td>
+<td>✅ 手提（有冇電池都得）；寄艙就要除晒電池；<strong>機上唔准充無人機電池</strong></td>
+<td>冇提（未確認）；袋俾人逼寄艙嘅話，<strong>電池同尿袋要先拎出嚟</strong></td>
+</tr>
+<tr>
+<td>寄艙電子產品</td>
+<td>要完全關機，唔好 sleep</td>
+<td>裝置最多 15 件</td>
+<td>有可拆電池就要拆出嚟手提</td>
+</tr>
+<tr>
+<td>即棄暖手包</td>
+<td>冇提（未確認）</td>
+<td>冇提</td>
+<td>冇提</td>
+</tr>
+<tr>
+<td>電暖手機</td>
+<td>當尿袋計；民航處 1.3 條要電池同發熱元件分開，<strong>高風險</strong></td>
+<td>發熱部分同電池要分開</td>
+<td>冇提</td>
+</tr>
+<tr>
+<td>手提行李</td>
+<td>1 件＋1 件小物品，7 kg（計總重）；56×36×23 cm（第三方資料）</td>
+<td><strong>1 件 7 kg，50×37×25 cm</strong>；另外可帶細手袋、<strong>1 件外套</strong>、細相機袋</td>
+<td><strong>40×30×20 cm、最重 8 kg</strong>；超尺寸閘口收 €105–316</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>每人電池數</strong>：Hugo 揹 Mini 4 Pro（機入面 1 粒＋後備 2 粒）＋1 個尿袋；Alex 揹 X4（機入面 1 粒＋後備 3 粒）＋1 個尿袋。每人後備電池加尿袋得 3–4 件，遠低過上限（國泰每人 20 粒；卡塔爾連尿袋總共 20 粒）。</li>
+<li>每粒後備電池<strong>獨立包好，電極要保護</strong>：用 LiPo 袋、原裝盒，或者用膠布貼住電極。</li>
+<li><strong>卡塔爾航空 2025 年 8 月起禁回收型號嘅 Anker 尿袋</strong>（手提同寄艙都唔得，QCAA 有轉載）：A1647、A1652、A1681、A1689、A1257、PowerCore 10000（2025 年 6 月回收）、A1642（2024 年 10 月回收）。睇下尿袋底嘅型號，係其中一款就唔好帶。</li>
+</ul>
+<h3>國家</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>國家</th>
+<th>帶入境</th>
+<th>飛</th>
+<th>建議</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇲🇾 <strong>馬來西亞</strong>（26/9、11/10）</td>
+<td>冇搵到旅客手提無人機嘅專門規定（未確認）；據報執法唔一致，風險低</td>
+<td>CAAM：<strong>所有無人機，包括 &lt;250 g，每次飛都要 permit</strong>；RM250，最少 <strong>14 日前</strong>申請</td>
+<td><strong>唔好飛</strong>。無人機同電池全程放 C 隨身，唔好放儲物櫃</td>
+</tr>
+<tr>
+<td>🇶🇦 <strong>卡塔爾入境</strong>（26–28/9）</td>
+<td><strong>Law No. 10 of 2026</strong>：卡塔爾民航局管無人機進出口；最高判 <strong>7 年或罰 QAR 300,000</strong>，部分<strong>強制充公</strong>。論壇報告：冇 permit 嘅話海關扣起、俾收據，離境時取返（論壇話海關最多代保管 14–30 日，過期可能充公；未確認）；取機位喺離境安檢之後，機場警察辦公室隔籬一道門（未確認）</td>
+<td><strong>遊客唔准飛</strong>（只有 Qatar R/C Sports Center 會員有牌先可以）</td>
+<td><strong>行紅色通道申報</strong>（值 &gt;QAR 3,000 嘅個人物品本身都要行紅色通道），攞收據。講明 <strong>28/9 QR253 15:30</strong> 離境，收據要寫清楚喺邊度同幾點取。預 30–60 分鐘。🚫 <strong>唔好行綠色通道</strong></td>
+</tr>
+<tr>
+<td>🇶🇦 <strong>卡塔爾轉機</strong>（10–11/10）</td>
+<td>航側轉機唔使過海關；轉機安檢清單冇列無人機</td>
+<td>—</td>
+<td>約 10 小時轉機，<strong>唔好出機場</strong></td>
+</tr>
+<tr>
+<td>🇬🇪 <strong>格魯吉亞</strong></td>
+<td>海關冇搵到限制（未確認）</td>
+<td>GCAA 跟 EU 制度：要目視範圍內飛，最高 <strong>120 m</strong>；uas.gov.ge 登記 ≥250 g 嘅無人機；另一來源話有鏡頭都要登記，外國人可能要親身去，<strong>所以唔清楚</strong></td>
+<td>保持 <strong>&lt;250 g</strong>（只用標準電池）；今晚試登記；<strong>每次飛之前睇 airspace.gov.ge</strong>。🚫 <strong>唔好飛</strong>：Dariali 同 Upper Lars（俄國邊境）、<strong>成個 Truso 谷</strong>（入口有邊防站，谷尾 Zakagori 一帶就係南奧塞梯分界線）、Mestia 機場附近（聲稱 5 km 範圍）、Kutaisi、Tbilisi 同 <strong>Natakhtari 機場</strong>（29/9 路經）附近。<strong>Kazbegi 國家公園</strong>（包括 Gergeti 冰川路）同 UNESCO 遺產 <strong>Mtskheta（Jvari、Svetitskhoveli）、Gelati、Upper Svaneti（Ushguli）</strong> 可能要許可（未確認）。教堂有人或者做緊禮拜嗰陣唔好飛</td>
+</tr>
+<tr>
+<td>🇦🇲 <strong>亞美尼亞</strong></td>
+<td>冇搵到官方規定；有啲關員會沒收，有啲唔會（未確認）</td>
+<td>2021 年修例：喺<strong>邊境地帶</strong>影鄰國領土或邊防設施，要國家安全局許可。&lt;250 g 據報唔受管、最高 50 m、黃昏同夜晚唔准飛（未確認）</td>
+<td><strong>無人機留喺 Fabrika</strong>（7–9/10），咁就唔使過亞美尼亞海關，又唔撞 FlyOne 40×30×20 嘅限制</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>結論</strong>：<strong>只帶 Mini 4 Pro（標準電池 ×3）</strong>，多哈申報寄存，格魯吉亞只喺安全位置飛，亞美尼亞段留喺 Fabrika。<strong>Neo 2 留香港</strong>。唔想喺多哈冒部機被充公嘅險，就<strong>兩部都唔帶</strong>，淨係用 X4。</p>
+</blockquote>
+<hr /></div></section>
+<section class="sec" id="s17" data-sec="s17"><header class="sec-h"><h2>🏍 每朝上車前 checklist</h2></header><div class="sec-b"><ol>
+<li>🛞 <strong>胎壓</strong>（筆型胎壓計，凍胎量）：柏油路 1.8 bar，載住行李加到 2.0–2.2 bar（原廠滿載 2.2）；越野 1.5 bar。另外睇<strong>鏈條鬆緊同上油</strong>、機油同水箱水位。呢啲全部係租客責任</li>
+<li>🪢 <strong>飛機帶同 ROK 帶拉實</strong>，帶尾收好，唔好近後轆或者條鏈。馬鞍袋冇掂到右邊死氣喉，入油口掀得開</li>
+<li>🧥 睇今日<strong>最凍嗰個鐘</strong>喺邊，揀設定 A、B 或 C。雨衣放防水袋最頂</li>
+<li>🥽 風鏡：落雨、大霧、天光前後或者要過雪崩廊道，就用<strong>透明片</strong>；其他時間用茶色片</li>
+<li>🧤 揀啱手套。凍就拆暖手包，放手背</li>
+<li>👂 塞耳塞</li>
+<li>🪪 護照（<strong>30/9 Truso 必帶</strong>）、車牌、IDP、租車合約，全部入防水袋貼身帶</li>
+<li>📱 導航手機裝上減震架，離線地圖開定，尿袋同短線準備好（5/10 Zagari：Google Maps 同 OSM 自動導航都唔啱，跟 GPX track）</li>
+<li>📸 檢查 X4 mount 螺絲同防跌繩；鏡頭罩濕咗就抹乾；後備電池放內袋</li>
+<li>💧 帶水 1.5–2 L 同乾糧（4/10 Mestia 去 Ushguli 路上冇嘢賣）</li>
+<li>⛽ <strong>3/10 喺 Zugdidi 入滿油，4/10 喺 Mestia 入滿油</strong></li>
+<li>💡 開大燈；入雪崩廊道之前除太陽眼鏡</li>
+<li>❄️ <strong>5/10</strong>：<strong>09:00 之後先出發</strong>，前一晚問民宿路況；後備路線經 Mestia 同 Zugdidi</li>
+</ol>
+<hr /></div></section>
+<section class="sec" id="s18" data-sec="s18"><header class="sec-h"><h2>📸 每晚充電＋備份流程</h2></header><div class="sec-b"><p><strong>充電套裝（兩個人）</strong>：100 W GaN 充電器 ×2、G 插拖板、G→Schuko 轉插、USB-C 100 W 線 ×2、60 W 線 ×5、短線 ×2、USB-A→C 線 ×2、X4 Fast Charge Hub、Mini 4 Pro hub、SSD ×2、讀卡器 ×2；notebook 唔係 USB-C 充電就加原裝火牛。<strong>冇帶 notebook 上車</strong>，第 3–4 步跳過（見 🔌）。</p>
+<ol>
+<li><strong>一到步</strong>：電池、記憶卡、SSD、notebook 全部拎入房。電池低過 5 °C 就先回溫 30–60 分鐘，因為 DJI 電池 <strong>5 °C 以下唔會充</strong></li>
+<li><strong>插電，最耐嗰啲先插</strong>。⚠️ 100 W 4 口充電器 4 個口一齊用，大約係 C1 45 W、C2 30 W、<strong>C3 同 A 口合共 10.5 W</strong>，所以大電器只插 C1、C2：
+   - 充電器 A：C1 插 <strong>Mini 4 Pro hub</strong>（每次充一粒，約 58 分鐘一粒，3 粒約 3 小時）；C2 插 <strong>尿袋 #1</strong>；C3 插手機；A 口插 RC 2（USB-A→C 線）
+   - 充電器 B：<strong>先淨係 C1 插 notebook</strong>（單口 100 W，約 1–1.5 小時），滿咗先插其他；之後 C1 插 <strong>尿袋 #2</strong>，C2 插 <strong>X4 hub</strong>（3 格，第 4 粒留機入面用尿袋充），C3 或 A 口插導航手機
+   - 口唔夠就加一個 30–45 W 細充電器（香港今晚買）
+   - 如果有帶 Neo 2，佢個 hub 要插 <strong>&gt;45 W</strong> 嘅口先可以 3 粒同時充（約 68 分鐘）</li>
+<li><strong>卸片，最好食飯前做</strong>：記憶卡抄入 <strong>SSD-A</strong>，folder 咁樣開：<code>2026-09-29_D1/{X4, Mini4Pro, Phone-Alex, Phone-Hugo}</code>。讀卡約 90 MB/s，180 GB 要約 33 分鐘</li>
+<li><strong>抄第二份</strong>：SSD-A 抄去 <strong>SSD-B</strong>（10 Gb/s 約 5 分鐘）。核對檔案數量同大小，隨機播 2 條片</li>
+<li><strong>標籤</strong>：張卡寫「×2 OK」。<strong>唔好 format</strong>，除非真係爆卡</li>
+<li><strong>分開擺</strong>：Alex 拎 SSD-A，Hugo 拎 SSD-B，原卡放<strong>防水記憶卡包</strong>，收喺褸內袋</li>
+<li><strong>朝早</strong>：充滿嘅電池放內袋；抹鏡頭同保護罩；檢查 mount；收 hub。X4 設 <strong>5.7K60</strong>，開 FlowState 同 Active Wind Reduction；8K 只用喺慢速風景段</li>
+</ol>
+<p><strong>例外</strong>
+- <strong>3/10 Mestia</strong>：所有嘢充到 100%，包括尿袋同 notebook
+- <strong>4/10 Ushguli</strong>：會停電。一到就插電，次序係：<strong>導航手機同尿袋</strong>（聽日 Zagari）→ X4 → Mini 4 Pro → notebook（可以唔充）。<strong>當晚唔卸片</strong>，張卡夠大
+- <strong>多哈</strong>：X4 用 5.7K 影短片，影完先除保護罩、關 Lens Guards 模式，先至用清水浸洗；無人機喺海關度</p>
+<p><strong>數據量</strong>：X4 每日約 180 GB，Mini 4 Pro 全程約 270 GB，合共<strong>約 2 TB</strong>（所以 SSD 要 4 TB）。iPhone 17（標準版）係 USB 2，抄一日嘅片要超過 1 小時，<strong>所以要靠 notebook 或讀卡器</strong>。路上唔好用 Insta360 Studio 剪 8K，淨係抄同抽查。</p>
+<hr /></div></section>
+<section class="sec" id="s19" data-sec="s19"><header class="sec-h"><h2>🛒 當地補買</h2></header><div class="sec-b"><div class="tw"><table>
+<thead>
+<tr>
+<th>地點</th>
+<th>買咩</th>
+<th>狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>香港 旺角（今晚／聽日）</strong></td>
+<td><strong>Helmetking 頭盔王</strong>：登打士街 2–8 號寶亨大廈地下 1 號舖，11:00–20:30，WhatsApp 6385 8830。有風鏡、防水手套、雨衣、靴</td>
+<td>網上有列貨，<strong>門市有冇貨要 WhatsApp 問</strong></td>
+</tr>
+<tr>
+<td><strong>香港 旺角／深水埗</strong></td>
+<td><strong>利力 Leelik</strong>：廣華街 22 號地下（11:30–20:30，2782 7766）；欽州街 52 號地下（11:00–20:00，2725 1198）。有頭盔、褸、褲、手套、靴、雨衣、行李</td>
+<td>個別存貨未確認</td>
+</tr>
+<tr>
+<td>香港（其他電單車舖）</td>
+<td>車迷城 Moto Mart（土瓜灣下鄉道 5 號）；鴻興 Hung Hing（Alpinestars 代理）</td>
+<td>營業時間未確認</td>
+</tr>
+<tr>
+<td>香港（戶外店）</td>
+<td>美利奴、fleece、襪：Decathlon HK 或 Uniqlo。<strong>格魯吉亞冇官方 Decathlon</strong>，所以要喺香港買</td>
+<td>存貨未確認</td>
+</tr>
+<tr>
+<td>香港（藥房同超市）</td>
+<td><strong>暖手包</strong>：屈臣氏、萬寧、AEON；後備：Donki（旺角 MPM、尖沙咀美麗華）</td>
+<td>網店有列，9 月門市有冇貨未確認</td>
+</tr>
+<tr>
+<td><strong>香港 深水埗（今晚／聽日）</strong></td>
+<td>高登電腦中心、黃金電腦商場：microSD、SSD、GaN 充電器、線、G→Schuko 轉插；Insta360、DJI 配件去授權經銷</td>
+<td>存貨同營業時間未確認</td>
+</tr>
+<tr>
+<td>香港（五金舖）</td>
+<td><strong>飛機帶</strong></td>
+<td>香港五金網有呢個分類</td>
+</tr>
+<tr>
+<td>吉隆坡、多哈</td>
+<td>冇研究過，<strong>唔好靠喺呢兩度買裝備</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>TBS 機場（28/9 20:10）</strong></td>
+<td>Magti SIM（15 GEL 有 5 GB，用 15 日）、ATM 撳 GEL</td>
+<td>見 01 號文件</td>
+</tr>
+<tr>
+<td><strong>Tbilisi Mall</strong>（Pura Vida 車程約 4 分鐘）</td>
+<td>美食廣場開到約 22:00；有冇電單車裝備舖<strong>未確認</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Pitstop Moto Georgia</strong>（Eliava 市場，每日 10:00–19:00，+995 599 99 40 99）</td>
+<td>頭盔、褸、褲、手套、鞋、背甲、護膝護踭、鏈同機油</td>
+<td>28/9 到嘅時候已經閂門，只有 29/9 朝早去得切，同取車撞時間，<strong>唔好靠</strong></td>
+</tr>
+<tr>
+<td>SLAVATOUR</td>
+<td>ADV 靴、褸、頭盔、bag set、手機架、12 V 車充、降低套件（見 🏍）</td>
+<td>官網價</td>
+</tr>
+<tr>
+<td>Tbilisi</td>
+<td>鏈條油、補胎膠水或熱補片（易燃，唔好帶上機）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Zugdidi（3/10）</strong></td>
+<td>入滿油</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Mestia（3–4/10）</strong></td>
+<td>ATM（<strong>3/10 一到就撳 400–600 GEL</strong>，ATM 會俾人撳乾）；SOCAR 油站；<strong>乾糧</strong>（朱古力、果仁）同樽裝水，4/10 同 5/10 用</td>
+<td>Ushguli 冇 ATM，冇油站</td>
+</tr>
+<tr>
+<td>Kutaisi（2/10）、Tbilisi（6/10）</td>
+<td>洗衫</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<hr /></div></section>
+<section class="sec" id="s20" data-sec="s20"><header class="sec-h"><h2>❌ 唔好帶／唔使帶</h2></header><div class="sec-b"><p><strong>🚫 唔好帶</strong>
+- <strong>Neo 2</strong>（建議）：最高起飛海拔 2,000 m，又要多申報一部
+- <strong>Mini 4 Pro Plus 電池</strong>：會令部機超過 249 g，最高海拔跌到 3,000 m
+- <strong>充電式電暖手機</strong>：當尿袋計；香港民航處規定電池同發熱元件要分開，所以帶即棄暖包
+- <strong>第 3 個尿袋</strong>，或者任何 <strong>&gt;100 Wh 嘅尿袋</strong>：卡塔爾一律唔准
+- 後備鋰電或尿袋<strong>放寄艙</strong>
+- <strong>CO2 氣樽、鋰電打氣機</strong>：租車已包打氣泵，而且有航空規定
+- <strong>鏈條油噴霧</strong>：車行有，或者喺 Tbilisi 買
+- <strong>裝過油嘅油樽</strong>
+- 補胎膠水：易燃，要就喺 Tbilisi 買
+- <strong>含可待因嘅咳藥、tramadol、安眠藥（zolpidem、benzo）、pregabalin</strong>：卡塔爾管制藥；<strong>pseudoephedrine</strong> 地位未確認，保險起見都唔好帶
+- <strong>UHS-II 或 UHS-III microSD</strong> 畀 X4 用
+- <strong>酒放手提</strong>：多哈出機場會沒收；11/10 KUL 自行轉機，停留少過 72 小時冇免稅酒額（執法寬緊未確認，見 🍷）
+- 自拍棍同三腳架帶入<strong>卡塔爾博物館展廳</strong>
+- 帶住無人機行<strong>多哈綠色通道</strong>
+- <strong>磁石油缸袋</strong>：690 前面係膠，黐唔到
+- <strong>硬箱或 SLAVATOUR suitcase set</strong>：條款 3.3 有行李系統就只准行柏油路同輕碎石路（軟袋都要書面確認，見 🧳）
+- 淨係用 <strong>bungee</strong> 綁行李：off-road 好易甩，用飛機帶同 ROK 帶
+- 自己駁 USB 線落架車：搞壞電系統要賠
+- 單獨寄艙嘅頭盔（國泰 Light 會用晒你 1 件寄艙額）</p>
+<p><strong>✋ 唔使帶</strong>
+- <strong>變壓器</strong>：四國都係 220–240 V（格魯吉亞 220 V），火牛都係 100–240 V
+- <strong>高山症藥 acetazolamide</strong>：最高瞓 2,100 m
+- <strong>沙漠團嘅保暖衫</strong>：04:30 已經有 27 °C
+- <strong>反光背心</strong>：雨衣係黃色就唔使
+- <strong>車套</strong>：大件，用處少
+- <strong>油樽</strong>：最長一段無油站路約 140 km，一缸油夠
+- <strong>亞美尼亞電單車授權書</strong>：架車唔過境，見 21 號文件
+- <strong>卡塔爾 Hayya</strong>：免簽旅客唔使</p>
+<hr /></div></section>
+<section class="sec" id="s21" data-sec="s21"><header class="sec-h"><h2>📚 資料來源</h2></header><div class="sec-b"><p><strong>天氣</strong>
+- Open-Meteo：https://api.open-meteo.com/v1/forecast
+- yr.no Stepantsminda：https://www.yr.no/en/forecast/daily-table/2-614087/Georgia/Mtskheta-Mtianeti/Q%E2%80%99azbegis%20Munitsip%E2%80%99alit%E2%80%99et%E2%80%98i/Stepantsminda
+- mountain-forecast Kazbek 2,500 m：https://www.mountain-forecast.com/peaks/Kazbek/forecasts/2500
+- MetMalaysia 雷暴警告：https://www.thestar.com.my/news/nation/2026/09/20/metmalaysia-issues-thunderstorm-heavy-rain-warning-for-kl-labuan-nine-states
+- NWS 風寒公式：https://www.weather.gov/safety/cold-wind-chill-chart
+- WHO UV：https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv)
+- Stepantsminda 正常值：https://en.wikipedia.org/wiki/Stepantsminda
+- Zagari 路況：https://wander-lush.org/ushguli-to-kutaisi-zagari-pass/
+- georoad：https://www.georoad.ge/?lang=eng&amp;act=news&amp;func=menu&amp;uid=1514278904</p>
+<p><strong>租車同騎行裝備</strong>
+- KTM-Georgia 690：https://en.ktm-georgia.com/rent/ktm-enduro-690-r-3/
+- 德文版：https://ktm-georgia.com/vermietung/ktm-enduro-690-r-2/
+- 條款：https://en.ktm-georgia.com/terms-and-conditions-for-motorcycle-rental/
+- 德文條款：https://ktm-georgia.com/allgemeine-geschaftsbedingungen-fur-die-motorradvermietung/
+- KTM 690 規格：https://www.ktm.com/en-au/models/dual-sport/2026-ktm-690-enduror/technical-specifications.html
+- 電單車靴 EN 13634：https://en.wikipedia.org/wiki/Motorcycle_boot
+- 頭盔噪音：https://www.motorcyclepowersportsnews.com/dutch-study-notes-motorcycle-helmets-provide-insufficient-protection-against-hearing-damage/
+- Apple 震動警告：https://support.apple.com/en-us/102175
+- Helmetking：https://www.helmetking.com/pages/contact
+- 利力：https://www.leelik.hk/pages/shop-address-contact
+- Pitstop Moto：https://pitstopmoto.ge/en/store/parts-and-accessories/ACCESSORIES_91/MOTORCYCLE-ACCESSORIES_118
+- 馬鞍袋上 690：https://www.perunmoto.com/en-us/blogs/blog/ktm-690-with-mosko-moto-reckless-40-v4-0
+- KTM 690 Enduro R 2019 說明書（胎壓、行李、後座）：https://www.ktmshop.se/documents/19_3213909_en_OM.pdf</p>
+<p><strong>鋰電同無人機</strong>
+- 香港民航處：https://www.cad.gov.hk/english/for_travellers.html
+- 國泰尿袋：https://www.cathaypacific.com/cx/en_HK/latest-news/security-and-operational-changes/restrictions-on-the-carriage-of-lithium-battery-power-banks.html
+- 國泰鋰電：https://www.cathaypacific.com/cx/en_HK/baggage/controlled-and-banned-items/lithium-batteries.html
+- 卡塔爾航空限制物品：https://www.qatarairways.com/en/baggage/restricted.html
+- FlyOne：https://flyone.eu/en/Before-flights/Security-articles-prohibited
+- 卡塔爾 Law 10/2026：https://thepeninsulaqatar.com/article/19/07/2026/qatar-issues-law-regarding
+- 卡塔爾民航局：https://caa.gov.qa/en/node/14343
+- 卡塔爾民航局無人機頁：https://caa.gov.qa/en/UA-Drones
+- 哈馬德機場海關：https://dohahamadairport.com/airport-guide/at-the-airport/security-customs
+- 馬來西亞 CAAM：https://www.freemalaysiatoday.com/category/nation/2025/02/16/no-permit-no-fly-drone-operators-get-warning-from-aviation-regulator
+- 格魯吉亞 GCAA：https://gcaa.ge/en/agency-launches-online-platform-for-registration-of-unmanned-aircraft-and-drone-operators/
+- 格魯吉亞登記：https://uas.gov.ge/EN
+- 格魯吉亞空域：https://airspace.gov.ge
+- 亞美尼亞邊境拍攝：https://armenpress.am/en/article/1046427
+- DJI Mini 4 Pro：https://www.dji.com/mini-4-pro/specs
+- DJI Neo 2：https://www.dji.com/neo-2/specs
+- Neo 2 說明書：https://dl.djicdn.com/downloads/DJI_Neo_2/UM/20251027/DJI_Neo_2_User_Manual_v1.0_en.pdf
+- X4 電池：https://onlinemanual.insta360.com/x4/en-us/faq/specs/battery
+- X4 儲存卡：https://onlinemanual.insta360.com/x4/en-us/specs/compatibility/storage
+- 暖手包（TSA）：https://www.tsa.gov/travel/security-screening/whatcanibring/items/hand-warmers
+- 暖手包（CATSA）：https://www.catsa-acsta.gc.ca/en/what-can-bring/item/hand-warmers-carbon-based-or-air-activated
+- 卡塔爾航空禁 Anker 尿袋（QCAA）：https://caa.gov.qa/en/news/qatar-airways-bans-certain-anker-power-banks-onboard
+- 同上（型號）：https://thepeninsulaqatar.com/article/13/08/2025/qatar-airways-bans-certain-anker-power-banks-onboard
+- DJI Mini 4 Pro 說明書（防撞罩海拔）：https://www.dji.com/mini-4-pro/downloads
+- X4 保護罩：https://onlinemanual.insta360.com/x4/en-us/camera/maintenance/lensguards
+- UGREEN Nexode 100W 多口功率：https://www.ugreen.com/products/usa-40737
+- 插頭同電壓（IEC）：https://www.iec.ch/world-plugs
+- Mestia 機場：https://en.wikipedia.org/wiki/Queen_Tamar_Airport
+- Kazbegi 國家公園：https://en.wikipedia.org/wiki/Kazbegi_National_Park</p>
+<p><strong>暖手包同飛機帶（香港）</strong>
+- 屈臣氏：https://www.watsons.com.hk/zh-hk/nuku-nuku-%E6%9A%96%E6%89%8B%E5%8C%8510%E7%89%87-%E6%A8%99%E6%BA%96%E8%A3%9D/p/BP_808662
+- 萬寧：https://www.mannings.com.hk/warmer/c/fewarmer?lang=zh_TW
+- AEON：https://www.aeoncity.com.hk/kh_zh/personal-care2/warmer.html
+- 小林製藥：https://kobayashi.com.hk/products/warming_series/
+- Donki 分店同營業時間：https://www.hongkongcard.com/blogs/donki-shop-store-address-hk
+- 香港五金網「飛機帶」：https://www.5metal.com.hk/search_result_product.php?searchtype=product&amp;tag=%E9%A3%9B%E6%A9%9F%E5%B8%B6</p>
+<p><strong>證件、錢同健康</strong>
+- 格魯吉亞緊急電話 112：https://112.gov.ge/?page_id=1715&amp;lang=en
+- 緊急電話（各國）：https://en.wikipedia.org/wiki/List_of_emergency_telephone_numbers
+- 格魯吉亞強制保險：https://georgian-airways.com/en/news/mandatory-insurance
+- 格魯吉亞強制保險解說：https://paperpaper.io/en/explainer-what-you-should-know-about-the-new-law-requiring-health-insurance-for-tourists-entering-georgia/
+- MDAC（入境處免簽名單附註 22）：https://www.immd.gov.hk/pdf/Visa-free%20Access%20or%20Visa-on-arrival%20for%20HKSAR%20passport%20list_Eng.pdf
+- MDAC 官方網站：https://imigresen-online.imi.gov.my/mdac/main
+- HKMA 海外提款：https://www.hkma.gov.hk/eng/news-and-media/press-releases/2013/03/20130301-3/
+- 卡塔爾管制藥：https://thepeninsulaqatar.com/article/07/08/2026/moph-lists-140-controlled-medicines-for-travellers-under-electronic-permit-system
+- 卡塔爾藥物 e-permit 時間：https://gulfnews.com/world/gulf/qatar/flying-with-prescription-medicines-qatar-introduces-a-new-online-approval-platform-1.500636526
+- 1949 公約締約國（聯合國）：https://treaties.un.org/Pages/ViewDetailsV.aspx?src=TREATY&amp;mtdsg_no=XI-B-1&amp;chapter=11&amp;Temp=mtdsg5&amp;lang=_en
+- 運輸署 IDP 說明：https://www.td.gov.hk/en/public_services/licences_and_permits/driving_licences/how_to_apply_for_a_driving_licence/general_information_on_driving_licence/index.html
+- CDC 甲肝：https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/hepatitis-a.html
+- GoTrip 付款方式：https://wander-lush.org/gotrip-georgia-car-hire/
+- IDP：https://www.1823.gov.hk/en/faq/how-to-apply-for-an-international-driving-permit-idp
+- 卡塔爾衣著：https://visitqatar.com/intl-en/plan-your-trip/travel-tips
+- 卡塔爾博物館：https://qm.org.qa/en/visit/visitor-guidelines/
+- 教堂衣著：https://kartvelitours.com/georgia/info/georgia-church-dress-code
+- CDC 格魯吉亞：https://wwwnc.cdc.gov/travel/destinations/traveler/none/georgia
+- 格魯吉亞帶藥：https://newyork.mfa.gov.ge/en/bringing-medications-into-georgia
+- 格魯吉亞 ATM 同貼士：https://thegeorgianguide.com/practical-info/money-atms-tipping/
+- 硫磺浴：https://www.tiffanywhsu.com/home/tbilisi-chreli-abano-sulfur-bath-guide</p>
+<p><strong>行李同寄存</strong>
+- 國泰票價：https://www.cathaypacific.com/cx/en_HK/book-a-trip/book-flights/new-economy-fares.html
+- 國泰直掛：https://www.cathaypacific.com/cx/en_HK/faqs/check-in/through-check-to-final-destination-on-separate-tickets/will-my-baggage-and-i-get-through-checked-to-the-final-destination-if-my-itinerary-includes-connecting-flights.html
+- 卡塔爾行李額：https://www.qatarairways.com/en/baggage/allowance.html
+- FlyOne 行李：https://flyone.eu/en/Before-flights/Baggage
+- FlyOne check-in：https://flyone.eu/en/Before-flights/Check-in
+- FlyOne 收費：https://flyone.eu/en/FLYONE-FEES
+- KLIA Smart Storage：https://kliasmartstorage.com/
+- Dr. Locker：https://www.klsentral.info/kl-sentral-luggage-storage-locker/
+- Fabrika 行李房：https://www.hostelworld.com/hostels/p/268820/fabrika-hostel-and-suites/
+- Tbilisi 行李寄存：https://wander-lush.org/tbilisi-luggage-storage-lockers/
+- 香港免稅酒：https://www.customs.gov.hk/en/service-enforcement-information/passenger-clearance/duty-free-concessions/index.html</p>
+<hr />
+<blockquote>
+<p>行程見 <a href="18-電單車格魯吉亞+包車亞美尼亞.md">18</a>；訂單同編號見 <a href="21-訂單總覽.md">21</a>；預約見 <a href="22-預約清單.md">22</a>；沙漠團見 <a href="25-多哈日出沙漠團-滑沙.md">25</a>。可以打剔嘅版本：<code>python3 tools/packlist/build.py</code>。</p>
+</blockquote></div></section>
+
+  <p class="foot">由 repo 入面嘅 26-行李清單.md 生成。Alex 同 Hugo 各有自己一份剔格進度，撳上面個名切換。</p>
+</div>
+
+<script>
+(function(){
+  var PEOPLE = ["alex","hugo"];
+  var state = { who: "alex", hide: false };
+  var checked = { alex: {}, hugo: {} };
+  var db = null, dbOk = false;
+  var pending = { alex: null, hugo: null }, writing = { alex: false, hugo: false }, dirty = { alex: false, hugo: false };
+
+  function lsGet(k){ try { return JSON.parse(localStorage.getItem(k) || "null"); } catch(e){ return null; } }
+  function lsSet(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+
+  var saved = lsGet("pack-ui");
+  if (saved && PEOPLE.indexOf(saved.who) >= 0) state.who = saved.who;
+  if (saved && saved.hide) state.hide = true;
+  PEOPLE.forEach(function(p){ var c = lsGet("pack-" + p); if (c && typeof c === "object") checked[p] = c; });
+
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.item input[type="checkbox"]'));
+  var sync = document.getElementById("sync");
+
+  function paint(){
+    var map = checked[state.who] || {};
+    var total = 0, done = 0, bySec = {};
+    boxes.forEach(function(b){
+      var on = !!map[b.dataset.id];
+      b.checked = on;
+      var li = b.closest(".item"); li.classList.toggle("done", on);
+      var sec = b.closest(".sec").dataset.sec;
+      bySec[sec] = bySec[sec] || [0,0];
+      bySec[sec][1]++; total++;
+      if (on){ bySec[sec][0]++; done++; }
+    });
+    Object.keys(bySec).forEach(function(s){
+      var v = bySec[s], full = v[0] === v[1];
+      document.querySelectorAll('[data-count="' + s + '"]').forEach(function(el){
+        el.textContent = v[0] + "/" + v[1];
+        el.classList.toggle("done", full);
+        var chip = el.closest(".chip"); if (chip) chip.classList.toggle("done", full);
+      });
+    });
+    document.getElementById("pct").textContent = done + "/" + total;
+    document.getElementById("meter").style.width = (total ? (done / total * 100) : 0) + "%";
+    PEOPLE.forEach(function(p){ document.getElementById("who-" + p).setAttribute("aria-pressed", String(p === state.who)); });
+    document.getElementById("hide-done").setAttribute("aria-pressed", String(state.hide));
+    document.body.classList.toggle("hide-done", state.hide);
+  }
+
+  function saveUi(){ lsSet("pack-ui", { who: state.who, hide: state.hide }); }
+
+  function flush(p){
+    if (!dbOk || writing[p]) return;
+    writing[p] = true; dirty[p] = false;
+    var body = { checked: Object.assign({}, checked[p]) };
+    db.doc("packing/" + p).set(body).then(function(){
+      writing[p] = false;
+      sync.textContent = "已同步 · Alex 同 Hugo 開呢頁都見到大家嘅進度。";
+      if (dirty[p]) flush(p);
+    }).catch(function(e){
+      writing[p] = false;
+      if (e && (e.code === "invalid_argument" || e.code === "revoked" || e.code === "not_granted")) {
+        dbOk = false;
+        sync.textContent = "呢個帳戶唔可以同步，剔咗嘅嘢只會存喺呢部機。";
+      } else {
+        dirty[p] = true;
+        sync.textContent = "同步失敗，已存喺呢部機；下次剔格會再試。";
+      }
+    });
+  }
+
+  function schedule(p){
+    dirty[p] = true;
+    clearTimeout(pending[p]);
+    pending[p] = setTimeout(function(){ flush(p); }, 700);
+  }
+
+  boxes.forEach(function(b){
+    b.addEventListener("change", function(){
+      var p = state.who, id = b.dataset.id;
+      if (b.checked) checked[p][id] = true; else delete checked[p][id];
+      lsSet("pack-" + p, checked[p]);
+      paint();
+      if (dbOk) schedule(p);
+    });
+  });
+  PEOPLE.forEach(function(p){
+    document.getElementById("who-" + p).addEventListener("click", function(){ state.who = p; saveUi(); paint(); });
+  });
+  document.getElementById("hide-done").addEventListener("click", function(){ state.hide = !state.hide; saveUi(); paint(); });
+
+  paint();
+
+  if (window.claude && typeof window.claude.use === "function") {
+    window.claude.use("db").then(function(d){
+      if (!d) return;
+      db = d; dbOk = true;
+      sync.textContent = "連接緊同步…";
+      PEOPLE.forEach(function(p){
+        db.doc("packing/" + p).onSnapshot(function(snap){
+          if (dirty[p] || writing[p]) return;
+          var data = snap.exists ? snap.data() : null;
+          if (data && data.checked && typeof data.checked === "object") {
+            checked[p] = Object.assign({}, data.checked);
+            lsSet("pack-" + p, checked[p]);
+          } else if (!snap.exists && Object.keys(checked[p]).length) {
+            schedule(p);
+          }
+          sync.textContent = "已同步 · Alex 同 Hugo 開呢頁都見到大家嘅進度。";
+          paint();
+        }, function(){
+          dbOk = false;
+          sync.textContent = "同步中斷，剔咗嘅嘢會繼續存喺呢部機。";
+        });
+      });
+    }).catch(function(){});
+  }
+})();
+</script>

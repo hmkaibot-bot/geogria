@@ -52,6 +52,7 @@ def render_section(body):
         if tasks:
             out.append('<ul class="checks">' + "".join(tasks) + "</ul>"); tasks.clear()
     sub = None
+    in_sub = False
     for line in body.splitlines():
         m = TASK.match(line)
         if m:
@@ -66,6 +67,10 @@ def render_section(body):
                 f'<span class="box" aria-hidden="true"></span>'
                 f'<span class="txt">{inline(text)}</span></label></li>')
             continue
+        if (tasks or in_sub) and line.startswith(("  ", "\t")) and line.strip():
+            # indented sub-list under a task: dedent it and render it right after the card
+            flush_tasks(); in_sub = True; buf.append(line.strip()); continue
+        in_sub = False
         flush_tasks()
         if line.startswith("### "):
             sub = line[4:].strip()
