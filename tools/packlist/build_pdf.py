@@ -4,17 +4,24 @@
 Every "- [ ] ..." line gets two empty tick boxes, A (Alex) and H (Hugo), for ticking
 with a pen. Run: python3 tools/packlist/build_pdf.py
 """
-import html, json, pathlib, re, subprocess
+import html, json, pathlib, re, subprocess, sys
 import markdown
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-SRC = ROOT / "26-行李清單.md"
-OUT_HTML = HERE / "packlist_print.html"
-OUT_PDF = ROOT / "26-行李清單.pdf"
+PRESETS = {
+    "packing": dict(src="26-行李清單.md", html="packlist_print.html", pdf="26-行李清單.pdf", cover="ge_gergeti",
+                    kicker="Packing list · Georgia × Armenia · 2026", foot="26 · 行李清單 · Alex / Hugo"),
+    "weather": dict(src="27-天氣預報.md", html="weather_print.html", pdf="27-天氣預報.pdf", cover="ge_kazbek",
+                    kicker="Weather · multi-model forecast · 25/9/2026", foot="27 · 天氣預報 · 25/9 更新"),
+}
+PRE = PRESETS[sys.argv[1] if len(sys.argv) > 1 else "packing"]
+SRC = ROOT / PRE["src"]
+OUT_HTML = HERE / PRE["html"]
+OUT_PDF = ROOT / PRE["pdf"]
 IMG = ROOT / "tools" / "pdfbuild" / "img"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
-COVER = "ge_gergeti"
+COVER = PRE["cover"]
 
 credits = json.loads((IMG / "credits.json").read_text(encoding="utf-8"))
 cov = credits.get(COVER, {})
@@ -77,9 +84,9 @@ for p in parts[1:]:
 m = re.match(r"(\d+)\s*·\s*(.+?)（(.+)）$", title)
 t_num, t_name, t_sub = (m.group(1), m.group(2), m.group(3)) if m else ("26", title, "")
 
-CSS = r"""
+CSS_T = r"""
 @page { size: A4; margin: 13mm 12mm 14mm 12mm;
-  @bottom-left { content: "26 · 行李清單 · Alex / Hugo"; font: 7pt "Noto Sans CJK TC"; color: #7C8F88; }
+  @bottom-left { content: "__FOOT__"; font: 7pt "Noto Sans CJK TC"; color: #7C8F88; }
   @bottom-right { content: counter(page) " / " counter(pages); font: 7pt "Noto Sans CJK TC"; color: #7C8F88; } }
 @page :first { margin-top: 0; }
 * { box-sizing: border-box; }
@@ -148,24 +155,34 @@ tbody tr:nth-child(even) td { background: #f7faf8; }
 
 codes = ["HKG", "KUL", "DOH", "TBS", "EVN", "TBS", "DOH", "KUL", "HKG"]
 arrows = ["→", "→", "→", "⇢", "→", "→", "→", "→"]  # TBS⇢EVN is by car
+CSS = CSS_T.replace("__FOOT__", PRE["foot"])
 route = codes[0] + "".join(f"<i>{a}</i>{c}" for a, c in zip(arrows, codes[1:]))
 
 cover_credit = f'相片：{html.escape(cov.get("artist",""))} · {html.escape(cov.get("license",""))}（Flickr）'
 
-page = f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>{html.escape(title)}</title><style>{CSS}</style></head><body>
-<div class="mast"><img src="file://{IMG / (COVER + '.jpg')}" alt=""><div class="shade"></div>
-  <div class="in"><div class="kick">Packing list · Georgia × Armenia · 2026</div>
-    <h1><span class="n">{t_num}</span>{html.escape(t_name)}</h1>
-    <div class="sub">{html.escape(t_sub)}</div>
-    <div class="route">{route}</div></div>
-  <div class="cr">{cover_credit}</div></div>
-<div class="stats">
+if n_items:
+    STATS = f"""<div class="stats">
   <div><b>2 人</b><span>Alex · Hugo</span></div>
   <div><b>17 日</b><span>25/9 – 11/10</span></div>
   <div><b>4 國</b><span>馬來西亞 · 卡塔爾 · 格魯吉亞 · 亞美尼亞</span></div>
   <div><b>{n_items} 項</b><span>逐項打剔</span></div>
 </div>
-<div class="legend"><span class="bx">A</span><span class="bx">H</span> 每項兩格：A ＝ Alex、H ＝ Hugo，執好就用筆剔自己嗰格。綠框 ＝ 你講過已經有嘅嘢。</div>
+<div class="legend"><span class="bx">A</span><span class="bx">H</span> 每項兩格：A ＝ Alex、H ＝ Hugo，執好就用筆剔自己嗰格。綠框 ＝ 你講過已經有嘅嘢。</div>"""
+else:
+    STATS = """<div class="stats">
+  <div><b>25/9 22:40</b><span>香港時間抓數據</span></div>
+  <div><b>4 個模式</b><span>ECMWF · GFS · ICON · 系集 51 組</span></div>
+  <div><b>28 個地點</b><span>香港 → 亞美尼亞</span></div>
+  <div><b>17 日</b><span>25/9 – 11/10 逐日</span></div>
+</div>"""
+page = f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><title>{html.escape(title)}</title><style>{CSS}</style></head><body>
+<div class="mast"><img src="file://{IMG / (COVER + '.jpg')}" alt=""><div class="shade"></div>
+  <div class="in"><div class="kick">{html.escape(PRE["kicker"])}</div>
+    <h1><span class="n">{t_num}</span>{html.escape(t_name)}</h1>
+    <div class="sub">{html.escape(t_sub)}</div>
+    <div class="route">{route}</div></div>
+  <div class="cr">{cover_credit}</div></div>
+{STATS}
 <div class="intro">{render(intro)}</div>
 {''.join(sections)}
 </body></html>"""
