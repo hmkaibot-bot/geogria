@@ -4,9 +4,11 @@
 Sources: Open-Meteo (ECMWF IFS 0.25°, GFS, ICON, best_match; elevation-corrected),
 Open-Meteo ECMWF ensemble (51 members, spread), MET Norway locationforecast.
 Writes raw/*.json and summary.json next to this script.
-Run: python3 tools/weather/fetch.py
+Run: python3 tools/weather/fetch.py        (download + summarise)
+     python3 tools/weather/fetch.py --offline  (re-summarise existing raw/ files)
 """
-import json, pathlib, statistics, time, urllib.parse, urllib.request
+import calendar, json, pathlib, statistics, sys, time, urllib.parse, urllib.request
+OFFLINE = "--offline" in sys.argv  # rebuild summary.json from raw/ without downloading
 
 HERE = pathlib.Path(__file__).resolve().parent
 RAW = HERE / "raw"; RAW.mkdir(exist_ok=True)
@@ -82,38 +84,45 @@ def pick(h, key, idx):
     v = h.get(key)
     return None if v is None or idx is None or idx >= len(v) else v[idx]
 
-summary = {"fetched_utc": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime()), "points": {}}
+summary = {"fetched_utc": time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime(min(f.stat().st_mtime for f in RAW.glob("*_om.json")))) if OFFLINE else time.strftime("%Y-%m-%dT%H:%MZ", time.gmtime()), "points": {}}
 for pt in P:
     pid, label, lat, lon, el, moments = pt
     rec = {"label": label, "lat": lat, "lon": lon, "elev": el, "moments": [], "daily": {}}
-    try:
+    if OFFLINE:
+        d = json.loads((RAW / f"{pid}_om.json").read_text())
+        fe, fm = RAW / f"{pid}_ens.json", RAW / f"{pid}_metno.json"
+        e_ = json.loads(fe.read_text()) if fe.exists() else None
+        m = json.loads(fm.read_text()) if fm.exists() else None
+    else:
+     try:
         d = om(pt); (RAW / f"{pid}_om.json").write_text(json.dumps(d))
-    except Exception as ex:
+     except Exception as ex:
         rec["error_om"] = str(ex); summary["points"][pid] = rec; print(pid, "OM FAIL", ex); continue
-    try:
+     try:
         e_ = ens(pt); (RAW / f"{pid}_ens.json").write_text(json.dumps(e_))
-    except Exception as ex:
+     except Exception as ex:
         e_ = None; rec["error_ens"] = str(ex)
-    try:
+     try:
         m = metno(pt); (RAW / f"{pid}_metno.json").write_text(json.dumps(m))
-    except Exception as ex:
+     except Exception as ex:
         m = None; rec["error_metno"] = str(ex)
     h, dd = d["hourly"], d["daily"]
     rec["tz"] = d.get("timezone"); rec["model_elev"] = d.get("elevation")
     times = h["time"]
-    # met.no series keyed by local hour string
-    mseries = {}
+    # met.no series: (utc epoch, values); matched to each moment by nearest step within 3 h
+    mseries = []
+    off = d.get("utc_offset_seconds", 0)
     if m:
-        off = d.get("utc_offset_seconds", 0)
-        for s in m["properties"]["timeseries"]:
-            t = time.strptime(s["time"], "%Y-%m-%dT%H:%M:%SZ")
-            loc = time.strftime("%Y-%m-%dT%H:00", time.gmtime(time.mktime(t) - time.timezone + off))
-            det = s["data"]["instant"]["details"]
-            nxt = s["data"].get("next_1_hours") or s["data"].get("next_6_hours") or {}
-            mseries[loc] = {"t": det.get("air_temperature"), "wind": det.get("wind_speed"), "gust": det.get("wind_speed_of_gust"),
+        for st in m["properties"]["timeseries"]:
+            ep = calendar.timegm(time.strptime(st["time"], "%Y-%m-%dT%H:%M:%SZ"))
+            det = st["data"]["instant"]["details"]
+            nxt = st["data"].get("next_1_hours") or st["data"].get("next_6_hours") or {}
+            mseries.append((ep, {"t": det.get("air_temperature"), "wind_ms": det.get("wind_speed"), "gust_ms": det.get("wind_speed_of_gust"),
                             "sym": (nxt.get("summary") or {}).get("symbol_code"),
                             "pr": (nxt.get("details") or {}).get("precipitation_amount"),
-                            "pp": (nxt.get("details") or {}).get("probability_of_precipitation")}
+                            "pp": (nxt.get("details") or {}).get("probability_of_precipitation"),
+                            "local": time.strftime("%Y-%m-%d %H:%M", time.gmtime(ep + off)),
+                            "step": "1h" if st["data"].get("next_1_hours") else "6h"}))
     for day, hh, what in moments:
         key = f"{day}T{hh}:00"
         idx = times.index(key) if key in times else None
@@ -139,7 +148,10 @@ for pt in P:
                         st = sorted(temps)
                         mm["ens"] = {"n": len(st), "t_p10": round(st[int(.1*len(st))],1), "t_p50": round(statistics.median(st),1),
                                      "t_p90": round(st[int(.9*len(st))-1],1), "p_wet": round(100*sum(1 for p in prs if p >= .2)/len(prs)) if prs else None}
-        if key in mseries: mm["metno"] = mseries[key]
+        if mseries:
+            want = calendar.timegm(time.strptime(key, "%Y-%m-%dT%H:%M")) - off
+            ep, v = min(mseries, key=lambda x: abs(x[0] - want))
+            if abs(ep - want) <= 3 * 3600: mm["metno"] = v
         rec["moments"].append(mm)
     for i, day in enumerate(dd["time"]):
         row = {}
@@ -149,7 +161,7 @@ for pt in P:
         rec["daily"][day] = row
     summary["points"][pid] = rec
     print(pid, "ok", len(rec["moments"]))
-    time.sleep(0.4)
+    if not OFFLINE: time.sleep(0.4)
 
 (HERE / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1))
 print("wrote", HERE / "summary.json")
