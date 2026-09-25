@@ -13,6 +13,10 @@ ROUTES = {}
 _rp = os.path.join(HERE, "routes.json")
 if os.path.exists(_rp):
     ROUTES = {r["day"]: r for r in json.load(open(_rp, encoding="utf-8"))}
+WX = {}
+_wp = os.path.join(HERE, "weather.json")
+if os.path.exists(_wp):
+    WX = {w["day"]: w for w in json.load(open(_wp, encoding="utf-8"))}
 QR_DIR = os.path.join(HERE, "img", "qr")
 def qr_for(key, url):
     """Render a QR PNG for url (cached) and return a file:// path, or None."""
@@ -28,7 +32,7 @@ def qr_for(key, url):
             print("QR failed", key, ex); return None
     return "file://" + fp
 
-UPDATED = "2026-09-06"
+UPDATED = "2026-09-25"
 
 PRI = {"must":("must","★ 必去"), "alt":("alt","○ 替代"),
        "bon":("bon","＋ 加碼"), "skip":("skip","✕ 可跳")}
@@ -89,6 +93,8 @@ for d in DD.D:
     if rt:
         urls = [u.strip() for u in (rt.get("maps_url") or "").split("|") if u.strip()]
         b.append(R.route_bar(rt, [qr_for(d["num"].replace(" ","") + (f"_{i+1}" if len(urls)>1 else ""), u) for i,u in enumerate(urls)]))
+    if WX.get(d["num"]):
+        b.append(R.wx_bar(WX[d["num"]]))
     if d["sched"]:
         ride = {}
         if rt:

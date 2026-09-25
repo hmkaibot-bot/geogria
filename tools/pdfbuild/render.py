@@ -82,6 +82,14 @@ def route_bar(rt, qr_srcs=()):
     return (f'<div class="route">{qrs}<div class="rt"><b>🗺 Google Maps 路線</b>　{e(rt.get("mode",""))}{tot}{trt}'
             f'<div>{wps}</div>{links}{cv}</div></div>')
 
+def wx_bar(w):
+    """Per-day forecast strip from weather.json: headline, 2–4 lines, optional alert, confidence."""
+    lines = "".join(f"<li>{md(x)}</li>" for x in w.get("lines", []))
+    alert = f'<div class="wx-alert">⚠️ {md(w["alert"])}</div>' if w.get("alert") else ""
+    conf = f'<span class="wx-conf">信心：{e(w.get("confidence",""))}</span>' if w.get("confidence") else ""
+    return (f'<div class="wx"><div class="wx-h"><b>🌤 天氣預報</b>　{md(w.get("headline",""))}{conf}'
+            f'<span class="wx-up">25/9 更新</span></div><ul>{lines}</ul>{alert}</div>')
+
 def section(title, tag, inner, IM=None, banner=None):
     if IM and banner and IM.has(banner):
         head = (f'<div class="sec-banner"><img src="{IM.path(banner)}"><div class="shade"></div>'

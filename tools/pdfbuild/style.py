@@ -124,6 +124,14 @@ ul.tight li { margin-bottom: .5mm; }
 .route .rt b { color: #1d3b34; font-size: 8.4pt; }
 .route .rt .u { font-family: ui-monospace,"DejaVu Sans Mono",monospace; font-size: 6.2pt; color: #1f5f52; word-break: break-all; }
 .route .rt .cv { color: #8a4d2e; }
+.wx { background: #eef4f8; border: 1px solid #cfdde6; border-left: 3px solid #3d6f8e; border-radius: 2px; padding: 1.6mm 2.6mm; margin-bottom: 3mm; page-break-inside: avoid; }
+.wx-h { font-size: 7.9pt; line-height: 1.4; }
+.wx-h b { color: #234a61; font-size: 8.4pt; }
+.wx-conf { margin-left: 2mm; font-size: 6.6pt; color: #3d6f8e; border: .5px solid #9fbccd; border-radius: 2px; padding: 0 1.2mm; white-space: nowrap; }
+.wx-up { float: right; font-size: 6.4pt; color: #7b93a3; }
+.wx ul { margin: .8mm 0 0; padding-left: 4mm; font-size: 7.5pt; line-height: 1.42; }
+.wx ul li { margin-bottom: .3mm; }
+.wx-alert { margin-top: 1mm; font-size: 7.5pt; color: #8a4d2e; font-weight: 700; }
 td.ride { white-space: nowrap; font-size: 7.2pt; color: #2e4a43; font-weight: 700; width: 22mm; }
 .ov-route { display: flex; align-items: center; gap: 3mm; margin-top: 3mm; page-break-inside: avoid; background: #f4f7f5; border: 1px solid #d6ded9; border-radius: 3px; padding: 2mm 3mm; }
 .ov-route img.qr { width: 22mm; height: 22mm; }
